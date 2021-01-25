@@ -15,7 +15,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
-import models.InicioSesion;
+import models.MainModel;
 
 public class MainController implements Initializable {
 
@@ -23,7 +23,7 @@ public class MainController implements Initializable {
 	
 	
 	// Model
-	private ObjectProperty<InicioSesion> model = new SimpleObjectProperty<>();
+	private ObjectProperty<MainModel> model = new SimpleObjectProperty<>();
 	
 	// View
 	@FXML
@@ -69,11 +69,11 @@ public class MainController implements Initializable {
 	public void initialize(URL location, ResourceBundle resources) {
 		model.addListener((o, ov, nv) -> onInicioSesionChanged(o, ov, nv));
 		
-		model.set(new InicioSesion());
+		model.set(new MainModel());
 	}
 
 	
-	private void onInicioSesionChanged(ObservableValue<? extends InicioSesion> o, InicioSesion ov, InicioSesion nv) {
+	private void onInicioSesionChanged(ObservableValue<? extends MainModel> o, MainModel ov, MainModel nv) {
 
 	}
 

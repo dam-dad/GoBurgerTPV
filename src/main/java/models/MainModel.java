@@ -3,7 +3,7 @@ package models;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
-public class InicioSesion {
+public class MainModel {
 
 	private StringProperty usuario = new SimpleStringProperty();
 	private StringProperty contraseña = new SimpleStringProperty();
