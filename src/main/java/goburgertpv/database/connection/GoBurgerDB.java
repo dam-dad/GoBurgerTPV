@@ -1,4 +1,4 @@
-package databaseConnection;
+package goburgertpv.database.connection;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
