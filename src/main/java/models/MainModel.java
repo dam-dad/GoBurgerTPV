@@ -1,5 +1,7 @@
 package models;
 
+import org.hibernate.Session;
+
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
@@ -8,7 +10,16 @@ public class MainModel {
 	private StringProperty usuario = new SimpleStringProperty();
 	private StringProperty contraseña = new SimpleStringProperty();
 	
+	private Session session;
 	
+	public Session getSession() {
+		return session;
+	}
+
+	public void setSession(Session session) {
+		this.session = session;
+	}
+
 	public final StringProperty usuarioProperty() {
 		return this.usuario;
 	}
