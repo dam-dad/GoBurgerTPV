@@ -16,6 +16,7 @@ import goburgertpv.database.tables.Users;
 public class Funciones {
 	//TODO cambiar la incialización de session por la del modelo
 	private static Session session= HibernateUtil.getSessionFactory().openSession();
+	//TODO crear modelo con las listas de productos en local
 	
 	
 	public static List<Bebidas> getBebidas() {
