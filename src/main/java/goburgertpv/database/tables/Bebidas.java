@@ -21,7 +21,7 @@ public class Bebidas implements Serializable {
 	
 	private String description;
 	
-	private int precio;
+	private double precio;
 
 	public int getId() {
 		return id;
@@ -47,11 +47,11 @@ public class Bebidas implements Serializable {
 		this.description = description;
 	}
 
-	public int getPrecio() {
+	public double getPrecio() {
 		return precio;
 	}
 
-	public void setPrecio(int precio) {
+	public void setPrecio(double precio) {
 		this.precio = precio;
 	}
 
