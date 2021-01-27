@@ -293,7 +293,9 @@ public class TPVController implements Initializable {
 			model.getComplementosButtonList().add(new Button(postre.getNombre()));
 		}
 		
-		
+//		gridPaneProductos.setStyle("-fx-background-image:url('/images/logo1.png');-fx-background-size: contain;\n"
+//				+ "-fx-background-repeat: no-repeat;\n"
+//				+ "-fx-background-position: center;");
 		
 	}
 	public BorderPane getView() {
