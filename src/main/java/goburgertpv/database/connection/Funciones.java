@@ -11,6 +11,7 @@ import goburgertpv.database.tables.Bebidas;
 import goburgertpv.database.tables.Complementos;
 import goburgertpv.database.tables.Hamburguesas;
 import goburgertpv.database.tables.Menus;
+import goburgertpv.database.tables.Postres;
 import goburgertpv.database.tables.Users;
 
 public class Funciones {
@@ -29,9 +30,14 @@ public class Funciones {
 		bebidas = query.getResultList();
 
 		transaction.commit();
-		session.close();
 
 		return bebidas;
+	}
+	public static Session getSession() {
+		return session;
+	}
+	public static void setSession(Session session) {
+		Funciones.session = session;
 	}
 	public static List<Complementos> getComplementos() {
 
@@ -43,7 +49,6 @@ public class Funciones {
 		complementos= query.getResultList();
 
 		transaction.commit();
-		session.close();
 
 		return complementos;
 	}
@@ -57,7 +62,6 @@ public class Funciones {
 		hamburguesas= query.getResultList();
 
 		transaction.commit();
-		session.close();
 
 		return hamburguesas;
 	}
@@ -71,9 +75,21 @@ public class Funciones {
 		menus= query.getResultList();
 
 		transaction.commit();
-		session.close();
 
 		return menus;
+	}
+	public static List<Postres> getPostres() {
+
+		Transaction transaction = session.beginTransaction();
+
+		Query query = session.createQuery("from Postres");
+
+		List<Postres> postres= null;
+		postres= query.getResultList();
+
+		transaction.commit();
+
+		return postres;
 	}
 	public static List<Users> getUsers() {
 
@@ -85,7 +101,6 @@ public class Funciones {
 		users= query.getResultList();
 
 		transaction.commit();
-		session.close();
 
 		return users;
 	}

@@ -10,15 +10,7 @@ public class MainModel {
 	private StringProperty usuario = new SimpleStringProperty();
 	private StringProperty contraseña = new SimpleStringProperty();
 	
-	private Session session;
 	
-	public Session getSession() {
-		return session;
-	}
-
-	public void setSession(Session session) {
-		this.session = session;
-	}
 
 	public final StringProperty usuarioProperty() {
 		return this.usuario;

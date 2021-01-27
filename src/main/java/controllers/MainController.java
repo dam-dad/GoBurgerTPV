@@ -4,6 +4,9 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import org.hibernate.Session;
+
+import goburgertpv.database.connection.HibernateUtil;
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.value.ObservableValue;
@@ -70,6 +73,8 @@ public class MainController implements Initializable {
 		model.addListener((o, ov, nv) -> onInicioSesionChanged(o, ov, nv));
 		
 		model.set(new MainModel());
+
+		
 	}
 
 	
