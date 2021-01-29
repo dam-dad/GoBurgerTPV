@@ -22,6 +22,18 @@ private String nombre;
 	private String description;
 	
 	private double precio;
+	
+	public Hamburguesas() {
+		// TODO Auto-generated constructor stub
+	}
+	
+	public  Hamburguesas(String nombre, String description, double precio) {
+
+		this.nombre=nombre;
+		this.description=description;
+		this.precio=precio;
+	}
+
 
 	public int getId() {
 		return id;

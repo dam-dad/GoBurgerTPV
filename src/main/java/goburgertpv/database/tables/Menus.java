@@ -23,6 +23,18 @@ private String nombre;
 	
 	private double precio;
 
+	public Menus() {
+		// TODO Auto-generated constructor stub
+	}
+	
+	public Menus(String nombre, String description, double precio) {
+
+		this.nombre=nombre;
+		this.description=description;
+		this.precio=precio;
+	}
+
+	
 	public int getId() {
 		return id;
 	}

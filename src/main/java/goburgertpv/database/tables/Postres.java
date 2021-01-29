@@ -23,6 +23,18 @@ private String nombre;
 	private String description;
 	
 	private double precio;
+	
+	public Postres() {
+		// TODO Auto-generated constructor stub
+	}
+	
+	public Postres(String nombre, String description, double precio) {
+
+		this.nombre=nombre;
+		this.description=description;
+		this.precio=precio;
+	}
+
 
 	public int getId() {
 		return id;

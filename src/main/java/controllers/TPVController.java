@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.ResourceBundle;
 
 import goburgertpv.database.connection.Funciones;
+import goburgertpv.database.connection.RellenarDatos;
 import goburgertpv.database.tables.Bebidas;
 import goburgertpv.database.tables.Complementos;
 import goburgertpv.database.tables.Hamburguesas;
@@ -272,6 +273,8 @@ public class TPVController implements Initializable {
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 
+		RellenarDatos.rellenar(Funciones.getSession());
+		
 		List<Bebidas> bebidas=Funciones.getBebidas();
 		for (Bebidas bebida:bebidas) {
 			model.getBebidasButtonList().add(new Button(bebida.getNombre()));
@@ -290,7 +293,7 @@ public class TPVController implements Initializable {
 		}
 		List<Postres> postres=Funciones.getPostres();
 		for (Postres postre:postres) {
-			model.getComplementosButtonList().add(new Button(postre.getNombre()));
+			model.getPostresButtonList().add(new Button(postre.getNombre()));
 		}
 		
 //		gridPaneProductos.setStyle("-fx-background-image:url('/images/logo1.png');-fx-background-size: contain;\n"
