@@ -3,6 +3,7 @@ package goburgertpv.database.connection;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.decimal4j.util.DoubleRounder;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
@@ -13,8 +14,7 @@ import goburgertpv.database.tables.Menus;
 import goburgertpv.database.tables.Postres;
 
 public class RellenarDatos {
-	
-	
+
 	public static void rellenar(Session session) {
 		
 		List<Bebidas> bebidasList=new ArrayList<Bebidas>();
@@ -30,11 +30,11 @@ public class RellenarDatos {
 		listas.add(postresList);
 
 		for(int i=0;i<6;i++) {
-			bebidasList.add(new Bebidas("bebida "+i, "descripción de prueba "+i,  Math.round((1+Math.random()*100)/100)));
-			hamburguesasList.add(new Hamburguesas("hamburguesa "+i, "descripción de prueba "+i, Math.round((Math.random()*1000)/100)));
-			complementosList.add(new Complementos("complemento "+i, "descripción de prueba "+i, Math.round((Math.random()*1000)/100)));
-			menusList.add(new Menus("menu "+i, "descripción de prueba "+i, Math.round((Math.random()*1500)/100)));
-			postresList.add(new Postres("postres "+i, "descripción de prueba "+i, Math.round((Math.random()*1000)/100)));
+			bebidasList.add(new Bebidas("bebida "+i, "descripción de prueba "+i, DoubleRounder.round(i+Math.random(), 2)));
+			hamburguesasList.add(new Hamburguesas("hamburguesa "+i, "descripción de prueba "+i, DoubleRounder.round(Math.random()*10,2) ));
+			complementosList.add(new Complementos("complemento "+i, "descripción de prueba "+i, DoubleRounder.round(Math.random()*10, 2)));
+			menusList.add(new Menus("menu "+i, "descripción de prueba "+i, DoubleRounder.round(Math.random()*1300/100, 2)));
+			postresList.add(new Postres("postres "+i, "descripción de prueba "+i, DoubleRounder.round(Math.random()*8, 2)));
 		}
 		
 		Transaction transaction=session.beginTransaction();
@@ -45,6 +45,5 @@ public class RellenarDatos {
 		}
 		transaction.commit();
 	}
-	
 
 }
