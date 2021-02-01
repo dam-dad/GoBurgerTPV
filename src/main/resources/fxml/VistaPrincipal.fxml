@@ -363,13 +363,6 @@
                       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="ALWAYS" />
                       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="ALWAYS" />
                     </rowConstraints>
-                     <children>
-                        <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" GridPane.columnSpan="5" GridPane.halignment="CENTER" GridPane.rowSpan="5">
-                           <image>
-                              <Image url="@../images/logo3Sin.png" />
-                           </image>
-                        </ImageView>
-                     </children>
                   </GridPane>
                </children>
             </AnchorPane>

@@ -17,18 +17,16 @@ public class App extends Application{
 	
 
 	public void start(Stage primaryStage) throws Exception {
-		
-		
-		
+			
 		App.primaryStage = primaryStage;
 		
 //		mainController = new MainController();
-//		tpvController=new TPVController();
-		configuracionController = new ConfiguracionController();
+		tpvController=new TPVController();
+//		configuracionController = new ConfiguracionController();
 		
 //		Scene escena = new Scene(mainController.getView());
-//		Scene escena=new Scene(tpvController.getView());
-		Scene escena = new Scene(configuracionController.getView());
+		Scene escena=new Scene(tpvController.getView());
+//		Scene escena = new Scene(configuracionController.getView());
 		
 		primaryStage.setScene(escena);
 		primaryStage.setTitle("GoBurgerTPV");
