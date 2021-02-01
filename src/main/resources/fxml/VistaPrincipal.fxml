@@ -37,75 +37,75 @@
                <GridPane.margin>
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </GridPane.margin></TextField>
-            <Button fx:id="btnEnviarPdf" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onClickEnviarPdf" GridPane.columnIndex="2" GridPane.halignment="CENTER">
+            <Button fx:id="btnEnviarPdf" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onClickEnviarPdf" style="-fx-background-color: lightyellow;" GridPane.columnIndex="2" GridPane.halignment="CENTER">
                <GridPane.margin>
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </GridPane.margin>
                <graphic>
                   <ImageView fitHeight="50.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../images/ImagenesVistaPrincipal/IconoPdf.PNG" />
+                        <Image url="@../images/ImagenesVistaPrincipal/PDF.png" />
                      </image>
                   </ImageView>
                </graphic></Button>
-            <Button fx:id="btnEnviarCuenta" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onClickEnviarCuenta" GridPane.columnIndex="3">
+            <Button fx:id="btnEnviarCuenta" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onClickEnviarCuenta" style="-fx-background-color: lightyellow;" GridPane.columnIndex="3">
                <GridPane.margin>
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </GridPane.margin>
                <graphic>
                   <ImageView fitHeight="50.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../images/ImagenesVistaPrincipal/Cuenta.PNG" />
+                        <Image url="@../images/ImagenesVistaPrincipal/Cuenta1.png" />
                      </image>
                   </ImageView>
                </graphic></Button>
             <Label text="TICKET" GridPane.columnSpan="4" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
-            <Button fx:id="btnFlechaArriba" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onClickSubirProducto" GridPane.halignment="CENTER" GridPane.rowIndex="2">
+            <Button fx:id="btnFlechaArriba" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onClickSubirProducto" style="-fx-background-color: #EC7063;" GridPane.halignment="CENTER" GridPane.rowIndex="2">
                <GridPane.margin>
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </GridPane.margin>
                <graphic>
                   <ImageView fitHeight="70.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../images/ImagenesVistaPrincipal/flechaArriba.PNG" />
+                        <Image url="@../images/ImagenesVistaPrincipal/FlechaArriba3.png" />
                      </image>
                   </ImageView>
                </graphic></Button>
-            <Button fx:id="btnFlechaAbajo" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onClickBajarProducto" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2">
+            <Button fx:id="btnFlechaAbajo" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onClickBajarProducto" style="-fx-background-color: #EC7063;" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2">
                <GridPane.margin>
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </GridPane.margin>
                <graphic>
                   <ImageView fitHeight="65.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../images/ImagenesVistaPrincipal/flechaAbajo.PNG" />
+                        <Image url="@../images/ImagenesVistaPrincipal/FlechaAbajo2.png" />
                      </image>
                   </ImageView>
                </graphic></Button>
-            <Button fx:id="btnMas" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onClickAñadirCantidad" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="2">
+            <Button fx:id="btnMas" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onClickAñadirCantidad" style="-fx-background-color: #EC7063;" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="2">
                <GridPane.margin>
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </GridPane.margin>
                <graphic>
                   <ImageView fitHeight="50.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../images/ImagenesVistaPrincipal/mas.PNG" />
+                        <Image url="@../images/ImagenesVistaPrincipal/Suma1.png" />
                      </image></ImageView>
                </graphic></Button>
-            <Button fx:id="btnMenos" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onClickQuitarCantidad" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="2">
+            <Button fx:id="btnMenos" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onClickQuitarCantidad" style="-fx-background-color: #EC7063;" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="2">
                <GridPane.margin>
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </GridPane.margin>
                <graphic>
                   <ImageView fitHeight="50.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../images/ImagenesVistaPrincipal/menos.PNG" />
+                        <Image url="@../images/ImagenesVistaPrincipal/Resta1.png" />
                      </image>
                   </ImageView>
                </graphic></Button>
             <TableView fx:id="tableCuenta" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="200.0" prefWidth="200.0" GridPane.columnSpan="4" GridPane.halignment="CENTER" GridPane.rowIndex="3">
               <columns>
-                <TableColumn fx:id="columnDescripcion" maxWidth="1.7976931348623157E308" minWidth="30.0" prefWidth="200.0" text="Descrpción" />
+                <TableColumn fx:id="columnDescripcion" maxWidth="1.7976931348623157E308" minWidth="30.0" prefWidth="200.0" text="Descripción" />
                 <TableColumn fx:id="columnCant" maxWidth="75.0" prefWidth="75.0" text="Cant." />
                   <TableColumn fx:id="columnTotal" maxWidth="75.0" prefWidth="75.0" text="Total" />
               </columns>
@@ -113,29 +113,29 @@
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </GridPane.margin>
             </TableView>
-            <Button fx:id="btnModificar" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onClickModificarCuenta" GridPane.halignment="CENTER" GridPane.rowIndex="4">
+            <Button fx:id="btnModificar" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onClickModificarCuenta" style="-fx-background-color: white;" GridPane.halignment="CENTER" GridPane.rowIndex="4">
                <GridPane.margin>
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </GridPane.margin>
                <graphic>
                   <ImageView fitHeight="50.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../images/ImagenesVistaPrincipal/Modificar.PNG" />
+                        <Image url="@../images/ImagenesVistaPrincipal/Modificar2.png" />
                      </image>
                   </ImageView>
                </graphic></Button>
-            <Button fx:id="btnParaLlevar" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onClickParaLlevar" GridPane.halignment="CENTER" GridPane.rowIndex="5">
+            <Button fx:id="btnParaLlevar" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onClickParaLlevar" style="-fx-background-color: white;" GridPane.halignment="CENTER" GridPane.rowIndex="5">
                <GridPane.margin>
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </GridPane.margin>
                <graphic>
                   <ImageView fitHeight="50.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../images/ImagenesVistaPrincipal/ParaLlevar.PNG" />
+                        <Image url="@../images/ImagenesVistaPrincipal/Llevar1.png" />
                      </image>
                   </ImageView>
                </graphic></Button>
-            <Button fx:id="btnEliminar" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onClickEliminarProducto" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="4">
+            <Button fx:id="btnEliminar" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onClickEliminarProducto" style="-fx-background-color: white;" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="4">
                <GridPane.margin>
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </GridPane.margin>
@@ -146,47 +146,47 @@
                      </image>
                   </ImageView>
                </graphic></Button>
-            <Button fx:id="btnDescuento" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onClickAplicarDescuento" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="4">
+            <Button fx:id="btnDescuento" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onClickAplicarDescuento" style="-fx-background-color: white;" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="4">
                <GridPane.margin>
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </GridPane.margin>
                <graphic>
                   <ImageView fitHeight="50.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../images/ImagenesVistaPrincipal/Descuento.PNG" />
+                        <Image url="@../images/ImagenesVistaPrincipal/Descuento7.png" />
                      </image>
                   </ImageView>
                </graphic></Button>
-            <Button fx:id="btnCancelar" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onClickCancelarPedido" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="5">
+            <Button fx:id="btnCancelar" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onClickCancelarPedido" style="-fx-background-color: yellow;" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="5">
                <GridPane.margin>
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </GridPane.margin>
                <graphic>
                   <ImageView fitHeight="50.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../images/ImagenesVistaPrincipal/Cancelar.PNG" />
+                        <Image url="@../images/ImagenesVistaPrincipal/Cancel11.png" />
                      </image>
                   </ImageView>
                </graphic></Button>
-            <Button fx:id="btnSalir" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onClickSalir" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="5">
+            <Button fx:id="btnSalir" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onClickSalir" style="-fx-background-color: red;" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="5">
                <GridPane.margin>
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </GridPane.margin>
                <graphic>
                   <ImageView fitHeight="50.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../images/ImagenesVistaPrincipal/Salir.PNG" />
+                        <Image url="@../images/ImagenesVistaPrincipal/Salir6.png" />
                      </image>
                   </ImageView>
                </graphic></Button>
-            <Button fx:id="btnPagar" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onClickPagarCuenta" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.rowSpan="2">
+            <Button fx:id="btnPagar" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onClickPagarCuenta" style="-fx-background-color: #27AE60;" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.rowSpan="2">
                <GridPane.margin>
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </GridPane.margin>
                <graphic>
                   <ImageView fitHeight="80.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../images/ImagenesVistaPrincipal/Pagar.PNG" />
+                        <Image url="@../images/ImagenesVistaPrincipal/Pagar2.png" />
                      </image>
                   </ImageView>
                </graphic></Button>
@@ -259,67 +259,67 @@
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="ALWAYS" />
         </rowConstraints>
          <children>
-            <Button fx:id="btnHome" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onClickHome" GridPane.halignment="CENTER">
+            <Button fx:id="btnHome" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onClickHome" style="-fx-background-color: orange;" GridPane.halignment="CENTER">
                <GridPane.margin>
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </GridPane.margin>
                <graphic>
                   <ImageView fitHeight="50.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../images/ImagenesVistaPrincipal/Home.PNG" />
+                        <Image url="@../images/ImagenesVistaPrincipal/Home2.png" />
                      </image>
                   </ImageView>
                </graphic>
             </Button>
-            <Button fx:id="btnConfiguracion" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onClickConfiguracion" GridPane.columnIndex="3" GridPane.columnSpan="2" GridPane.halignment="RIGHT">
+            <Button fx:id="btnConfiguracion" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onClickConfiguracion" style="-fx-background-color: lightblue;" GridPane.columnIndex="3" GridPane.columnSpan="2" GridPane.halignment="RIGHT">
                <GridPane.margin>
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </GridPane.margin>
                <graphic>
                   <ImageView fitHeight="50.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../images/ImagenesVistaPrincipal/Configuracion.PNG" />
+                        <Image url="@../images/ImagenesVistaPrincipal/Configuracion1.png" />
                      </image>
                   </ImageView>
                </graphic>
             </Button>
-            <Button fx:id="btnHamburguesas" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onClickHamburguesas" GridPane.rowIndex="1">
+            <Button fx:id="btnHamburguesas" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onClickHamburguesas" style="-fx-background-color: #3498DB;" GridPane.rowIndex="1">
                <GridPane.margin>
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </GridPane.margin>
                <graphic>
                   <ImageView fitHeight="80.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../images/ImagenesVistaPrincipal/Hamburguesa.PNG" />
+                        <Image url="@../images/ImagenesVistaPrincipal/Hamburguesa1.png" />
                      </image>
                   </ImageView>
                </graphic>
             </Button>
-            <Button fx:id="btnComplementos" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onClickComplementos" GridPane.columnIndex="1" GridPane.rowIndex="1">
+            <Button fx:id="btnComplementos" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onClickComplementos" style="-fx-background-color: #3498DB;" GridPane.columnIndex="1" GridPane.rowIndex="1">
                <GridPane.margin>
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </GridPane.margin>
                <graphic>
                   <ImageView fitHeight="80.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../images/ImagenesVistaPrincipal/Complementos.PNG" />
+                        <Image url="@../images/ImagenesVistaPrincipal/Complementos1.png" />
                      </image>
                   </ImageView>
                </graphic>
             </Button>
-            <Button fx:id="btnRefrescos" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onClickRefrescos" GridPane.columnIndex="2" GridPane.rowIndex="1">
+            <Button fx:id="btnRefrescos" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onClickRefrescos" style="-fx-background-color: #3498DB;" GridPane.columnIndex="2" GridPane.rowIndex="1">
                <GridPane.margin>
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </GridPane.margin>
                <graphic>
                   <ImageView fitHeight="80.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../images/ImagenesVistaPrincipal/Refrescos.PNG" />
+                        <Image url="@../images/ImagenesVistaPrincipal/Cola5.png" />
                      </image>
                   </ImageView>
                </graphic>
             </Button>
-            <Button fx:id="btnPostres" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onClickPostres" GridPane.columnIndex="3" GridPane.rowIndex="1">
+            <Button fx:id="btnPostres" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onClickPostres" style="-fx-background-color: #3498DB;" GridPane.columnIndex="3" GridPane.rowIndex="1">
                <GridPane.margin>
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </GridPane.margin>
@@ -331,14 +331,14 @@
                   </ImageView>
                </graphic>
             </Button>
-            <Button fx:id="btnMenus" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onClickMenus" GridPane.columnIndex="4" GridPane.rowIndex="1">
+            <Button fx:id="btnMenus" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onClickMenus" style="-fx-background-color: #3498DB;" GridPane.columnIndex="4" GridPane.rowIndex="1">
                <GridPane.margin>
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </GridPane.margin>
                <graphic>
                   <ImageView fitHeight="80.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../images/ImagenesVistaPrincipal/Menus.PNG" />
+                        <Image url="@../images/ImagenesVistaPrincipal/Menu2.png" />
                      </image>
                   </ImageView>
                </graphic>
