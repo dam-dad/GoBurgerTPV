@@ -20,12 +20,12 @@ public class App extends Application{
 			
 		App.primaryStage = primaryStage;
 		
-//		mainController = new MainController();
-		tpvController=new TPVController();
-//		configuracionController = new ConfiguracionController();
+		mainController = new MainController();
+//		tpvController=new TPVController();
+
 		
-//		Scene escena = new Scene(mainController.getView());
-		Scene escena=new Scene(tpvController.getView());
+		Scene escena = new Scene(mainController.getView());
+//		Scene escena=new Scene(tpvController.getView());
 //		Scene escena = new Scene(configuracionController.getView());
 		
 		primaryStage.setScene(escena);

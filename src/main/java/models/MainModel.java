@@ -9,8 +9,16 @@ public class MainModel {
 
 	private StringProperty usuario = new SimpleStringProperty();
 	private StringProperty contraseña = new SimpleStringProperty();
+	private boolean administrador=false;
 	
-	
+
+	public boolean isAdministrador() {
+		return administrador;
+	}
+
+	public void setAdministrador(boolean administrador) {
+		this.administrador = administrador;
+	}
 
 	public final StringProperty usuarioProperty() {
 		return this.usuario;

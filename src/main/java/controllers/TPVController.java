@@ -302,6 +302,7 @@ public class TPVController implements Initializable {
 		gridPaneProductos.setStyle("-fx-background-image:url('/images/logo3sin.png');-fx-background-size: contain;\n"
 				+ "-fx-background-repeat: no-repeat;\n"
 				+ "-fx-background-position: center;");
+
 	}
 
 	public BorderPane getView() {
