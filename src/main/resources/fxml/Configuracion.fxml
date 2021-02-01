@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<GridPane maxHeight="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<GridPane fx:id="view" maxHeight="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
   <columnConstraints>
     <ColumnConstraints halignment="LEFT" hgrow="ALWAYS" maxWidth="495.0" minWidth="10.0" prefWidth="466.0" />
     <ColumnConstraints halignment="RIGHT" hgrow="ALWAYS" maxWidth="1.7976931348623157E308" minWidth="10.0" prefWidth="134.0" />
@@ -31,7 +31,7 @@
             <Insets bottom="5.0" left="30.0" right="5.0" top="10.0" />
          </GridPane.margin>
       </Label>
-      <ToggleButton maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1">
+      <ToggleButton fx:id="btnModoNocturno" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onClickModoNocturno" prefHeight="50.0" prefWidth="50.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1">
          <GridPane.margin>
             <Insets bottom="5.0" left="5.0" right="30.0" top="5.0" />
          </GridPane.margin>
@@ -44,7 +44,7 @@
             <Insets bottom="5.0" left="30.0" right="5.0" top="5.0" />
          </GridPane.margin>
       </Label>
-      <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Añadir" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="3">
+      <Button fx:id="btnAñadir" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onClickAñadirUsuario" text="Añadir" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="3">
          <GridPane.margin>
             <Insets bottom="5.0" left="5.0" right="30.0" top="5.0" />
          </GridPane.margin>
@@ -57,7 +57,7 @@
             <Insets bottom="5.0" left="30.0" right="5.0" top="5.0" />
          </GridPane.margin>
       </Label>
-      <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Eliminar" GridPane.columnIndex="1" GridPane.rowIndex="4">
+      <Button fx:id="btnEliminar" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onClickEliminarUsuario" text="Eliminar" GridPane.columnIndex="1" GridPane.rowIndex="4">
          <GridPane.margin>
             <Insets bottom="5.0" left="5.0" right="30.0" top="5.0" />
          </GridPane.margin>
@@ -70,7 +70,7 @@
             <Insets bottom="5.0" left="30.0" right="5.0" top="5.0" />
          </GridPane.margin>
       </Label>
-      <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Salir" GridPane.columnIndex="1" GridPane.rowIndex="5">
+      <Button fx:id="btnSalir" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onClickSalir" text="Salir" GridPane.columnIndex="1" GridPane.rowIndex="5">
          <GridPane.margin>
             <Insets bottom="5.0" left="5.0" right="30.0" top="5.0" />
          </GridPane.margin>
@@ -83,7 +83,7 @@
             <Insets bottom="5.0" left="30.0" right="5.0" top="5.0" />
          </GridPane.margin>
       </Label>
-      <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Tamaño" GridPane.columnIndex="1">
+      <Button fx:id="btnTamaño" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onClickCambiarTamaño" text="Tamaño" GridPane.columnIndex="1">
          <GridPane.margin>
             <Insets bottom="5.0" left="5.0" right="30.0" top="5.0" />
          </GridPane.margin>
