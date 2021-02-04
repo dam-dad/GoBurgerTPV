@@ -29,6 +29,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.layout.GridPane;
 import models.MainModel;
+import models.VistaPrincipalModel;
 
 public class MainController implements Initializable {
 
@@ -65,10 +66,10 @@ public class MainController implements Initializable {
 	void onActionAcceder(ActionEvent event) throws IOException {
 
 		String encryptedPass = DigestUtils.md2Hex(model.getContraseña()).toUpperCase();
-		List<Users> usuarios = Funciones.getUsers();
+		VistaPrincipalModel.setUserList(Funciones.getUsers());
 		boolean datosCorrectos = false;
 		model.setUsuario(model.getUsuario().trim());
-		for (Users user : usuarios) {
+		for (Users user : VistaPrincipalModel.getUserList()) {
 			if (user.getUsuario().equals(model.getUsuario()) && user.getPassword().equals(encryptedPass)) {
 				datosCorrectos = true;
 				if (user.isAdministrador())
