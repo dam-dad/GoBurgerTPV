@@ -3,6 +3,7 @@ package goburgertpv.database.connection;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.commons.codec.digest.DigestUtils;
 import org.decimal4j.util.DoubleRounder;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
@@ -12,6 +13,7 @@ import goburgertpv.database.tables.Complementos;
 import goburgertpv.database.tables.Hamburguesas;
 import goburgertpv.database.tables.Menus;
 import goburgertpv.database.tables.Postres;
+import goburgertpv.database.tables.Users;
 
 public class RellenarDatos {
 
@@ -43,6 +45,14 @@ public class RellenarDatos {
 			for(int j=0;j<6;j++)
 				session.save(((ArrayList)listas.get(i)).get(j));
 		}
+		transaction.commit();
+		
+		Users user=new Users();
+		user.setUsuario("admin");
+		user.setPassword(DigestUtils.md2Hex("admin"));
+		user.setAdministrador(true);
+		transaction=session.beginTransaction();
+		session.save(user);
 		transaction.commit();
 	}
 

@@ -65,7 +65,7 @@ public class MainController implements Initializable {
 	@FXML
 	void onActionAcceder(ActionEvent event) throws IOException {
 
-		String encryptedPass = DigestUtils.md2Hex(model.getContraseña()).toUpperCase();
+		String encryptedPass = DigestUtils.md2Hex(model.getContraseña());
 		VistaPrincipalModel.setUserList(Funciones.getUsers());
 		boolean datosCorrectos = false;
 		model.setUsuario(model.getUsuario().trim());
