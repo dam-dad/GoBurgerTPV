@@ -32,7 +32,7 @@ public class RellenarDatos {
 		listas.add(postresList);
 
 		for(int i=0;i<6;i++) {
-			bebidasList.add(new Bebidas("bebida "+i, "descripción de prueba "+i, DoubleRounder.round(i+Math.random(), 2)));
+			bebidasList.add(new Bebidas("bebida "+i, "descripción de prueba "+i, DoubleRounder.round(1+Math.random(), 2)));
 			hamburguesasList.add(new Hamburguesas("hamburguesa "+i, "descripción de prueba "+i, DoubleRounder.round(Math.random()*10,2) ));
 			complementosList.add(new Complementos("complemento "+i, "descripción de prueba "+i, DoubleRounder.round(Math.random()*10, 2)));
 			menusList.add(new Menus("menu "+i, "descripción de prueba "+i, DoubleRounder.round(Math.random()*1300/100, 2)));
