@@ -261,6 +261,7 @@ public class TPVController implements Initializable {
 
 		productosScrollPane.setStyle("-fx-background-image:url('/images/logo3sin.png');-fx-background-size: contain;\n"
 				+ "-fx-background-repeat: no-repeat;\n" + "-fx-background-position: center;");
+		productosScrollPane.setFitToWidth(true);
 
 		if (Funciones.getProductos().isEmpty())
 			RellenarDatos.rellenar();
@@ -320,12 +321,15 @@ public class TPVController implements Initializable {
 
 		for (int i = 0, n = 0; n < buttonList.size(); i++) {
 			rows.add(new CustomHBox());
-			rows.get(i).setSpacing(5);
+
 			for (int j = 0; n < buttonList.size() && j < 5; j++, n++) {
 				rows.get(i).getChildren().add(buttonList.get(n));
 				Productos producto = productos.get(n);
 				buttonList.get(n).setOnAction(e -> onProductoButtonAction(producto));
 			}
+			System.out.println(productosScrollPane.widthProperty().doubleValue());
+			rows.get(i).spacingProperty().bind(productosScrollPane.widthProperty().subtract(buttonList.get(0).widthProperty().multiply(rows.get(i).getChildren().size())).divide(5));
+
 		}
 		productosBox.getChildren().addAll(rows);
 	}

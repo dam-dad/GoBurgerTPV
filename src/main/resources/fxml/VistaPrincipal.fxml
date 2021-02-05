@@ -189,7 +189,7 @@
    <center>
       <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
          <children>
-            <GridPane fx:id="gridPaneMenuProductos" alignment="CENTER">
+            <GridPane fx:id="gridPaneMenuProductos" alignment="TOP_CENTER" minHeight="-Infinity">
               <columnConstraints>
                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                   <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -200,7 +200,6 @@
               <rowConstraints>
                 <RowConstraints maxHeight="1.7976931348623157E308" minHeight="10.0" prefHeight="80.0" />
                 <RowConstraints minHeight="10.0" prefHeight="120.0" />
-                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="ALWAYS" />
               </rowConstraints>
                <children>
                   <Button fx:id="btnHome" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onClickHome" style="-fx-background-color: orange;" GridPane.halignment="CENTER">
@@ -288,8 +287,11 @@
                      </graphic>
                   </Button>
                </children>
+               <VBox.margin>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </VBox.margin>
             </GridPane>
-            <ScrollPane fx:id="productosScrollPane" VBox.vgrow="ALWAYS">
+            <ScrollPane fx:id="productosScrollPane" hvalue="0.5" vvalue="0.5" VBox.vgrow="SOMETIMES">
                <content>
                   <VBox fx:id="productosBox" alignment="CENTER" spacing="5.0">
                      <padding>

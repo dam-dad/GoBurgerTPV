@@ -11,6 +11,7 @@ public class CustomHBox extends HBox {
 		super();
 		HBox.setHgrow(this, Priority.ALWAYS);
 		this.setAlignment(Pos.CENTER);
+		
 	}
 	
 
