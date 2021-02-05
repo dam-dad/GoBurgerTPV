@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<GridPane fx:id="view" maxHeight="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<GridPane fx:id="view" maxHeight="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
   <columnConstraints>
     <ColumnConstraints halignment="LEFT" hgrow="ALWAYS" maxWidth="495.0" minWidth="10.0" prefWidth="466.0" />
     <ColumnConstraints halignment="RIGHT" hgrow="ALWAYS" maxWidth="1.7976931348623157E308" minWidth="10.0" prefWidth="134.0" />
@@ -17,7 +17,10 @@
   <rowConstraints>
       <RowConstraints minHeight="10.0" prefHeight="50.0" />
     <RowConstraints minHeight="10.0" prefHeight="50.0" />
-      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+      <RowConstraints minHeight="10.0" prefHeight="50.0" />
+      <RowConstraints minHeight="10.0" prefHeight="50.0" vgrow="ALWAYS" />
+      <RowConstraints minHeight="10.0" prefHeight="50.0" />
+      <RowConstraints minHeight="10.0" prefHeight="50.0" />
       <RowConstraints minHeight="10.0" prefHeight="50.0" />
     <RowConstraints minHeight="10.0" prefHeight="50.0" />
     <RowConstraints minHeight="10.0" prefHeight="50.0" />
@@ -36,7 +39,7 @@
             <Insets bottom="5.0" left="5.0" right="30.0" top="5.0" />
          </GridPane.margin>
       </ToggleButton>
-      <Label text="Añadir usuario" GridPane.rowIndex="3">
+      <Label text="Añadir usuario" GridPane.rowIndex="6">
          <font>
             <Font size="18.0" />
          </font>
@@ -44,12 +47,12 @@
             <Insets bottom="5.0" left="30.0" right="5.0" top="5.0" />
          </GridPane.margin>
       </Label>
-      <Button fx:id="btnAñadir" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onClickAñadirUsuario" text="Añadir" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="3">
+      <Button fx:id="btnAñadirUsuario" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onClickAñadirUsuario" text="Añadir" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="6">
          <GridPane.margin>
             <Insets bottom="5.0" left="5.0" right="30.0" top="5.0" />
          </GridPane.margin>
       </Button>
-      <Label text="Eliminar usuario" GridPane.rowIndex="4">
+      <Label text="Eliminar usuario" GridPane.rowIndex="7">
          <font>
             <Font size="18.0" />
          </font>
@@ -57,12 +60,12 @@
             <Insets bottom="5.0" left="30.0" right="5.0" top="5.0" />
          </GridPane.margin>
       </Label>
-      <Button fx:id="btnEliminar" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onClickEliminarUsuario" text="Eliminar" GridPane.columnIndex="1" GridPane.rowIndex="4">
+      <Button fx:id="btnEliminarUsuario" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onClickEliminarUsuario" text="Eliminar" GridPane.columnIndex="1" GridPane.rowIndex="7">
          <GridPane.margin>
             <Insets bottom="5.0" left="5.0" right="30.0" top="5.0" />
          </GridPane.margin>
       </Button>
-      <Label text="Salir de la configuración" GridPane.rowIndex="5">
+      <Label text="Salir de la configuración" GridPane.rowIndex="8">
          <font>
             <Font size="18.0" />
          </font>
@@ -70,12 +73,12 @@
             <Insets bottom="5.0" left="30.0" right="5.0" top="5.0" />
          </GridPane.margin>
       </Label>
-      <Button fx:id="btnSalir" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onClickSalir" text="Salir" GridPane.columnIndex="1" GridPane.rowIndex="5">
+      <Button fx:id="btnSalir" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onClickSalir" text="Salir" GridPane.columnIndex="1" GridPane.rowIndex="8">
          <GridPane.margin>
             <Insets bottom="5.0" left="5.0" right="30.0" top="5.0" />
          </GridPane.margin>
       </Button>
-      <Label text="Cambiar el tamaño de la fuente de la configuración">
+      <Label text="Tamaño de la fuente más pequeña">
          <font>
             <Font size="18.0" />
          </font>
@@ -84,6 +87,45 @@
          </GridPane.margin>
       </Label>
       <Button fx:id="btnTamaño" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onClickCambiarTamaño" text="Tamaño" GridPane.columnIndex="1">
+         <GridPane.margin>
+            <Insets bottom="5.0" left="5.0" right="30.0" top="5.0" />
+         </GridPane.margin>
+      </Button>
+      <Label text="Cambiar usuario" GridPane.rowIndex="2">
+         <font>
+            <Font size="18.0" />
+         </font>
+         <GridPane.margin>
+            <Insets bottom="5.0" left="30.0" right="5.0" top="10.0" />
+         </GridPane.margin>
+      </Label>
+      <Label text="Añadir producto" GridPane.rowIndex="4">
+         <font>
+            <Font size="18.0" />
+         </font>
+         <GridPane.margin>
+            <Insets bottom="5.0" left="30.0" right="5.0" top="10.0" />
+         </GridPane.margin>
+      </Label>
+      <Label text="Eliminar producto" GridPane.rowIndex="5">
+         <font>
+            <Font size="18.0" />
+         </font>
+         <GridPane.margin>
+            <Insets bottom="5.0" left="30.0" right="5.0" top="10.0" />
+         </GridPane.margin>
+      </Label>
+      <Button fx:id="btnEliminarProducto" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onClickEliminarProducto" text="Eliminar" GridPane.columnIndex="1" GridPane.rowIndex="5">
+         <GridPane.margin>
+            <Insets bottom="5.0" left="5.0" right="30.0" top="5.0" />
+         </GridPane.margin>
+      </Button>
+      <Button fx:id="btnAñadirProducto" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onClickAñadirProducto" text="Añadir" GridPane.columnIndex="1" GridPane.rowIndex="4">
+         <GridPane.margin>
+            <Insets bottom="5.0" left="5.0" right="30.0" top="5.0" />
+         </GridPane.margin>
+      </Button>
+      <Button fx:id="btnCambiarUsuario" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onClickCambiarUsuario" text="Cambiar" GridPane.columnIndex="1" GridPane.rowIndex="2">
          <GridPane.margin>
             <Insets bottom="5.0" left="5.0" right="30.0" top="5.0" />
          </GridPane.margin>

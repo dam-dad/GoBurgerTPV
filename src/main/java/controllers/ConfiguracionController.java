@@ -21,16 +21,25 @@ public class ConfiguracionController implements Initializable {
 	private ToggleButton btnModoNocturno;
 
 	@FXML
-	private Button btnAñadir;
+	private Button btnAñadirUsuario;
 
 	@FXML
-	private Button btnEliminar;
+	private Button btnEliminarUsuario;
 
 	@FXML
 	private Button btnSalir;
 
 	@FXML
 	private Button btnTamaño;
+
+	@FXML
+	private Button btnEliminarProducto;
+
+	@FXML
+	private Button btnAñadirProducto;
+
+	@FXML
+	private Button btnCambiarUsuario;
 
 	public ConfiguracionController() throws IOException {
 		FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/Configuracion.fxml"));
@@ -44,12 +53,27 @@ public class ConfiguracionController implements Initializable {
 	}
 
 	@FXML
+	void onClickAñadirProducto(ActionEvent event) {
+
+	}
+
+	@FXML
 	void onClickAñadirUsuario(ActionEvent event) {
 
 	}
 
 	@FXML
 	void onClickCambiarTamaño(ActionEvent event) {
+
+	}
+
+	@FXML
+	void onClickCambiarUsuario(ActionEvent event) {
+
+	}
+
+	@FXML
+	void onClickEliminarProducto(ActionEvent event) {
 
 	}
 
@@ -67,7 +91,7 @@ public class ConfiguracionController implements Initializable {
 	void onClickSalir(ActionEvent event) {
 
 	}
-	
+
 	public GridPane getView() {
 		return view;
 	}
