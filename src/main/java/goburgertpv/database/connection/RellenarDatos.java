@@ -29,7 +29,7 @@ public class RellenarDatos {
 		listas.add(menusList);
 		listas.add(postresList);
 
-		for(int i=0;i<6;i++) {
+		for(int i=0;i<30;i++) {
 			bebidasList.add(new Productos("bebida "+i, "descripción de prueba "+i, DoubleRounder.round(1+Math.random(), 2), Product.bebida));
 			hamburguesasList.add(new Productos("hamburguesa "+i, "descripción de prueba "+i, DoubleRounder.round(Math.random()*10,2), Product.hamburguesa ));
 			complementosList.add(new Productos("complemento "+i, "descripción de prueba "+i, DoubleRounder.round(Math.random()*10, 2), Product.complemento));
@@ -41,7 +41,7 @@ public class RellenarDatos {
 		Transaction transaction=Funciones.getSession().beginTransaction();
 	
 		for(int i=0;i<5;i++) {
-			for(int j=0;j<6;j++)
+			for(int j=0;j<30;j++)
 				Funciones.getSession().save((listas.get(i)).get(j));
 		}
 		transaction.commit();
