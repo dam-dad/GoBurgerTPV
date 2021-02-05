@@ -10,7 +10,7 @@ public class CustomHBox extends HBox {
 	public CustomHBox() {
 		super();
 		HBox.setHgrow(this, Priority.ALWAYS);
-		this.setAlignment(Pos.CENTER);
+		this.setAlignment(Pos.BASELINE_LEFT);
 		
 	}
 	

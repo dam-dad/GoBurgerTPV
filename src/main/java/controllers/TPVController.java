@@ -19,6 +19,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -131,10 +132,9 @@ public class TPVController implements Initializable {
 
 	@FXML
 	private Button btnMenus;
-	
 
-    @FXML
-    private ScrollPane productosScrollPane;
+	@FXML
+	private ScrollPane productosScrollPane;
 
 	@FXML
 	private VBox productosBox;
@@ -319,17 +319,23 @@ public class TPVController implements Initializable {
 		productosBox.getChildren().clear();
 		ArrayList<CustomHBox> rows = new ArrayList<CustomHBox>();
 
-		for (int i = 0, n = 0; n < buttonList.size(); i++) {
+		int i = 0, j = 0, n = 0;
+		for (i = 0, n = 0; n < buttonList.size(); i++) {
 			rows.add(new CustomHBox());
 
-			for (int j = 0; n < buttonList.size() && j < 5; j++, n++) {
+			for (j = 0; n < buttonList.size() && j < 5; j++, n++) {
 				rows.get(i).getChildren().add(buttonList.get(n));
 				Productos producto = productos.get(n);
 				buttonList.get(n).setOnAction(e -> onProductoButtonAction(producto));
 			}
-			rows.get(i).spacingProperty().bind(productosScrollPane.widthProperty().subtract(buttonList.get(0).widthProperty().multiply(rows.get(i).getChildren().size())).divide(5));
+			rows.get(i).spacingProperty().bind(productosScrollPane.widthProperty()
+					.subtract(buttonList.get(0).widthProperty().multiply(5)).divide(5));
 
 		}
+		
+		
+	
+
 		productosBox.getChildren().addAll(rows);
 	}
 
