@@ -2,6 +2,7 @@ package controllers;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -66,7 +67,7 @@ public class MainController implements Initializable {
 	void onActionAcceder(ActionEvent event) throws IOException {
 
 		String encryptedPass = DigestUtils.md2Hex(model.getContraseña());
-		VistaPrincipalModel.setUserList(Funciones.getUsers());
+		VistaPrincipalModel.setUserList((ArrayList<Users>) Funciones.getUsers());
 		boolean datosCorrectos = false;
 		model.setUsuario(model.getUsuario().trim());
 		for (Users user : VistaPrincipalModel.getUserList()) {

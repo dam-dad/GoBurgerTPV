@@ -10,12 +10,16 @@ import goburgertpv.database.connection.Funciones;
 import goburgertpv.database.connection.RellenarDatos;
 import goburgertpv.database.tables.Product;
 import goburgertpv.database.tables.Productos;
+import goburgertpv.utils.CustomButton;
+import goburgertpv.utils.CustomHBox;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
@@ -23,6 +27,8 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
 import models.VistaPrincipalModel;
 
 public class TPVController implements Initializable {
@@ -125,12 +131,13 @@ public class TPVController implements Initializable {
 
 	@FXML
 	private Button btnMenus;
+	
+
+    @FXML
+    private ScrollPane productosScrollPane;
 
 	@FXML
-	private AnchorPane anchorPaneProductosLogo;
-
-	@FXML
-	private GridPane gridPaneProductos;
+	private VBox productosBox;
 
 	private VistaPrincipalModel model = new VistaPrincipalModel();
 
@@ -163,14 +170,7 @@ public class TPVController implements Initializable {
 	@FXML
 	void onClickComplementos(ActionEvent event) {
 
-		gridPaneProductos.getChildren().clear();
-		for (int i = 0, n = 0; n < model.getComplementosButtonList().size() && i < gridPaneProductos.getRowCount(); i++)
-			for (int j = 0; n < model.getComplementosButtonList().size()
-					&& j < gridPaneProductos.getColumnCount(); j++, n++) {
-				gridPaneProductos.add(model.getComplementosButtonList().get(n), j, i);
-				Productos complemento=VistaPrincipalModel.getComplementosList().get(n);
-				model.getBebidasButtonList().get(n).setOnAction(e->onComplementoButtonAction(complemento));
-			}
+		rellenarProductos(VistaPrincipalModel.getComplementosList(), model.getComplementosButtonList());
 	}
 
 	@FXML
@@ -196,32 +196,19 @@ public class TPVController implements Initializable {
 	@FXML
 	void onClickHamburguesas(ActionEvent event) {
 
-		gridPaneProductos.getChildren().clear();
-		for (int i = 0, n = 0; n < model.getHamburguesasButtonList().size() && i < gridPaneProductos.getRowCount(); i++)
-			for (int j = 0; n < model.getHamburguesasButtonList().size()
-					&& j < gridPaneProductos.getColumnCount(); j++, n++) {
-				gridPaneProductos.add(model.getHamburguesasButtonList().get(n), j, i);
-				Productos hamburguesa=VistaPrincipalModel.getHamburguesasList().get(n);
-				model.getBebidasButtonList().get(n).setOnAction(e->onHamburguesaButtonAction(hamburguesa));
-			}
+		rellenarProductos(VistaPrincipalModel.getHamburguesasList(), model.getHamburguesasButtonList());
 
 	}
 
 	@FXML
 	void onClickHome(ActionEvent event) {
-		gridPaneProductos.getChildren().clear();
+		productosBox.getChildren().clear();
 
 	}
 
 	@FXML
 	void onClickMenus(ActionEvent event) {
-		gridPaneProductos.getChildren().clear();
-		for (int i = 0, n = 0; n < model.getMenusButtonList().size() && i < gridPaneProductos.getRowCount(); i++)
-			for (int j = 0; n < model.getMenusButtonList().size() && j < gridPaneProductos.getColumnCount(); j++, n++) {
-				gridPaneProductos.add(model.getMenusButtonList().get(n), j, i);
-				Productos menu=VistaPrincipalModel.getMenusList().get(n);
-				model.getBebidasButtonList().get(n).setOnAction(e->onMenuButtonAction(menu));
-			}
+		rellenarProductos(VistaPrincipalModel.getMenusList(), model.getMenusButtonList());
 
 	}
 
@@ -242,14 +229,8 @@ public class TPVController implements Initializable {
 
 	@FXML
 	void onClickPostres(ActionEvent event) {
-		gridPaneProductos.getChildren().clear();
-		for (int i = 0, n = 0; n < model.getPostresButtonList().size() && i < gridPaneProductos.getRowCount(); i++)
-			for (int j = 0; n < model.getPostresButtonList().size()
-					&& j < gridPaneProductos.getColumnCount(); j++, n++) {
-				gridPaneProductos.add(model.getPostresButtonList().get(n), j, i);
-				Productos postre=VistaPrincipalModel.getPostresList().get(n);
-				model.getBebidasButtonList().get(n).setOnAction(e->onPostreButtonAction(postre));
-			}
+
+		rellenarProductos(VistaPrincipalModel.getPostresList(), model.getPostresButtonList());
 
 	}
 
@@ -260,15 +241,8 @@ public class TPVController implements Initializable {
 
 	@FXML
 	void onClickRefrescos(ActionEvent event) {
-		
-		gridPaneProductos.getChildren().clear();
-		for (int i = 0, n = 0; n < model.getBebidasButtonList().size() && i < gridPaneProductos.getRowCount(); i++)
-			for (int j = 0; n < model.getBebidasButtonList().size()
-					&& j < gridPaneProductos.getColumnCount(); j++, n++) {
-				gridPaneProductos.add(model.getBebidasButtonList().get(n), j, i);
-				Productos bebida=VistaPrincipalModel.getBebidasList().get(n);
-				model.getBebidasButtonList().get(n).setOnAction(e->onBebidaButtonAction(bebida));
-			}
+
+		rellenarProductos(VistaPrincipalModel.getBebidasList(), model.getBebidasButtonList());
 
 	}
 
@@ -285,94 +259,85 @@ public class TPVController implements Initializable {
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 
-		gridPaneProductos.setStyle("-fx-background-image:url('/images/logo3sin.png');-fx-background-size: contain;\n"
-				+ "-fx-background-repeat: no-repeat;\n"
-				+ "-fx-background-position: center;");
-		
+		productosScrollPane.setStyle("-fx-background-image:url('/images/logo3sin.png');-fx-background-size: contain;\n"
+				+ "-fx-background-repeat: no-repeat;\n" + "-fx-background-position: center;");
+
 		if (Funciones.getProductos().isEmpty())
 			RellenarDatos.rellenar();
-		
-		
-		List<Productos> productosList=Funciones.getProductos();
-		ArrayList<Productos> bebidasList=new ArrayList<Productos>();
-		ArrayList<Productos> hamburguesasList=new ArrayList<Productos>();
-		ArrayList<Productos> complementosList=new ArrayList<Productos>();
-		ArrayList<Productos> menusList=new ArrayList<Productos>();
-		ArrayList<Productos> postresList=new ArrayList<Productos>();
-		
-		
-		
-		for(Productos producto:productosList) {
+
+		List<Productos> productosList = Funciones.getProductos();
+		ArrayList<Productos> bebidasList = new ArrayList<Productos>();
+		ArrayList<Productos> hamburguesasList = new ArrayList<Productos>();
+		ArrayList<Productos> complementosList = new ArrayList<Productos>();
+		ArrayList<Productos> menusList = new ArrayList<Productos>();
+		ArrayList<Productos> postresList = new ArrayList<Productos>();
+
+		for (Productos producto : productosList) {
 			switch (producto.getProductType()) {
 			case bebida: {
 				bebidasList.add(producto);
-				model.getBebidasButtonList().add(new Button(producto.getNombre()));
+				model.getBebidasButtonList().add(new CustomButton(producto.getNombre()));
 				break;
-				}
-			case complemento:{
+			}
+			case complemento: {
 				complementosList.add(producto);
-				model.getComplementosButtonList().add(new Button(producto.getNombre()));
+				model.getComplementosButtonList().add(new CustomButton(producto.getNombre()));
 				break;
 			}
-			case hamburguesa:{
+			case hamburguesa: {
 				hamburguesasList.add(producto);
-				model.getHamburguesasButtonList().add(new Button(producto.getNombre()));
+				model.getHamburguesasButtonList().add(new CustomButton(producto.getNombre()));
 				break;
 			}
-			case menu:{
+			case menu: {
 				menusList.add(producto);
-				model.getMenusButtonList().add(new Button(producto.getNombre()));
+				model.getMenusButtonList().add(new CustomButton(producto.getNombre()));
 				break;
 			}
-			case postre:{
+			case postre: {
 				postresList.add(producto);
-				model.getPostresButtonList().add(new Button(producto.getNombre()));
+				model.getPostresButtonList().add(new CustomButton(producto.getNombre()));
 				break;
 			}
 			}
 		}
-			
-		VistaPrincipalModel.getBebidasList().addAll(bebidasList); 
-		
+
+		VistaPrincipalModel.getBebidasList().addAll(bebidasList);
+
 		VistaPrincipalModel.getComplementosList().addAll(complementosList);
-		
+
 		VistaPrincipalModel.getHamburguesasList().addAll(hamburguesasList);
-		
+
 		VistaPrincipalModel.getMenusList().addAll(menusList);
-	
+
 		VistaPrincipalModel.getPostresList().addAll(postresList);
-	
-
-		
-		
-	
-	
-		
 
 	}
-	
-	
 
-	private void onPostreButtonAction(Productos postre) {
+	private void rellenarProductos(ArrayList<Productos> productos, ObservableList<CustomButton> buttonList) {
+		productosBox.getChildren().clear();
+		ArrayList<CustomHBox> rows = new ArrayList<CustomHBox>();
+
+		for (int i = 0, n = 0; n < buttonList.size(); i++) {
+			rows.add(new CustomHBox());
+			rows.get(i).setSpacing(5);
+			for (int j = 0; n < buttonList.size() && j < 5; j++, n++) {
+				rows.get(i).getChildren().add(buttonList.get(n));
+				Productos producto = productos.get(n);
+				buttonList.get(n).setOnAction(e -> onProductoButtonAction(producto));
+			}
+		}
+		productosBox.getChildren().addAll(rows);
 	}
 
-	private void onMenuButtonAction(Productos menu) {
-	}
-
-	private void onHamburguesaButtonAction(Productos hamburguesa) {
-	}
-
-	private void onComplementoButtonAction(Productos complemento) {
-	}
-
-	private void onBebidaButtonAction(Productos bebidas) {
+	private void onProductoButtonAction(Productos producto) {
 		Alert successAlert = new Alert(AlertType.INFORMATION);
-		successAlert.setTitle(bebidas.getNombre());
+		successAlert.setTitle(producto.getNombre());
 		successAlert.setHeaderText("Acceso permitido");
-		successAlert.setContentText(bebidas.getDescription()+" "+bebidas.getPrecio());
+		successAlert.setContentText(producto.getDescription() + " " + producto.getPrecio());
 
-		successAlert.showAndWait();	
-	
+		successAlert.showAndWait();
+
 	}
 
 	public BorderPane getView() {

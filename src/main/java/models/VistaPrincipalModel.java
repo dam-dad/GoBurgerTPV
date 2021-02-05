@@ -7,6 +7,7 @@ import java.util.List;
 
 import goburgertpv.database.tables.Productos;
 import goburgertpv.database.tables.Users;
+import goburgertpv.utils.CustomButton;
 import javafx.beans.property.DoubleProperty;
 import javafx.beans.property.ListProperty;
 import javafx.beans.property.ObjectProperty;
@@ -27,69 +28,70 @@ public class VistaPrincipalModel {
 	private DoubleProperty igicText=new SimpleDoubleProperty();
 	private StringProperty empleadoText=new SimpleStringProperty();
 	private ObjectProperty<LocalDate> fechaText=new  SimpleObjectProperty<LocalDate>();
-	private ListProperty<Button> bebidasButtonList=new SimpleListProperty<Button>(FXCollections.observableArrayList());
-	private ListProperty<Button> complementosButtonList=new SimpleListProperty<Button>(FXCollections.observableArrayList());
-	private ListProperty<Button> hamburguesasButtonList=new SimpleListProperty<Button>(FXCollections.observableArrayList());
-	private ListProperty<Button> menusButtonList=new SimpleListProperty<Button>(FXCollections.observableArrayList());
-	private ListProperty<Button> postresButtonList=new SimpleListProperty<Button>(FXCollections.observableArrayList());
+	private ListProperty<CustomButton> bebidasButtonList=new SimpleListProperty<CustomButton>(FXCollections.observableArrayList());
+	private ListProperty<CustomButton> complementosButtonList=new SimpleListProperty<CustomButton>(FXCollections.observableArrayList());
+	private ListProperty<CustomButton> hamburguesasButtonList=new SimpleListProperty<CustomButton>(FXCollections.observableArrayList());
+	private ListProperty<CustomButton> menusButtonList=new SimpleListProperty<CustomButton>(FXCollections.observableArrayList());
+	private ListProperty<CustomButton> postresButtonList=new SimpleListProperty<CustomButton>(FXCollections.observableArrayList());
 	private ListProperty<Users> usersButtonList=new SimpleListProperty<Users>();
-	private static List<Productos> bebidasList=new ArrayList<Productos>();
-	private static List<Productos> complementosList=new ArrayList<Productos>();
-	private static List<Productos> hamburguesasList=new ArrayList<Productos>();
-	private static List<Productos> menusList=new ArrayList<Productos>();
-	private static List<Productos> postresList=new  ArrayList<Productos>();
-	private static List<Users> userList=new ArrayList<Users>();
+	private static ArrayList<Productos> bebidasList=new ArrayList<Productos>();
+	private static ArrayList<Productos> complementosList=new ArrayList<Productos>();
+	private static ArrayList<Productos> hamburguesasList=new ArrayList<Productos>();
+	private static ArrayList<Productos> menusList=new ArrayList<Productos>();
+	private static ArrayList<Productos> postresList=new  ArrayList<Productos>();
+	private static ArrayList<Users> userList=new ArrayList<Users>();
 
 	
 	
 
 
 
-	public static List<Productos> getBebidasList() {
+
+	public static ArrayList<Productos> getBebidasList() {
 		return bebidasList;
 	}
 
-	public static void setBebidasList(List<Productos> bebidasList) {
+	public static void setBebidasList(ArrayList<Productos> bebidasList) {
 		VistaPrincipalModel.bebidasList = bebidasList;
 	}
 
-	public static List<Productos> getComplementosList() {
+	public static ArrayList<Productos> getComplementosList() {
 		return complementosList;
 	}
 
-	public static void setComplementosList(List<Productos> complementosList) {
+	public static void setComplementosList(ArrayList<Productos> complementosList) {
 		VistaPrincipalModel.complementosList = complementosList;
 	}
 
-	public static List<Productos> getHamburguesasList() {
+	public static ArrayList<Productos> getHamburguesasList() {
 		return hamburguesasList;
 	}
 
-	public static void setHamburguesasList(List<Productos> hamburguesasList) {
+	public static void setHamburguesasList(ArrayList<Productos> hamburguesasList) {
 		VistaPrincipalModel.hamburguesasList = hamburguesasList;
 	}
 
-	public static List<Productos> getMenusList() {
+	public static ArrayList<Productos> getMenusList() {
 		return menusList;
 	}
 
-	public static void setMenusList(List<Productos> menusList) {
+	public static void setMenusList(ArrayList<Productos> menusList) {
 		VistaPrincipalModel.menusList = menusList;
 	}
 
-	public static List<Productos> getPostresList() {
+	public static ArrayList<Productos> getPostresList() {
 		return postresList;
 	}
 
-	public static void setPostresList(List<Productos> postresList) {
+	public static void setPostresList(ArrayList<Productos> postresList) {
 		VistaPrincipalModel.postresList = postresList;
 	}
 
-	public static List<Users> getUserList() {
+	public static ArrayList<Users> getUserList() {
 		return userList;
 	}
 
-	public static void setUserList(List<Users> userList) {
+	public static void setUserList(ArrayList<Users> userList) {
 		VistaPrincipalModel.userList = userList;
 	}
 
@@ -165,63 +167,63 @@ public class VistaPrincipalModel {
 		this.fechaTextProperty().set(fechaText);
 	}
 	
-	public final ListProperty<Button> bebidasButtonListProperty() {
+	public final ListProperty<CustomButton> bebidasButtonListProperty() {
 		return this.bebidasButtonList;
 	}
 	
-	public final ObservableList<Button> getBebidasButtonList() {
+	public final ObservableList<CustomButton> getBebidasButtonList() {
 		return this.bebidasButtonListProperty().get();
 	}
 	
-	public final void setBebidasButtonList(final ObservableList<Button> bebidasButtonList) {
+	public final void setBebidasButtonList(final ObservableList<CustomButton> bebidasButtonList) {
 		this.bebidasButtonListProperty().set(bebidasButtonList);
 	}
 	
-	public final ListProperty<Button> complementosButtonListProperty() {
+	public final ListProperty<CustomButton> complementosButtonListProperty() {
 		return this.complementosButtonList;
 	}
 	
-	public final ObservableList<Button> getComplementosButtonList() {
+	public final ObservableList<CustomButton> getComplementosButtonList() {
 		return this.complementosButtonListProperty().get();
 	}
 	
-	public final void setComplementosButtonList(final ObservableList<Button> complementosButtonList) {
+	public final void setComplementosButtonList(final ObservableList<CustomButton> complementosButtonList) {
 		this.complementosButtonListProperty().set(complementosButtonList);
 	}
 	
-	public final ListProperty<Button> hamburguesasButtonListProperty() {
+	public final ListProperty<CustomButton> hamburguesasButtonListProperty() {
 		return this.hamburguesasButtonList;
 	}
 	
-	public final ObservableList<Button> getHamburguesasButtonList() {
+	public final ObservableList<CustomButton> getHamburguesasButtonList() {
 		return this.hamburguesasButtonListProperty().get();
 	}
 	
-	public final void setHamburguesasButtonList(final ObservableList<Button> hamburguesasButtonList) {
+	public final void setHamburguesasButtonList(final ObservableList<CustomButton> hamburguesasButtonList) {
 		this.hamburguesasButtonListProperty().set(hamburguesasButtonList);
 	}
 	
-	public final ListProperty<Button> menusButtonListProperty() {
+	public final ListProperty<CustomButton> menusButtonListProperty() {
 		return this.menusButtonList;
 	}
 	
-	public final ObservableList<Button> getMenusButtonList() {
+	public final ObservableList<CustomButton> getMenusButtonList() {
 		return this.menusButtonListProperty().get();
 	}
 	
-	public final void setMenusButtonList(final ObservableList<Button> menusButtonList) {
+	public final void setMenusButtonList(final ObservableList<CustomButton> menusButtonList) {
 		this.menusButtonListProperty().set(menusButtonList);
 	}
 	
-	public final ListProperty<Button> postresButtonListProperty() {
+	public final ListProperty<CustomButton> postresButtonListProperty() {
 		return this.postresButtonList;
 	}
 	
-	public final ObservableList<Button> getPostresButtonList() {
+	public final ObservableList<CustomButton> getPostresButtonList() {
 		return this.postresButtonListProperty().get();
 	}
 	
-	public final void setPostresButtonList(final ObservableList<Button> postresButtonList) {
+	public final void setPostresButtonList(final ObservableList<CustomButton> postresButtonList) {
 		this.postresButtonListProperty().set(postresButtonList);
 	}
 	
