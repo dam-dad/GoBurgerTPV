@@ -327,7 +327,6 @@ public class TPVController implements Initializable {
 				Productos producto = productos.get(n);
 				buttonList.get(n).setOnAction(e -> onProductoButtonAction(producto));
 			}
-			System.out.println(productosScrollPane.widthProperty().doubleValue());
 			rows.get(i).spacingProperty().bind(productosScrollPane.widthProperty().subtract(buttonList.get(0).widthProperty().multiply(rows.get(i).getChildren().size())).divide(5));
 
 		}
