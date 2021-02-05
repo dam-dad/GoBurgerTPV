@@ -5,11 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-import goburgertpv.database.tables.Bebidas;
-import goburgertpv.database.tables.Complementos;
-import goburgertpv.database.tables.Hamburguesas;
-import goburgertpv.database.tables.Menus;
-import goburgertpv.database.tables.Postres;
+import goburgertpv.database.tables.Productos;
 import goburgertpv.database.tables.Users;
 import javafx.beans.property.DoubleProperty;
 import javafx.beans.property.ListProperty;
@@ -37,11 +33,11 @@ public class VistaPrincipalModel {
 	private ListProperty<Button> menusButtonList=new SimpleListProperty<Button>(FXCollections.observableArrayList());
 	private ListProperty<Button> postresButtonList=new SimpleListProperty<Button>(FXCollections.observableArrayList());
 	private ListProperty<Users> usersButtonList=new SimpleListProperty<Users>();
-	private static List<Bebidas> bebidasList=new ArrayList<Bebidas>();
-	private static List<Complementos> complementosList=new ArrayList<Complementos>();
-	private static List<Hamburguesas> hamburguesasList=new ArrayList<Hamburguesas>();
-	private static List<Menus> menusList=new ArrayList<Menus>();
-	private static List<Postres> postresList=new  ArrayList<Postres>();
+	private static List<Productos> bebidasList=new ArrayList<Productos>();
+	private static List<Productos> complementosList=new ArrayList<Productos>();
+	private static List<Productos> hamburguesasList=new ArrayList<Productos>();
+	private static List<Productos> menusList=new ArrayList<Productos>();
+	private static List<Productos> postresList=new  ArrayList<Productos>();
 	private static List<Users> userList=new ArrayList<Users>();
 
 	
@@ -49,43 +45,43 @@ public class VistaPrincipalModel {
 
 
 
-	public static List<Bebidas> getBebidasList() {
+	public static List<Productos> getBebidasList() {
 		return bebidasList;
 	}
 
-	public static void setBebidasList(List<Bebidas> bebidasList) {
+	public static void setBebidasList(List<Productos> bebidasList) {
 		VistaPrincipalModel.bebidasList = bebidasList;
 	}
 
-	public static List<Complementos> getComplementosList() {
+	public static List<Productos> getComplementosList() {
 		return complementosList;
 	}
 
-	public static void setComplementosList(List<Complementos> complementosList) {
+	public static void setComplementosList(List<Productos> complementosList) {
 		VistaPrincipalModel.complementosList = complementosList;
 	}
 
-	public static List<Hamburguesas> getHamburguesasList() {
+	public static List<Productos> getHamburguesasList() {
 		return hamburguesasList;
 	}
 
-	public static void setHamburguesasList(List<Hamburguesas> hamburguesasList) {
+	public static void setHamburguesasList(List<Productos> hamburguesasList) {
 		VistaPrincipalModel.hamburguesasList = hamburguesasList;
 	}
 
-	public static List<Menus> getMenusList() {
+	public static List<Productos> getMenusList() {
 		return menusList;
 	}
 
-	public static void setMenusList(List<Menus> menusList) {
+	public static void setMenusList(List<Productos> menusList) {
 		VistaPrincipalModel.menusList = menusList;
 	}
 
-	public static List<Postres> getPostresList() {
+	public static List<Productos> getPostresList() {
 		return postresList;
 	}
 
-	public static void setPostresList(List<Postres> postresList) {
+	public static void setPostresList(List<Productos> postresList) {
 		VistaPrincipalModel.postresList = postresList;
 	}
 

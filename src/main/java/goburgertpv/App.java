@@ -11,7 +11,7 @@ import controllers.TPVController;
 public class App extends Application{
 	
 	private static Stage primaryStage;
-	private static MainController mainController;
+	private MainController mainController;
 	private TPVController tpvController;
 	private ConfiguracionController configuracionController;
 	
