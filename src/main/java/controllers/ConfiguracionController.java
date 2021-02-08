@@ -84,7 +84,9 @@ public class ConfiguracionController implements Initializable {
 
 	@FXML
 	void onClickModoNocturno(ActionEvent event) {
-
+		if(btnModoNocturno.isSelected()) {
+			
+		}
 	}
 
 	@FXML
