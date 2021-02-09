@@ -34,7 +34,7 @@
             <Insets bottom="5.0" left="30.0" right="5.0" top="10.0" />
          </GridPane.margin>
       </Label>
-      <ToggleButton fx:id="btnModoNocturno" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onClickModoNocturno" prefHeight="50.0" prefWidth="50.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1">
+      <ToggleButton fx:id="btnModoNocturno" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onClickModoNocturno" prefHeight="50.0" prefWidth="50.0" text="No" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1">
          <GridPane.margin>
             <Insets bottom="5.0" left="5.0" right="30.0" top="5.0" />
          </GridPane.margin>
@@ -86,11 +86,6 @@
             <Insets bottom="5.0" left="30.0" right="5.0" top="5.0" />
          </GridPane.margin>
       </Label>
-      <Button fx:id="btnTamaño" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onClickCambiarTamaño" text="Tamaño" GridPane.columnIndex="1">
-         <GridPane.margin>
-            <Insets bottom="5.0" left="5.0" right="30.0" top="5.0" />
-         </GridPane.margin>
-      </Button>
       <Label text="Cambiar usuario" GridPane.rowIndex="2">
          <font>
             <Font size="18.0" />
@@ -130,5 +125,10 @@
             <Insets bottom="5.0" left="5.0" right="30.0" top="5.0" />
          </GridPane.margin>
       </Button>
+      <ToggleButton fx:id="btnTamaño" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onClickCambiarTamaño" prefHeight="50.0" prefWidth="50.0" text="No" GridPane.columnIndex="1">
+         <GridPane.margin>
+            <Insets bottom="5.0" left="5.0" right="30.0" top="5.0" />
+         </GridPane.margin>
+      </ToggleButton>
    </children>
 </GridPane>

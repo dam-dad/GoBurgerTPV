@@ -13,7 +13,11 @@ import javafx.scene.control.ToggleButton;
 import javafx.scene.layout.GridPane;
 
 public class ConfiguracionController implements Initializable {
-
+	
+	//controller
+	private TPVController tpv = new TPVController();
+	
+	//view
 	@FXML
 	private GridPane view;
 
@@ -30,7 +34,7 @@ public class ConfiguracionController implements Initializable {
 	private Button btnSalir;
 
 	@FXML
-	private Button btnTamaño;
+	private ToggleButton btnTamaño;
 
 	@FXML
 	private Button btnEliminarProducto;
@@ -85,7 +89,23 @@ public class ConfiguracionController implements Initializable {
 	@FXML
 	void onClickModoNocturno(ActionEvent event) {
 		if(btnModoNocturno.isSelected()) {
+			btnModoNocturno.setText("Si");
+			view.setStyle(" -fx-background-color: #3b3b3b;");
+			view.getStylesheets().clear();
+			view.getStylesheets().add("/css/ModoNocturno.css");
 			
+			tpv.getView().setStyle("-fx-background-color: #3b3b3b;");
+			tpv.getView().getStylesheets().clear();
+			tpv.getView().getStylesheets().add("/css/ModoNocturno.css");
+		} else {
+			btnModoNocturno.setText("No");
+			view.setStyle(" -fx-background-color: white;");
+			view.getStylesheets().clear();
+			view.getStylesheets().add("/css/ModoNormal.css");
+			
+			tpv.getView().setStyle("-fx-background-color: white;");
+			tpv.getView().getStylesheets().clear();
+			tpv.getView().getStylesheets().add("/css/ModoNormal.css");
 		}
 	}
 
