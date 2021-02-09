@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -68,7 +69,22 @@ public class ConfiguracionController implements Initializable {
 
 	@FXML
 	void onClickCambiarTamaño(ActionEvent event) {
-
+		if(btnTamaño.isSelected()) {
+			btnTamaño.setText("Si");
+			view.getStylesheets().clear();
+			view.getStylesheets().add("/css/LetraPequeña.css");
+			
+			tpv.getView().getStylesheets().clear();
+			tpv.getView().getStylesheets().add("/css/LetraPequeña.css");
+			
+		} else {
+			btnTamaño.setText("No");
+			view.getStylesheets().clear();
+			view.getStylesheets().add("/css/LetraNormal.css");
+			
+			tpv.getView().getStylesheets().clear();
+			tpv.getView().getStylesheets().add("/css/LetraNormal.css");
+		}
 	}
 
 	@FXML
@@ -111,7 +127,7 @@ public class ConfiguracionController implements Initializable {
 
 	@FXML
 	void onClickSalir(ActionEvent event) {
-
+		Platform.exit();
 	}
 
 	public GridPane getView() {

@@ -1,9 +1,8 @@
-/*.background {
+.background {
     -fx-background-color: #3b3b3b;
-}*/
+}
 
 .label {
-    -fx-font-size: 11pt;
     -fx-text-fill: white;
     -fx-opacity: 1;
 }

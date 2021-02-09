@@ -11,7 +11,7 @@
 
 <GridPane fx:id="view" maxHeight="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
   <columnConstraints>
-    <ColumnConstraints halignment="LEFT" hgrow="ALWAYS" maxWidth="495.0" minWidth="10.0" prefWidth="466.0" />
+    <ColumnConstraints halignment="LEFT" hgrow="ALWAYS" maxWidth="466.0" minWidth="10.0" prefWidth="466.0" />
     <ColumnConstraints halignment="RIGHT" hgrow="ALWAYS" maxWidth="1.7976931348623157E308" minWidth="10.0" prefWidth="134.0" />
   </columnConstraints>
   <rowConstraints>
@@ -34,7 +34,7 @@
             <Insets bottom="5.0" left="30.0" right="5.0" top="10.0" />
          </GridPane.margin>
       </Label>
-      <ToggleButton fx:id="btnModoNocturno" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onClickModoNocturno" prefHeight="50.0" prefWidth="50.0" text="No" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1">
+      <ToggleButton fx:id="btnModoNocturno" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onClickModoNocturno" prefHeight="50.0" prefWidth="50.0" text="No" GridPane.columnIndex="1" GridPane.rowIndex="1">
          <GridPane.margin>
             <Insets bottom="5.0" left="5.0" right="30.0" top="5.0" />
          </GridPane.margin>
@@ -47,7 +47,7 @@
             <Insets bottom="5.0" left="30.0" right="5.0" top="5.0" />
          </GridPane.margin>
       </Label>
-      <Button fx:id="btnAñadirUsuario" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onClickAñadirUsuario" text="Añadir" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="6">
+      <Button fx:id="btnAñadirUsuario" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onClickAñadirUsuario" text="Añadir" GridPane.columnIndex="1" GridPane.rowIndex="6">
          <GridPane.margin>
             <Insets bottom="5.0" left="5.0" right="30.0" top="5.0" />
          </GridPane.margin>
