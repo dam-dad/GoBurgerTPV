@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
+import goburgertpv.App;
 import goburgertpv.database.connection.Funciones;
 import goburgertpv.database.connection.RellenarDatos;
 import goburgertpv.database.tables.Product;
@@ -17,6 +18,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -25,14 +27,18 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Alert.AlertType;
+import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
 import models.VistaPrincipalModel;
 
 public class TPVController implements Initializable {
+	
+	
 
 	@FXML
 	private BorderPane view;
@@ -175,7 +181,12 @@ public class TPVController implements Initializable {
 
 	@FXML
 	void onClickConfiguracion(ActionEvent event) {
-
+		Stage configStage =new Stage();
+		Scene scene=App.getConfiguracionController().getScene();
+		configStage.setScene(scene);
+		configStage.setTitle("Configuración");
+		configStage.getIcons().add(new Image("/images/logoMini.png"));
+		configStage.show();
 	}
 
 	@FXML
@@ -263,10 +274,15 @@ public class TPVController implements Initializable {
 				+ "-fx-background-repeat: no-repeat;\n" + "-fx-background-position: center;");
 		productosScrollPane.setFitToWidth(true);
 
-		if (Funciones.getProductos().isEmpty())
-			RellenarDatos.rellenar();
-
 		List<Productos> productosList = Funciones.getProductos();
+		
+		if (productosList.isEmpty()) {
+			RellenarDatos.rellenar();
+			productosList = Funciones.getProductos();
+		}
+			
+
+		
 		ArrayList<Productos> bebidasList = new ArrayList<Productos>();
 		ArrayList<Productos> hamburguesasList = new ArrayList<Productos>();
 		ArrayList<Productos> complementosList = new ArrayList<Productos>();

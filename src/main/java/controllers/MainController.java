@@ -35,7 +35,8 @@ import models.VistaPrincipalModel;
 public class MainController implements Initializable {
 
 	// Controllers
-	TPVController tpvController = new TPVController();
+	TPVController tpvController = App.getTpvController();
+	
 
 	// Model
 //	private ObjectProperty<MainModel> model = new SimpleObjectProperty<>();
@@ -83,6 +84,7 @@ public class MainController implements Initializable {
 		if(!datosCorrectos) {
 			model.setUsuario("");
 			model.setContraseña("");
+			
 		}
 
 	}
