@@ -1,4 +1,4 @@
-package controllers;
+package goburgertpv.controllers;
 
 import java.io.IOException;
 import java.net.URL;
@@ -11,6 +11,7 @@ import goburgertpv.database.connection.Funciones;
 import goburgertpv.database.connection.RellenarDatos;
 import goburgertpv.database.tables.Product;
 import goburgertpv.database.tables.Productos;
+import goburgertpv.models.VistaPrincipalModel;
 import goburgertpv.utils.CustomButton;
 import goburgertpv.utils.CustomHBox;
 import javafx.collections.ObservableList;
@@ -34,7 +35,6 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
-import models.VistaPrincipalModel;
 
 public class TPVController implements Initializable {
 	

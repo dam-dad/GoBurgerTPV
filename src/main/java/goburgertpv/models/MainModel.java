@@ -1,4 +1,4 @@
-package models;
+package goburgertpv.models;
 
 import org.hibernate.Session;
 

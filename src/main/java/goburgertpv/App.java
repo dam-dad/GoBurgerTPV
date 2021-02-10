@@ -1,12 +1,12 @@
 package goburgertpv;
 
+import goburgertpv.controllers.ConfiguracionController;
+import goburgertpv.controllers.MainController;
+import goburgertpv.controllers.TPVController;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
-import controllers.ConfiguracionController;
-import controllers.MainController;
-import controllers.TPVController;
 
 public class App extends Application{
 	

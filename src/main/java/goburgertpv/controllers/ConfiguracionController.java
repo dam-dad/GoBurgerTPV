@@ -1,4 +1,4 @@
-package controllers;
+package goburgertpv.controllers;
 
 import java.io.IOException;
 import java.net.URL;
