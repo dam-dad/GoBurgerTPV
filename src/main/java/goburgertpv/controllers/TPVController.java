@@ -1,11 +1,14 @@
 package goburgertpv.controllers;
 
+import java.awt.Desktop;
+import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.ResourceBundle;
-
 import goburgertpv.App;
 import goburgertpv.database.connection.Funciones;
 import goburgertpv.database.connection.RellenarDatos;
@@ -35,6 +38,13 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import net.sf.jasperreports.engine.JRException;
+import net.sf.jasperreports.engine.JasperCompileManager;
+import net.sf.jasperreports.engine.JasperExportManager;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.JasperReport;
+import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
 
 public class TPVController implements Initializable {
 	
@@ -200,8 +210,24 @@ public class TPVController implements Initializable {
 	}
 
 	@FXML
-	void onClickEnviarPdf(ActionEvent event) {
+	void onClickEnviarPdf(ActionEvent event) throws JRException, IOException {
 
+		// compila el informe
+		JasperReport report = JasperCompileManager.compileReport(TPVController.class.getResourceAsStream("/reports/goburger_report.jrxml"));		
+
+		// mapa de parámetros para el informe
+		Map<String, Object> parameters = new HashMap<String, Object>();
+		parameters.put("anyo", 2014); // no lo uso, pero se lo paso
+		
+		// generamos el informe (comtinamos el informe compilado con los datos) 
+        JasperPrint print  = JasperFillManager.fillReport(report, parameters, new JRBeanCollectionDataSource(VistaPrincipalModel.getBebidasList()));
+        
+        // exporta el informe a un fichero PDF
+        JasperExportManager.exportReportToPdfFile(print, "bebidas.pdf");
+        
+        // Abre el archivo PDF generado con el programa predeterminado del sistema
+		Desktop.getDesktop().open(new File("bebidas.pdf"));
+	
 	}
 
 	@FXML
