@@ -20,8 +20,9 @@ public class App extends Application{
 			
 		App.primaryStage = primaryStage;
 		
+	//	configuracionController=new ConfiguracionController();
 		mainController = new MainController();
-//		tpvController=new TPVController();
+		tpvController=new TPVController();
 
 		
 		Scene escena = new Scene(mainController.getView());

@@ -52,12 +52,15 @@ public class ProductosController implements Initializable {
 	public void initialize(URL location, ResourceBundle resources) {
 		if (Funciones.getProductos().isEmpty())
 			RellenarDatos.rellenar();
-		listaBebidas = VistaPrincipalModel.getBebidasList();
-		listaComplementos = VistaPrincipalModel.getComplementosList();
-		listaHamburguesas = VistaPrincipalModel.getHamburguesasList();
-		listaMenus = VistaPrincipalModel.getMenusList();
-		listaPostres = VistaPrincipalModel.getPostresList();
-		listProducto.getItems().addAll(listaBebidas, listaComplementos, listaHamburguesas, listaMenus, listaPostres);
+		for (ArrayList<Productos> array : VistaPrincipalModel.getProductosList()) {
+			
+				listProducto.getItems().add(array);
+				
+			
+			
+		}
+		
+		
 	}
 
 	public ProductosController() throws IOException {

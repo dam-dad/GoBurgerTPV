@@ -67,10 +67,10 @@ public class MainController implements Initializable {
 	void onActionAcceder(ActionEvent event) throws IOException {
 
 		String encryptedPass = DigestUtils.md2Hex(model.getContraseña());
-		VistaPrincipalModel.setUserList((ArrayList<Users>) Funciones.getUsers());
+		tpvController.getModel().getUserList().addAll( Funciones.getUsers());
 		boolean datosCorrectos = false;
 		model.setUsuario(model.getUsuario().trim());
-		for (Users user : VistaPrincipalModel.getUserList()) {
+		for (Users user : tpvController.getModel().getUserList()) {
 			if (user.getUsuario().equals(model.getUsuario()) && user.getPassword().equals(encryptedPass)) {
 				datosCorrectos = true;
 				if (user.isAdministrador())

@@ -170,7 +170,7 @@ public class TPVController implements Initializable {
 	@FXML
 	void onClickComplementos(ActionEvent event) {
 
-		rellenarProductos(VistaPrincipalModel.getComplementosList(), model.getComplementosButtonList());
+		rellenarProductos(model.getComplementosList(), model.getComplementosButtonList());
 	}
 
 	@FXML
@@ -196,7 +196,7 @@ public class TPVController implements Initializable {
 	@FXML
 	void onClickHamburguesas(ActionEvent event) {
 
-		rellenarProductos(VistaPrincipalModel.getHamburguesasList(), model.getHamburguesasButtonList());
+		rellenarProductos(model.getHamburguesasList(), model.getHamburguesasButtonList());
 
 	}
 
@@ -208,7 +208,7 @@ public class TPVController implements Initializable {
 
 	@FXML
 	void onClickMenus(ActionEvent event) {
-		rellenarProductos(VistaPrincipalModel.getMenusList(), model.getMenusButtonList());
+		rellenarProductos(model.getMenusList(), model.getMenusButtonList());
 
 	}
 
@@ -230,7 +230,7 @@ public class TPVController implements Initializable {
 	@FXML
 	void onClickPostres(ActionEvent event) {
 
-		rellenarProductos(VistaPrincipalModel.getPostresList(), model.getPostresButtonList());
+		rellenarProductos(model.getPostresList(), model.getPostresButtonList());
 
 	}
 
@@ -242,8 +242,16 @@ public class TPVController implements Initializable {
 	@FXML
 	void onClickRefrescos(ActionEvent event) {
 
-		rellenarProductos(VistaPrincipalModel.getBebidasList(), model.getBebidasButtonList());
+		rellenarProductos(model.getBebidasList(), model.getBebidasButtonList());
 
+	}
+
+	public VistaPrincipalModel getModel() {
+		return model;
+	}
+
+	public void setModel(VistaPrincipalModel model) {
+		this.model = model;
 	}
 
 	@FXML
@@ -303,19 +311,19 @@ public class TPVController implements Initializable {
 			}
 		}
 
-		VistaPrincipalModel.getBebidasList().addAll(bebidasList);
+		model.getBebidasList().addAll(bebidasList);
 
-		VistaPrincipalModel.getComplementosList().addAll(complementosList);
+		model.getComplementosList().addAll(complementosList);
 
-		VistaPrincipalModel.getHamburguesasList().addAll(hamburguesasList);
+		model.getHamburguesasList().addAll(hamburguesasList);
 
-		VistaPrincipalModel.getMenusList().addAll(menusList);
-
-		VistaPrincipalModel.getPostresList().addAll(postresList);
+		model.getMenusList().addAll(menusList);
+		
+		model.getPostresList().addAll(postresList);
 
 	}
 
-	private void rellenarProductos(ArrayList<Productos> productos, ObservableList<CustomButton> buttonList) {
+	private void rellenarProductos(ObservableList<Productos> productosList, ObservableList<CustomButton> buttonList) {
 		productosBox.getChildren().clear();
 		ArrayList<CustomHBox> rows = new ArrayList<CustomHBox>();
 
@@ -325,7 +333,7 @@ public class TPVController implements Initializable {
 
 			for (j = 0; n < buttonList.size() && j < 5; j++, n++) {
 				rows.get(i).getChildren().add(buttonList.get(n));
-				Productos producto = productos.get(n);
+				Productos producto = productosList.get(n);
 				buttonList.get(n).setOnAction(e -> onProductoButtonAction(producto));
 			}
 			rows.get(i).spacingProperty().bind(productosScrollPane.widthProperty()
