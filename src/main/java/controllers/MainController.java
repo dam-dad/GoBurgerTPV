@@ -13,6 +13,11 @@ import goburgertpv.App;
 import goburgertpv.database.connection.Funciones;
 import goburgertpv.database.connection.HibernateUtil;
 import goburgertpv.database.tables.Users;
+import javafx.animation.Animation;
+import javafx.animation.FadeTransition;
+import javafx.animation.Interpolator;
+import javafx.animation.RotateTransition;
+import javafx.animation.Timeline;
 import javafx.application.Platform;
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
@@ -27,8 +32,10 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.image.ImageView;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.layout.GridPane;
+import javafx.util.Duration;
 import models.MainModel;
 import models.VistaPrincipalModel;
 
@@ -64,10 +71,13 @@ public class MainController implements Initializable {
 	private Button cancelarBt;
 
 	@FXML
+	private ImageView imageView;
+
+	@FXML
 	void onActionAcceder(ActionEvent event) throws IOException {
 
 		String encryptedPass = DigestUtils.md2Hex(model.getContraseña());
-		tpvController.getModel().getUserList().addAll( Funciones.getUsers());
+		tpvController.getModel().getUserList().addAll(Funciones.getUsers());
 		boolean datosCorrectos = false;
 		model.setUsuario(model.getUsuario().trim());
 		for (Users user : tpvController.getModel().getUserList()) {
@@ -80,7 +90,7 @@ public class MainController implements Initializable {
 			}
 
 		}
-		if(!datosCorrectos) {
+		if (!datosCorrectos) {
 			model.setUsuario("");
 			model.setContraseña("");
 		}
@@ -107,6 +117,39 @@ public class MainController implements Initializable {
 		model.usuarioProperty().bindBidirectional(usuarioTf.textProperty());
 		model.contraseñaProperty().bindBidirectional(contraseñaTf.textProperty());
 
+		imagenTransition();
+
+	}
+
+	private void imagenTransition() {
+		/*
+		 * RotateTransition rt = new RotateTransition(); rt.setNode(imageView);
+		 * rt.setFromAngle(0); rt.setToAngle(360);
+		 * rt.setInterpolator(Interpolator.LINEAR);
+		 * rt.setCycleCount(Timeline.INDEFINITE); rt.setDuration(new Duration(3000));
+		 */
+
+		/*
+		 * imageView.setOnMouseClicked(me -> { Animation.Status status = rt.getStatus();
+		 * if (status == Animation.Status.RUNNING && status != Animation.Status.PAUSED)
+		 * rt.pause(); else rt.play(); });
+		 */
+
+		FadeTransition ft = new FadeTransition();
+		ft.setNode(imageView);
+		ft.setDuration(new Duration(2000));
+		ft.setFromValue(1.0);
+		ft.setToValue(0.0);
+		ft.setCycleCount(10);
+		ft.setAutoReverse(true);
+
+		// imageView.setOnMouseClicked(me -> {
+		Animation.Status status = ft.getStatus();
+		if (status == Animation.Status.RUNNING && status != Animation.Status.PAUSED)
+			ft.pause();
+		else
+			ft.play();
+		// });
 	}
 
 //	
