@@ -12,6 +12,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -22,6 +23,7 @@ import javafx.stage.Stage;
 
 public class ConfiguracionController implements Initializable {
 
+	private MainController main = new MainController();
 	private Scene scene;
 	private ProductosController productos = new ProductosController();
 	private UsuariosController usuarios = new UsuariosController();
@@ -65,7 +67,8 @@ public class ConfiguracionController implements Initializable {
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-
+		btnControlarUsuario.setDisable(true);
+		btnControlarProductos.setDisable(true);
 	}
 
 	@FXML
@@ -102,27 +105,30 @@ public class ConfiguracionController implements Initializable {
 
 	@FXML
 	void onClickCambiarUsuario(ActionEvent event) {
-		App.getPrimaryStage().setScene(new Scene(App.getMainController().getView()));
+		App.getPrimaryStage().setScene(new Scene(main.getView()));
+		Node source = (Node) event.getSource();
+	    Stage stage = (Stage) App.getConfiguracionController().getScene().getWindow();
+	    stage.close();
 	}
 
 	@FXML
 	void onClickControlarProductos(ActionEvent event) {
-		Stage ventana = new Stage();
+		/*Stage ventana = new Stage();
 		Scene escena = new Scene(productos.getView());
 		ventana.setScene(escena);
 		ventana.setTitle("GoBurgerTPV");
 		ventana.getIcons().add(new Image("/images/logoMini.png"));
-		ventana.show();
+		ventana.show();*/
 	}
 
 	@FXML
 	void onClickControlarUsuario(ActionEvent event) {
-		Stage ventana = new Stage();
+		/* Stage ventana = new Stage();
 		Scene escena = new Scene(usuarios.getView());
 		ventana.setScene(escena);
 		ventana.setTitle("GoBurgerTPV");
 		ventana.getIcons().add(new Image("/images/logoMini.png"));
-		ventana.show();
+		ventana.show(); */
 	}
 
 	@FXML
