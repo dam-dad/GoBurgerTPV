@@ -29,7 +29,7 @@ El proyecto es el desarrollo de una aplicación que se use en los terminales de 
 
 Esta es la primera ventana de la aplicación, en ella se nos pide los datos de acceso del usuario, cuando se introducen los datos y se pulsa el botón de acceder se comprueba con la base de datos si el usuario es un usuario valido o no,  cuando el usuario sea valido se dará acceso a la aplicación.
 
-![ventanaInicio](C:\Users\ignac\Desktop\imagenesCiclo\ventanaInicio.PNG)
+![ventanaInicio](src/main/resources/images/ventanaInicio.PNG)
 
 ###### VENTANA PRINCIPAL
 
@@ -60,7 +60,7 @@ En esta ventana se lleva a cabo toda la gestión de información sobre los pedid
 
 En esta ventana tenemos la posibilidad de llevar a cabo un poco de configuración, cambiar de usuario, gestionar usuarios y gestionar productos (tanto la gestión de usuarios como productos todavía no esta disponible).
 
-![ventanaConfiguracion](C:\Users\ignac\Desktop\imagenesCiclo\ventanaConfiguracion.PNG)
+![ventanaConfiguracion](src/main/resources/images/ventanaConfiguracion.PNG)
 
 1. ToggleButton que permite cambiar el tamaño de la letra entre pequeña y normal.
 2. ToggleButton que permite activar el modo nocturno, en el cual cuando se activa se pone el fondo oscuro y las letras de color blanco.
