@@ -155,7 +155,7 @@ public class ConfiguracionController implements Initializable {
 
 	@FXML
 	void onClickSalir(ActionEvent event) {
-		
+		Platform.exit();
 	}
 
 	public GridPane getView() {

@@ -50,7 +50,7 @@
             <Insets bottom="5.0" left="5.0" right="30.0" top="5.0" />
          </GridPane.margin>
       </Button>
-      <Label text="Salir de la configuración" GridPane.rowIndex="6">
+      <Label text="Salir" GridPane.rowIndex="6">
          <font>
             <Font size="18.0" />
          </font>

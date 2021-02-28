@@ -52,13 +52,13 @@ public class ProductosController implements Initializable {
 	public void initialize(URL location, ResourceBundle resources) {
 		if (Funciones.getProductos().isEmpty())
 			RellenarDatos.rellenar();
-		for (ArrayList<Productos> array : VistaPrincipalModel.getProductosList()) {
+		/*for (ArrayList<Productos> array : VistaPrincipalModel.getProductosList()) {
 			
 				listProducto.getItems().add(array);
 				
 			
 			
-		}
+		}*/
 		
 		
 	}

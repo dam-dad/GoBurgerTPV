@@ -47,7 +47,7 @@ public class UsuariosController implements Initializable {
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		listaUsers = VistaPrincipalModel.getUserList();
+		//listaUsers = VistaPrincipalModel.getUserList();
 		listUsuarios.getItems().addAll(listaUsers);
 		//listUsuarios.itemsProperty().bind(listaUsers);
 		
