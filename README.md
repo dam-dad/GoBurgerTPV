@@ -21,7 +21,7 @@ El proyecto es el desarrollo de una aplicación que se use en los terminales de 
 
 ###### **LOGO**
 
-![logo3](C:\Users\ignac\eclipse-workspace\GoBurgerTPV\src\main\resources\images\logo3.png)
+![logo](src/main/resources/images/logo3.png)
 
 
 
