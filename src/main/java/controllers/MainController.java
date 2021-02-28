@@ -42,7 +42,7 @@ import models.VistaPrincipalModel;
 public class MainController implements Initializable {
 
 	// Controllers
-	TPVController tpvController = new TPVController();
+	TPVController tpvController = App.getTpvController();
 
 	// Model
 //	private ObjectProperty<MainModel> model = new SimpleObjectProperty<>();
@@ -85,6 +85,7 @@ public class MainController implements Initializable {
 				datosCorrectos = true;
 				if (user.isAdministrador())
 					model.setAdministrador(true);
+				
 				App.getPrimaryStage().setScene(new Scene(tpvController.getView()));
 				App.getPrimaryStage().setMaximized(true);
 			}

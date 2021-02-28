@@ -22,9 +22,7 @@ import javafx.stage.Stage;
 
 public class ConfiguracionController implements Initializable {
 
-	// controller
-	private MainController main = new MainController();
-	private TPVController tpv = new TPVController();
+	private Scene scene;
 	private ProductosController productos = new ProductosController();
 	private UsuariosController usuarios = new UsuariosController();
 
@@ -54,6 +52,15 @@ public class ConfiguracionController implements Initializable {
 		FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/Configuracion.fxml"));
 		loader.setController(this);
 		loader.load();
+		scene=new Scene(this.getView());
+	}
+
+	public Scene getScene() {
+		return scene;
+	}
+
+	public void setScene(Scene scene) {
+		this.scene = scene;
 	}
 
 	@Override
@@ -71,10 +78,10 @@ public class ConfiguracionController implements Initializable {
 				view.getStylesheets().add("/css/ModoNocturno.css");
 			}
 
-			tpv.getView().getStylesheets().clear();
-			tpv.getView().getStylesheets().add("/css/LetraPequeña.css");
+			App.getTpvController().getView().getStylesheets().clear();
+			App.getTpvController().getView().getStylesheets().add("/css/LetraPequeña.css");
 			if (btnModoNocturno.isSelected()) {
-				tpv.getView().getStylesheets().add("/css/ModoNocturno.css");
+				App.getTpvController().getView().getStylesheets().add("/css/ModoNocturno.css");
 			}
 
 		} else {
@@ -85,17 +92,17 @@ public class ConfiguracionController implements Initializable {
 				view.getStylesheets().add("/css/ModoNocturno.css");
 			}
 
-			tpv.getView().getStylesheets().clear();
-			tpv.getView().getStylesheets().add("/css/LetraNormal.css");
+			App.getTpvController().getView().getStylesheets().clear();
+			App.getTpvController().getView().getStylesheets().add("/css/LetraNormal.css");
 			if (btnModoNocturno.isSelected()) {
-				tpv.getView().getStylesheets().add("/css/ModoNocturno.css");
+				App.getTpvController().getView().getStylesheets().add("/css/ModoNocturno.css");
 			}
 		}
 	}
 
 	@FXML
 	void onClickCambiarUsuario(ActionEvent event) {
-		App.getPrimaryStage().setScene(new Scene(main.getView()));
+		App.getPrimaryStage().setScene(new Scene(App.getMainController().getView()));
 	}
 
 	@FXML
@@ -129,11 +136,11 @@ public class ConfiguracionController implements Initializable {
 				view.getStylesheets().add("/css/LetraPequeña.css");
 			}
 
-			tpv.getView().setStyle("-fx-background-color: #3b3b3b;");
-			tpv.getView().getStylesheets().clear();
-			tpv.getView().getStylesheets().add("/css/ModoNocturno.css");
+			App.getTpvController().getView().setStyle("-fx-background-color: #3b3b3b;");
+			App.getTpvController().getView().getStylesheets().clear();
+			App.getTpvController().getView().getStylesheets().add("/css/ModoNocturno.css");
 			if(btnTamaño.isSelected()){
-				tpv.getView().getStylesheets().add("/css/LetraPequeña.css");
+				App.getTpvController().getView().getStylesheets().add("/css/LetraPequeña.css");
 			}
 		} else {
 			btnModoNocturno.setText("No");
@@ -144,11 +151,11 @@ public class ConfiguracionController implements Initializable {
 				view.getStylesheets().add("/css/LetraPequeña.css");
 			}
 
-			tpv.getView().setStyle("-fx-background-color: white;");
-			tpv.getView().getStylesheets().clear();
-			tpv.getView().getStylesheets().add("/css/ModoNormal.css");
+			App.getTpvController().getView().setStyle("-fx-background-color: white;");
+			App.getTpvController().getView().getStylesheets().clear();
+			App.getTpvController().getView().getStylesheets().add("/css/ModoNormal.css");
 			if(btnTamaño.isSelected()){
-				tpv.getView().getStylesheets().add("/css/LetraPequeña.css");
+				App.getTpvController().getView().getStylesheets().add("/css/LetraPequeña.css");
 			}
 		}
 	}

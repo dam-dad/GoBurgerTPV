@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
+import goburgertpv.App;
 import goburgertpv.database.connection.Funciones;
 import goburgertpv.database.connection.RellenarDatos;
 import goburgertpv.database.tables.Product;
@@ -21,6 +22,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
@@ -31,6 +33,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.TextInputDialog;
 import javafx.scene.control.cell.TextFieldTableCell;
+import javafx.scene.image.Image;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
@@ -214,7 +217,12 @@ public class TPVController implements Initializable {
 
 	@FXML
 	void onClickConfiguracion(ActionEvent event) {
-
+		Stage configStage =new Stage();
+		Scene scene=App.getConfiguracionController().getScene();
+		configStage.setScene(scene);
+		configStage.setTitle("Configuración");
+		configStage.getIcons().add(new Image("/images/logoMini.png"));
+		configStage.show();
 	}
 
 	@FXML
@@ -373,27 +381,27 @@ public class TPVController implements Initializable {
 			switch (producto.getProductType()) {
 			case bebida: {
 				bebidasList.add(producto);
-				model.getBebidasButtonList().add(new CustomButton(producto.getNombre()));
+				model.getBebidasButtonList().add(new CustomButton(producto.getPrecio(), "http://localhost/goburgertpv/images/"+producto.getProductType()+producto.getId()+".png"));
 				break;
 			}
 			case complemento: {
 				complementosList.add(producto);
-				model.getComplementosButtonList().add(new CustomButton(producto.getNombre()));
+				model.getComplementosButtonList().add(new CustomButton(producto.getPrecio(), "http://localhost/goburgertpv/images/"+producto.getProductType()+producto.getId()+".png"));
 				break;
 			}
 			case hamburguesa: {
 				hamburguesasList.add(producto);
-				model.getHamburguesasButtonList().add(new CustomButton(producto.getNombre()));
+				model.getHamburguesasButtonList().add(new CustomButton(producto.getPrecio(), "http://localhost/goburgertpv/images/"+producto.getProductType()+producto.getId()+".png"));
 				break;
 			}
 			case menu: {
 				menusList.add(producto);
-				model.getMenusButtonList().add(new CustomButton(producto.getNombre()));
+				model.getMenusButtonList().add(new CustomButton(producto.getPrecio(), "http://localhost/goburgertpv/images/"+producto.getProductType()+producto.getId()+".png"));
 				break;
 			}
 			case postre: {
 				postresList.add(producto);
-				model.getPostresButtonList().add(new CustomButton(producto.getNombre()));
+				model.getPostresButtonList().add(new CustomButton(producto.getPrecio(), "http://localhost/goburgertpv/images/"+producto.getProductType()+producto.getId()+".png"));
 				break;
 			}
 			}

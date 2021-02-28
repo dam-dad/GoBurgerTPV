@@ -1,28 +1,27 @@
 package goburgertpv.utils;
 
 import javafx.scene.control.Button;
+import javafx.scene.image.ImageView;
 
 public class CustomButton extends Button {
-	 int WIDTH=140;
-	 int HEIGHT=180;
+
 	
-	public CustomButton(String s) {
+	public CustomButton(Double precio,String imagePath ) {
 		super();
-		this.setText(s);
-		this.setMaxWidth(WIDTH);
-		this.setMaxHeight(HEIGHT);
-		this.setPrefWidth(WIDTH);
-		this.setPrefHeight(HEIGHT);
+		
+		this.setPrefWidth(170);
+		this.setPrefHeight(170);
+		ImageView image=new ImageView(imagePath);
+		
+		image.setFitHeight(150);
+		image.setFitWidth(150);
+		this.setGraphic(image);
+		this.setText(precio.toString()+" €");
+		this.setContentDisplay(getContentDisplay().TOP);
+	
 		
 	}
 
-	public int getWIDTH() {
-		return WIDTH;
-	}
 
-	public int getHEIGHT() {
-		return HEIGHT;
-	}
-	
 
 }
