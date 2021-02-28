@@ -41,11 +41,6 @@ public class VistaPrincipalModel {
 	private static ListProperty<Productos> postresList=new SimpleListProperty<Productos>(FXCollections.observableArrayList(new ArrayList<Productos>()));
 	private static ListProperty<Users> userList=new SimpleListProperty<Users>(FXCollections.observableArrayList(new ArrayList<Users>()));
 	
-	
-	
-
-
-
 
 	public final DoubleProperty totalCuentaTextProperty() {
 		return this.totalCuentaText;

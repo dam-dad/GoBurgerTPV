@@ -10,73 +10,78 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import javafx.beans.property.IntegerProperty;
+import javafx.beans.property.SimpleIntegerProperty;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
+
 @SuppressWarnings("serial")
 @Entity
 @Table(name = "Productos")
 public class Productos implements Serializable {
 
-	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private int id;
+    @Id
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
+    private int id;
 
-	private String nombre;
+    private String nombre;
 
-	private String description;
+    private String description;
 
-	private double precio;
+    private double precio;
 
-	@Enumerated(EnumType.STRING)
-	private Product productType;
+    @Enumerated(EnumType.STRING)
+    private Product productType;
 
-	public Productos() {
-	}
-	
-	public Productos(String nombre, String description, double precio, Product tipo) {
-		this.nombre=nombre;
-		this.description=description;
-		this.precio=precio;
-		this.productType=tipo;
-		
-	}
-	
-	public int getId() {
-		return id;
-	}
+    public Productos() {
+    }
 
-	public void setId(int id) {
-		this.id = id;
-	}
+    public Productos(String nombre, String description, double precio, Product tipo) {
+        this.nombre=nombre;
+        this.description=description;
+        this.precio=precio;
+        this.productType=tipo;
 
-	public String getNombre() {
-		return nombre;
-	}
+    }
 
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
-	}
+    public int getId() {
+        return id;
+    }
 
-	public String getDescription() {
-		return description;
-	}
+    public void setId(int id) {
+        this.id = id;
+    }
 
-	public void setDescription(String description) {
-		this.description = description;
-	}
+    public String getNombre() {
+        return nombre;
+    }
 
-	public double getPrecio() {
-		return precio;
-	}
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
 
-	public void setPrecio(double precio) {
-		this.precio = precio;
-	}
+    public String getDescription() {
+        return description;
+    }
 
-	public Product getProductType() {
-		return productType;
-	}
+    public void setDescription(String description) {
+        this.description = description;
+    }
 
-	public void setProductType(Product productType) {
-		this.productType = productType;
-	}
+    public double getPrecio() {
+        return precio;
+    }
+
+    public void setPrecio(double precio) {
+        this.precio = precio;
+    }
+
+    public Product getProductType() {
+        return productType;
+    }
+
+    public void setProductType(Product productType) {
+        this.productType = productType;
+    }
 
 }

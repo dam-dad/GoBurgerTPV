@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import java.util.ResourceBundle;
 
 import goburgertpv.database.connection.Funciones;
@@ -12,6 +13,9 @@ import goburgertpv.database.tables.Product;
 import goburgertpv.database.tables.Productos;
 import goburgertpv.utils.CustomButton;
 import goburgertpv.utils.CustomHBox;
+import javafx.beans.property.ObjectProperty;
+import javafx.beans.property.SimpleObjectProperty;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -19,20 +23,28 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.TextInputDialog;
+import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
+import javafx.util.converter.NumberStringConverter;
+import models.TicketModel;
 import models.VistaPrincipalModel;
 
 public class TPVController implements Initializable {
+	
+	private ObjectProperty<VistaPrincipalModel> vistaTPV = new SimpleObjectProperty<>();
 
 	@FXML
 	private BorderPane view;
@@ -62,16 +74,16 @@ public class TPVController implements Initializable {
 	private Button btnMenos;
 
 	@FXML
-	private TableView<?> tableCuenta;
+	private TableView<TicketModel> tableCuenta;
 
 	@FXML
-	private TableColumn<?, ?> columnDescripcion;
+	private TableColumn<TicketModel, String> columnDescripcion;
 
 	@FXML
-	private TableColumn<?, ?> columnCant;
+	private TableColumn<TicketModel, Number> columnCant;
 
 	@FXML
-	private TableColumn<?, ?> columnTotal;
+	private TableColumn<TicketModel, Number> columnTotal;
 
 	@FXML
 	private Button btnModificar;
@@ -149,27 +161,54 @@ public class TPVController implements Initializable {
 
 	@FXML
 	void onClickAplicarDescuento(ActionEvent event) {
-
+		ArrayList<TicketModel> descuento = new ArrayList<TicketModel>();
+		TicketModel ticket = new TicketModel();
+		ticket.setDescripcion("Descuento");
+		ticket.setCantidad(1);
+		ticket.setTotal(-1.25);
+		descuento.add(ticket);
+		tableCuenta.getItems().addAll(descuento);
+		btnDescuento.setDisable(true);
 	}
 
 	@FXML
+    void onActionTotal(ActionEvent event) {
+    	double total = 0;
+		for (TicketModel item : tableCuenta.getItems()) {
+			total = total + item.getTotal();
+			total = Math.round(total*100.0)/100.0;
+			txtTotalCuenta.setText(String.valueOf(total));
+		}
+    }
+	
+	@FXML
 	void onClickAñadirCantidad(ActionEvent event) {
-
+		int cantidad;
+		TicketModel cant = tableCuenta.getSelectionModel().getSelectedItem();
+		cantidad = cant.getCantidad();
+		double total = tableCuenta.getSelectionModel().getSelectedItem().getTotal();
+		double unidad = cant.getTotal()/cant.getCantidad();
+		tableCuenta.getSelectionModel().getSelectedItem().setTotal(unidad+total);
+		cant.setCantidad(cantidad+1);
 	}
 
 	@FXML
 	void onClickBajarProducto(ActionEvent event) {
-
+		int indice = tableCuenta.getSelectionModel().getSelectedIndex();
+		tableCuenta.getSelectionModel().select(indice+1);
 	}
 
 	@FXML
 	void onClickCancelarPedido(ActionEvent event) {
-
+		Alert alert = new Alert(AlertType.CONFIRMATION, "¿Desea cancelar el pedido?", ButtonType.YES, ButtonType.NO);
+		alert.showAndWait();
+		if (alert.getResult() == ButtonType.YES) {
+			tableCuenta.getItems().clear();
+		}
 	}
 
 	@FXML
 	void onClickComplementos(ActionEvent event) {
-
 		rellenarProductos(model.getComplementosList(), model.getComplementosButtonList());
 	}
 
@@ -180,7 +219,7 @@ public class TPVController implements Initializable {
 
 	@FXML
 	void onClickEliminarProducto(ActionEvent event) {
-
+		tableCuenta.getItems().removeAll(tableCuenta.getSelectionModel().getSelectedItems());
 	}
 
 	@FXML
@@ -195,9 +234,7 @@ public class TPVController implements Initializable {
 
 	@FXML
 	void onClickHamburguesas(ActionEvent event) {
-
 		rellenarProductos(model.getHamburguesasList(), model.getHamburguesasButtonList());
-
 	}
 
 	@FXML
@@ -209,41 +246,82 @@ public class TPVController implements Initializable {
 	@FXML
 	void onClickMenus(ActionEvent event) {
 		rellenarProductos(model.getMenusList(), model.getMenusButtonList());
-
 	}
 
 	@FXML
 	void onClickModificarCuenta(ActionEvent event) {
-
+		TextInputDialog dialog = new TextInputDialog();
+		
+		dialog.setTitle("Modificar Cantidad");
+		dialog.setHeaderText("Modificar Cantidad");
+		dialog.setContentText("Cantidad:");
+		
+		Stage stage = (Stage) dialog.getDialogPane().getScene().getWindow();
+		
+		dialog.getDialogPane().lookupButton(ButtonType.OK).disableProperty().bind(
+			dialog.getEditor().textProperty().isEmpty()
+		);
+		
+		Optional<String> result = dialog.showAndWait();
+		if (result.isPresent()) {
+			TicketModel ticket = tableCuenta.getSelectionModel().getSelectedItem();
+			double unidad = ticket.getTotal()/ticket.getCantidad();
+			ticket.setTotal(unidad*Integer.parseInt(result.get()));
+			ticket.setCantidad(Integer.parseInt(result.get()));
+		}
 	}
 
 	@FXML
 	void onClickPagarCuenta(ActionEvent event) {
-
+		double total = 0;
+		for (TicketModel item : tableCuenta.getItems()) {
+			total = total + item.getTotal();
+			total = Math.round(total*100.0)/100.0;
+			txtTotalCuenta.setText(String.valueOf(total));
+		}
+		Alert alert = new Alert(AlertType.INFORMATION);
+		alert.setTitle("Pedido completado");
+		alert.setHeaderText("Pedido finalizado");
+		alert.setContentText("El pedido se ha completado");
+		alert.showAndWait();
+		tableCuenta.getItems().clear();
 	}
 
 	@FXML
 	void onClickParaLlevar(ActionEvent event) {
-
+		ArrayList<TicketModel> llevar = new ArrayList<TicketModel>();
+		TicketModel ticket = new TicketModel();
+		ticket.setDescripcion("Bolsa");
+		ticket.setCantidad(1);
+		ticket.setTotal(0.10);
+		llevar.add(ticket);
+		tableCuenta.getItems().addAll(llevar);
+		btnParaLlevar.setDisable(true);
 	}
 
 	@FXML
 	void onClickPostres(ActionEvent event) {
-
 		rellenarProductos(model.getPostresList(), model.getPostresButtonList());
-
 	}
 
 	@FXML
 	void onClickQuitarCantidad(ActionEvent event) {
-
+		int cantidad;
+		TicketModel cant = tableCuenta.getSelectionModel().getSelectedItem();
+		cantidad = cant.getCantidad();
+		if (cantidad < 1 || cantidad == 1) {
+			tableCuenta.getItems().removeAll(tableCuenta.getSelectionModel().getSelectedItems());
+		} else {
+			double total = tableCuenta.getSelectionModel().getSelectedItem().getTotal();
+			double unidad = cant.getTotal()/cant.getCantidad();
+			tableCuenta.getSelectionModel().getSelectedItem().setTotal(total-unidad);
+			cant.setCantidad(cantidad-1);
+		}
 	}
 
 	@FXML
 	void onClickRefrescos(ActionEvent event) {
-
 		rellenarProductos(model.getBebidasList(), model.getBebidasButtonList());
-
 	}
 
 	public VistaPrincipalModel getModel() {
@@ -261,12 +339,22 @@ public class TPVController implements Initializable {
 
 	@FXML
 	void onClickSubirProducto(ActionEvent event) {
-
+		int indice = tableCuenta.getSelectionModel().getSelectedIndex();
+		tableCuenta.getSelectionModel().select(indice-1);
 	}
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
+		columnDescripcion.setCellValueFactory(v -> v.getValue().descripcionProperty());
+		columnTotal.setCellValueFactory(v -> v.getValue().totalProperty());
+		columnCant.setCellValueFactory(v -> v.getValue().cantidadProperty());
 
+        columnDescripcion.setCellFactory(TextFieldTableCell.forTableColumn());
+        columnTotal.setCellFactory(TextFieldTableCell.forTableColumn(new NumberStringConverter()));
+        columnCant.setCellFactory(TextFieldTableCell.forTableColumn(new NumberStringConverter()));
+
+        this.vistaTPV.addListener((o, ov, nv) -> onVistaChanged(o, ov, nv));
+        
 		productosScrollPane.setStyle("-fx-background-image:url('/images/logo3sin.png');-fx-background-size: contain;\n"
 				+ "-fx-background-repeat: no-repeat;\n" + "-fx-background-position: center;");
 		productosScrollPane.setFitToWidth(true);
@@ -323,6 +411,12 @@ public class TPVController implements Initializable {
 
 	}
 
+	private Object onVistaChanged(ObservableValue<? extends VistaPrincipalModel> o, VistaPrincipalModel ov,
+			VistaPrincipalModel nv) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 	private void rellenarProductos(ObservableList<Productos> productosList, ObservableList<CustomButton> buttonList) {
 		productosBox.getChildren().clear();
 		ArrayList<CustomHBox> rows = new ArrayList<CustomHBox>();
@@ -340,21 +434,12 @@ public class TPVController implements Initializable {
 					.subtract(buttonList.get(0).widthProperty().multiply(5)).divide(5));
 
 		}
-		
-		
-	
-
 		productosBox.getChildren().addAll(rows);
 	}
 
 	private void onProductoButtonAction(Productos producto) {
-		Alert successAlert = new Alert(AlertType.INFORMATION);
-		successAlert.setTitle(producto.getNombre());
-		successAlert.setHeaderText("Acceso permitido");
-		successAlert.setContentText(producto.getDescription() + " " + producto.getPrecio());
-
-		successAlert.showAndWait();
-
+		TicketModel ticketActual = new TicketModel(producto);
+		tableCuenta.getItems().addAll(ticketActual);
 	}
 
 	public BorderPane getView() {

@@ -76,7 +76,7 @@ public class MainController implements Initializable {
 				if (user.isAdministrador())
 					model.setAdministrador(true);
 				App.getPrimaryStage().setScene(new Scene(tpvController.getView()));
-
+				App.getPrimaryStage().setMaximized(true);
 			}
 
 		}
