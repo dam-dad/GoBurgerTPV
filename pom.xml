@@ -74,7 +74,6 @@
 							<goal>package</goal>
 						</goals>
 						<configuration>
-							<administratorRequired>true</administratorRequired>
 							<mainClass>goburgertpv.Main</mainClass>
 							<customizedJre>false</customizedJre>
 							<bundleJre>true</bundleJre>
