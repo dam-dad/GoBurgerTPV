@@ -44,6 +44,17 @@ public class VistaPrincipalModel {
 	private static ListProperty<Productos> menusList=new SimpleListProperty<Productos>(FXCollections.observableArrayList(new ArrayList<Productos>()));
 	private static ListProperty<Productos> postresList=new SimpleListProperty<Productos>(FXCollections.observableArrayList(new ArrayList<Productos>()));
 	private static ListProperty<Users> userList=new SimpleListProperty<Users>(FXCollections.observableArrayList(new ArrayList<Users>()));
+	 private List<Ticket> ticketList=new ArrayList<Ticket>();
+	    
+	    public List<Ticket> getTicketList() {
+			return ticketList;
+		}
+
+		public void setTicketList(List<Ticket> ticketList) {
+			this.ticketList = ticketList;
+		}
+
+	
 	/**
 	 * 
 	 * @return

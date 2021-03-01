@@ -51,6 +51,7 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.util.converter.NumberStringConverter;
+import models.Ticket;
 import models.TicketModel;
 import models.VistaPrincipalModel;
 import net.sf.jasperreports.engine.JRException;
@@ -303,15 +304,29 @@ public class TPVController implements Initializable {
 	 */
 	@FXML
 	void onClickEnviarPdf(ActionEvent event) throws JRException, IOException {
+		
+		rellenarTicket();
 		JasperPrint print = null;
-		JasperReport report = JasperCompileManager.compileReport(TPVController.class.getResourceAsStream("/reports/goburger_report.jrxml"));		
+		JasperReport report = JasperCompileManager.compileReport(TPVController.class.getResourceAsStream("/reports/Ticket.jrxml"));		
 		Map<String, Object> parameters = new HashMap<String, Object>();
 		// BufferedImage image = ImageIO.read(getClass().getResource("/images/logo3.png"));
 		// parameters.put("Image", image );
-		print = JasperFillManager.fillReport(report, parameters, new JRBeanCollectionDataSource(model.getBebidasList()));
+		print = JasperFillManager.fillReport(report, parameters, new JRBeanCollectionDataSource(model.getTicketList()));
 		JasperExportManager.exportReportToPdfFile(print, "Bebidas.pdf");    
 		Desktop.getDesktop().open(new File("Bebidas.pdf"));
 	}
+	private void rellenarTicket() {
+		for (TicketModel ticket : tableCuenta.getItems()) {
+			Ticket producto=new Ticket();
+			producto.setCantidad(ticket.getCantidad());
+			producto.setDescripcion(ticket.getDescripcion());
+			producto.setPrecio(ticket.getTotal());	
+			producto.setTotal(model.getTotalCuentaText());
+			model.getTicketList().add(producto);
+			
+		}
+	}
+
 	/**
 	 * 
 	 * 

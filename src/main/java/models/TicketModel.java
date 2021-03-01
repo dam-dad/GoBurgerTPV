@@ -1,5 +1,8 @@
 package models;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import goburgertpv.database.tables.Product;
 import goburgertpv.database.tables.Productos;
 import javafx.beans.property.DoubleProperty;
@@ -18,8 +21,8 @@ public class TicketModel {
     private StringProperty descripcion = new SimpleStringProperty();
     private IntegerProperty cantidad = new SimpleIntegerProperty();
     private DoubleProperty total = new SimpleDoubleProperty();
-
-    /**
+   
+	/**
      * Constructor de la clase
      * 
      * @param producto
