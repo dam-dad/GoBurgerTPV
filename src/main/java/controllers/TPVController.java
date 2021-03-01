@@ -309,11 +309,11 @@ public class TPVController implements Initializable {
 		JasperPrint print = null;
 		JasperReport report = JasperCompileManager.compileReport(TPVController.class.getResourceAsStream("/reports/Ticket.jrxml"));		
 		Map<String, Object> parameters = new HashMap<String, Object>();
-		// BufferedImage image = ImageIO.read(getClass().getResource("/images/logo3.png"));
-		// parameters.put("Image", image );
+		//BufferedImage image = ImageIO.read(getClass().getResource("/reports/logo3.png"));
+		parameters.put("logo", TPVController.class.getResource("/images/logo3.png").toExternalForm());
 		print = JasperFillManager.fillReport(report, parameters, new JRBeanCollectionDataSource(model.getTicketList()));
-		JasperExportManager.exportReportToPdfFile(print, "Bebidas.pdf");    
-		Desktop.getDesktop().open(new File("Bebidas.pdf"));
+		JasperExportManager.exportReportToPdfFile(print, "Ticket.pdf");    
+		Desktop.getDesktop().open(new File("Ticket.pdf"));
 	}
 	private void rellenarTicket() {
 		for (TicketModel ticket : tableCuenta.getItems()) {
@@ -321,9 +321,9 @@ public class TPVController implements Initializable {
 			producto.setCantidad(ticket.getCantidad());
 			producto.setDescripcion(ticket.getDescripcion());
 			producto.setPrecio(ticket.getTotal());	
-			producto.setTotal(model.getTotalCuentaText());
+			double total = Math.round((model.getTotalCuentaText()*100.0)/100.0);
+			producto.setTotal(total);
 			model.getTicketList().add(producto);
-			
 		}
 	}
 

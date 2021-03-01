@@ -9,6 +9,7 @@ public class Ticket {
     private int cantidad ;
     private double precio ;
     private double total;
+    
 	public double getPrecio() {
 		return precio;
 	}
@@ -32,7 +33,5 @@ public class Ticket {
 	}
 	public void setTotal(double total) {
 		this.total = total;
-	}
-
-    
+	}  
 }
