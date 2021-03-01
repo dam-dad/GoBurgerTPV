@@ -11,6 +11,12 @@ Terminal de Punto de Venta (TPV) en JavaFX
 
 ------
 
+##### INSTALACIÓN
+
+Puedes instalar la aplicación desde [aquí]()
+
+------
+
 ##### **PROYECTO**
 
 El proyecto es el desarrollo de una aplicación que se use en los terminales de punto de venta, que tenga un control sobre los usuarios que tienen acceso a la aplicación mediante un inicio de sesión cuyos datos son guardados en una base de datos de hibérnate, donde también se almacenan los productos disponibles para seleccionar dentro de la aplicación.

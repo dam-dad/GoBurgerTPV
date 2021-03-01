@@ -64,9 +64,9 @@
 	<build>
 		<plugins>
 			<plugin>
-				<groupId>goburgertpv</groupId>
-				<artifactId>goburgertpv</artifactId>
-				<version>1.0.0</version>
+				<groupId>io.github.fvarrui</groupId>
+				<artifactId>javapackager</artifactId>
+				<version>1.5.1</version>
 				<executions>
 					<execution>
 						<phase>package</phase>
@@ -74,14 +74,16 @@
 							<goal>package</goal>
 						</goals>
 						<configuration>
+							<administratorRequired>true</administratorRequired>
 							<mainClass>goburgertpv.Main</mainClass>
+							<customizedJre>false</customizedJre>
 							<bundleJre>true</bundleJre>
 							<organizationName>Go Burger TPV</organizationName>
 							<additionalResources>
 								<additionalResource>README.md</additionalResource>
 							</additionalResources>
 							<winConfig>
-								<icoFile>earth.ico</icoFile>
+								<icoFile>logo3.ico</icoFile>
 								<generateMsi>false</generateMsi>
 							</winConfig>
 							<createZipball>true</createZipball>
