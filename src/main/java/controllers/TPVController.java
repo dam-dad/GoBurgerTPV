@@ -498,6 +498,7 @@ public class TPVController implements Initializable {
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
+		btnEnviarCuenta.setDisable(true);
 		model.setIgicText(7);
 		txtIgic.textProperty().bind(model.igicTextProperty().asString());
 		
