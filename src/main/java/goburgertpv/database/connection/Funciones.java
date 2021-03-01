@@ -9,13 +9,16 @@ import org.hibernate.Transaction;
 
 import goburgertpv.database.tables.Productos;
 import goburgertpv.database.tables.Users;
-
+/**
+ * 
+ * @author Michael,Ignacio,Tamara
+ *
+ */
 public class Funciones {
 	//TODO cambiar la incialización de session por la del modelo
 	private static Session session= HibernateUtil.getSessionFactory().openSession();
 	//TODO crear modelo con las listas de productos en local
-	
-	
+
 	@SuppressWarnings("unchecked")
 	public static List<Productos> getProductos() {
 

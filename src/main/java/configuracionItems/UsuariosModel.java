@@ -4,7 +4,11 @@ import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.SimpleBooleanProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
-
+/**
+ * 
+ * @author Michael,Ignacio,Tamara
+ *
+ */
 public class UsuariosModel {
 
 	private StringProperty usuario = new SimpleStringProperty();

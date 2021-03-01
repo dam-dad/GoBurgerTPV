@@ -2,10 +2,13 @@ package goburgertpv.utils;
 
 import javafx.scene.control.Button;
 import javafx.scene.image.ImageView;
-
+/**
+ * 
+ * @author Michael,Ignacio,Tamara
+ *
+ */
 public class CustomButton extends Button {
 
-	
 	public CustomButton(Double precio,String imagePath ) {
 		super();
 		
@@ -18,10 +21,5 @@ public class CustomButton extends Button {
 		this.setGraphic(image);
 		this.setText(precio.toString()+" €");
 		this.setContentDisplay(getContentDisplay().TOP);
-	
-		
 	}
-
-
-
 }

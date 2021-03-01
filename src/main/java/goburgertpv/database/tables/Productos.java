@@ -14,7 +14,11 @@ import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
-
+/**
+ * 
+ * @author Michael,Ignacio,Tamara
+ *
+ */
 @SuppressWarnings("serial")
 @Entity
 @Table(name = "Productos")

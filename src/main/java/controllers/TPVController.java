@@ -60,11 +60,17 @@ import net.sf.jasperreports.engine.JasperFillManager;
 import net.sf.jasperreports.engine.JasperPrint;
 import net.sf.jasperreports.engine.JasperReport;
 import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
-
+/**
+ * Controller de la Vista Principal
+ * 
+ * @author Michael,Ignacio,Tamara
+ *
+ */
 public class TPVController implements Initializable {
 	
 	private ObjectProperty<VistaPrincipalModel> vistaTPV = new SimpleObjectProperty<>();
 
+	// View
 	@FXML
 	private BorderPane view;
 
@@ -172,13 +178,22 @@ public class TPVController implements Initializable {
 
 	private VistaPrincipalModel model = new VistaPrincipalModel();
 	
-
+	/**
+	 * Constructor de la clase
+	 * 
+	 * @throws IOException
+	 */
 	public TPVController() throws IOException {
 		FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/VistaPrincipal.fxml"));
 		loader.setController(this);
 		loader.load();
 	}
 
+	/**
+	 * Método asociado al botón Descuento
+	 * 
+	 * @param event
+	 */
 	@FXML
 	void onClickAplicarDescuento(ActionEvent event) {
 		ArrayList<TicketModel> descuento = new ArrayList<TicketModel>();
@@ -197,6 +212,11 @@ public class TPVController implements Initializable {
 		
     }
 	
+	/**
+	 * Método asociado al botón Añadir
+	 * 
+	 * @param event 
+	 */
 	@FXML
 	void onClickAñadirCantidad(ActionEvent event) {
 		try {
@@ -211,13 +231,22 @@ public class TPVController implements Initializable {
 		}catch(Exception e){}
 		
 	}
-
+	/**
+	 * Método asociado al botón Bajar
+	 * 
+	 * @param event
+	 */
 	@FXML
 	void onClickBajarProducto(ActionEvent event) {
 		int indice = tableCuenta.getSelectionModel().getSelectedIndex();
 		tableCuenta.getSelectionModel().select(indice+1);
 	}
 
+	/**
+	 * Método asociado al botón Cancelar
+	 * 
+	 * @param event
+	 */
 	@FXML
 	void onClickCancelarPedido(ActionEvent event) {
 		Alert alert = new Alert(AlertType.CONFIRMATION, "¿Desea cancelar el pedido?", ButtonType.YES, ButtonType.NO);
@@ -227,12 +256,20 @@ public class TPVController implements Initializable {
 			model.setTotalCuentaText(0);
 		}
 	}
-
+	/**
+	 * 
+	 * 
+	 * @param event
+	 */
 	@FXML
 	void onClickComplementos(ActionEvent event) {
 		rellenarProductos(model.getComplementosList(), model.getComplementosButtonList());
 	}
-
+	/**
+	 * Método asociado al botón Configuración
+	 * 
+	 * @param event
+	 */
 	@FXML
 	void onClickConfiguracion(ActionEvent event) {
 		Stage configStage =new Stage();
@@ -242,7 +279,11 @@ public class TPVController implements Initializable {
 		configStage.getIcons().add(new Image("/images/logoMini.png"));
 		configStage.show();
 	}
-
+	/**
+	 * Método asociado al botón Eliminar
+	 * 
+	 * @param event
+	 */
 	@FXML
 	void onClickEliminarProducto(ActionEvent event) {
 		model.setTotalCuentaText(model.getTotalCuentaText()-tableCuenta.getSelectionModel().getSelectedItem().getTotal());
@@ -253,7 +294,13 @@ public class TPVController implements Initializable {
 	void onClickEnviarCuenta(ActionEvent event) {
 
 	}
-
+	/**
+	 * Método asociado al botón PDF
+	 * 
+	 * @param event
+	 * @throws JRException
+	 * @throws IOException
+	 */
 	@FXML
 	void onClickEnviarPdf(ActionEvent event) throws JRException, IOException {
 		JasperPrint print = null;
@@ -265,23 +312,39 @@ public class TPVController implements Initializable {
 		JasperExportManager.exportReportToPdfFile(print, "Bebidas.pdf");    
 		Desktop.getDesktop().open(new File("Bebidas.pdf"));
 	}
-
+	/**
+	 * 
+	 * 
+	 * @param event
+	 */
 	@FXML
 	void onClickHamburguesas(ActionEvent event) {
 		rellenarProductos(model.getHamburguesasList(), model.getHamburguesasButtonList());
 	}
-
+	/**
+	 * Método asociado al botón Home
+	 * 
+	 * @param event
+	 */
 	@FXML
 	void onClickHome(ActionEvent event) {
 		productosBox.getChildren().clear();
 
 	}
-
+	/**
+	 * 
+	 * 
+	 * @param event
+	 */
 	@FXML
 	void onClickMenus(ActionEvent event) {
 		rellenarProductos(model.getMenusList(), model.getMenusButtonList());
 	}
-
+	/**
+	 * Método asociado al botón Modificar
+	 * 
+	 * @param event
+	 */
 	@FXML
 	void onClickModificarCuenta(ActionEvent event) {
 		TextInputDialog dialog = new TextInputDialog();
@@ -307,11 +370,13 @@ public class TPVController implements Initializable {
 			model.setTotalCuentaText(model.getTotalCuentaText()+ticket.getTotal());
 		}
 	}
-
+	/**
+	 * Método asociado al botón Pagar
+	 * 
+	 * @param event
+	 */
 	@FXML
 	void onClickPagarCuenta(ActionEvent event) {
-		
-		
 		Alert alert = new Alert(AlertType.INFORMATION);
 		alert.setTitle("Pedido completado");
 		alert.setHeaderText("Pedido finalizado");
@@ -320,7 +385,11 @@ public class TPVController implements Initializable {
 		tableCuenta.getItems().clear();
 		model.setTotalCuentaText(0);
 	}
-
+	/**
+	 * Método asociado al botón Para Llevar
+	 * 
+	 * @param event
+	 */
 	@FXML
 	void onClickParaLlevar(ActionEvent event) {
 		ArrayList<TicketModel> llevar = new ArrayList<TicketModel>();
@@ -333,12 +402,20 @@ public class TPVController implements Initializable {
 		model.setTotalCuentaText(model.getTotalCuentaText()+0.1);
 		btnParaLlevar.setDisable(true);
 	}
-
+	/**
+	 * 
+	 * 
+	 * @param event
+	 */
 	@FXML
 	void onClickPostres(ActionEvent event) {
 		rellenarProductos(model.getPostresList(), model.getPostresButtonList());
 	}
-
+	/** 
+	 * Método asociado al botón Quitar
+	 * 
+	 * @param event
+	 */
 	@FXML
 	void onClickQuitarCantidad(ActionEvent event) {
 		int cantidad;
@@ -360,16 +437,28 @@ public class TPVController implements Initializable {
 		}catch(Exception e) {}
 
 	}
-
+	/**
+	 * 
+	 * 
+	 * @param event
+	 */
 	@FXML
 	void onClickRefrescos(ActionEvent event) {
 		rellenarProductos(model.getBebidasList(), model.getBebidasButtonList());
 	}
-
+	/**
+	 * 
+	 * 
+	 * @return
+	 */
 	public VistaPrincipalModel getModel() {
 		return model;
 	}
-
+	/**
+	 * 
+	 * 
+	 * @param model
+	 */
 	public void setModel(VistaPrincipalModel model) {
 		this.model = model;
 	}
@@ -378,7 +467,11 @@ public class TPVController implements Initializable {
 	void onClickSalir(ActionEvent event) {
 
 	}
-
+	/**
+	 * Método asociado en el botón Subir
+	 * 
+	 * @param event
+	 */
 	@FXML
 	void onClickSubirProducto(ActionEvent event) {
 		int indice = tableCuenta.getSelectionModel().getSelectedIndex();
@@ -459,11 +552,19 @@ public class TPVController implements Initializable {
 		model.getPostresList().addAll(postresList);
 
 	}
-
+	/**
+	 * 
+	 * 
+	 * @return
+	 */
 	public TextField getTxtEmpleado() {
 		return txtEmpleado;
 	}
-
+	/**
+	 * 
+	 * 
+	 * @param txtEmpleado
+	 */
 	public void setTxtEmpleado(TextField txtEmpleado) {
 		this.txtEmpleado = txtEmpleado;
 	}
@@ -473,7 +574,12 @@ public class TPVController implements Initializable {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
+	/**
+	 * 
+	 * 
+	 * @param productosList
+	 * @param buttonList
+	 */
 	private void rellenarProductos(ObservableList<Productos> productosList, ObservableList<CustomButton> buttonList) {
 		productosBox.getChildren().clear();
 		ArrayList<CustomHBox> rows = new ArrayList<CustomHBox>();
@@ -493,13 +599,21 @@ public class TPVController implements Initializable {
 		}
 		productosBox.getChildren().addAll(rows);
 	}
-
+	/**
+	 * 
+	 * 
+	 * @param producto
+	 */
 	private void onProductoButtonAction(Productos producto) {
 		TicketModel ticketActual = new TicketModel(producto);
 		tableCuenta.getItems().addAll(ticketActual);
 		model.setTotalCuentaText(model.getTotalCuentaText()+producto.getPrecio());
 	}
-
+	/**
+	 * 
+	 * 
+	 * @return
+	 */
 	public BorderPane getView() {
 		return view;
 	}

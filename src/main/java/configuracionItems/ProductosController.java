@@ -23,10 +23,14 @@ import javafx.scene.image.Image;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 import models.VistaPrincipalModel;
-
+/**
+ * 
+ * @author Michael,Ignacio,Tamara
+ *
+ */
 public class ProductosController implements Initializable {
 
-	// model
+	// Model
 	private AnadirProductosController anadir = new AnadirProductosController();
 	private IntegerProperty seleccionado = new SimpleIntegerProperty();
 	private ArrayList<Productos> listaBebidas = new ArrayList<Productos>();
@@ -35,7 +39,7 @@ public class ProductosController implements Initializable {
 	private ArrayList<Productos> listaMenus = new ArrayList<Productos>();
 	private ArrayList<Productos> listaPostres = new ArrayList<Productos>();
 
-	// view
+	// View
 	@FXML
 	private GridPane view;
 

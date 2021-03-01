@@ -25,13 +25,17 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import javafx.scene.control.Alert.AlertType;
-
+/**
+ * 
+ * @author Michael,Ignacio,Tamara
+ *
+ */
 public class AnadirUsuarioController implements Initializable {
 	
-	//model
+	// Model
 	private UsuariosModel usuario = new UsuariosModel(); 
 	
-	//view
+	// View
 	@FXML
     private GridPane view;
 	

@@ -7,7 +7,11 @@ import javafx.stage.Stage;
 import controllers.ConfiguracionController;
 import controllers.MainController;
 import controllers.TPVController;
-
+/**
+ * 
+ * @author Michael,Ignacio,Tamara
+ *
+ */
 public class App extends Application {
 
 	private static Stage primaryStage;

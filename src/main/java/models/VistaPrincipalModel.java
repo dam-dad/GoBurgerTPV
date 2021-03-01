@@ -19,7 +19,11 @@ import javafx.beans.property.StringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.control.Button;
-
+/**
+ * 
+ * @author Michael,Ignacio,Tamara
+ *
+ */
 public class VistaPrincipalModel {
 	
 	private DoubleProperty totalCuentaText=new SimpleDoubleProperty();
@@ -40,88 +44,153 @@ public class VistaPrincipalModel {
 	private static ListProperty<Productos> menusList=new SimpleListProperty<Productos>(FXCollections.observableArrayList(new ArrayList<Productos>()));
 	private static ListProperty<Productos> postresList=new SimpleListProperty<Productos>(FXCollections.observableArrayList(new ArrayList<Productos>()));
 	private static ListProperty<Users> userList=new SimpleListProperty<Users>(FXCollections.observableArrayList(new ArrayList<Users>()));
-	
-
+	/**
+	 * 
+	 * @return
+	 */
 	public final DoubleProperty totalCuentaTextProperty() {
 		return this.totalCuentaText;
 	}
-	
+	/**
+	 * Método getter del atributo TotalCuenta
+	 * 
+	 * @return
+	 */
 	public final double getTotalCuentaText() {
 		return this.totalCuentaTextProperty().get();
 	}
-	
+	/**
+	 * Método setter del atributo TotalCuenta
+	 * 
+	 * @param totalCuentaText
+	 */
 	public final void setTotalCuentaText(final double totalCuentaText) {
 		this.totalCuentaTextProperty().set(totalCuentaText);
 	}
-	
+	/**
+	 * 
+	 * @return
+	 */
 	public final DoubleProperty precioSinTaxTextProperty() {
 		return this.precioSinTaxText;
 	}
-	
+	/**
+	 * Método getter del atributo PrecioSinTax
+	 * 
+	 * @return
+	 */
 	public final double getPrecioSinTaxText() {
 		return this.precioSinTaxTextProperty().get();
 	}
-	
+	/**
+	 * Método setter del atributo PrecioSinTax
+	 * 
+	 * @param precioSinTaxText
+	 */
 	public final void setPrecioSinTaxText(final double precioSinTaxText) {
 		this.precioSinTaxTextProperty().set(precioSinTaxText);
 	}
-	
+	/**
+	 * 
+	 * @return
+	 */
 	public final DoubleProperty precioDescuentoTextProperty() {
 		return this.precioDescuentoText;
 	}
-	
+	/**
+	 * Método getter del atributo PrecioDescuento
+	 * 
+	 * @return
+	 */
 	public final double getPrecioDescuentoText() {
 		return this.precioDescuentoTextProperty().get();
 	}
-	
+	/**
+	 * Método setter del atributo PrecioDescuento
+	 * 
+	 * @param precioDescuentoText
+	 */
 	public final void setPrecioDescuentoText(final double precioDescuentoText) {
 		this.precioDescuentoTextProperty().set(precioDescuentoText);
 	}
-	
+	/**
+	 * 
+	 * @return
+	 */
 	public final DoubleProperty igicTextProperty() {
 		return this.igicText;
 	}
-	
+	/**
+	 * Método getter del atributo Igic
+	 * 
+	 * @return
+	 */
 	public final double getIgicText() {
 		return this.igicTextProperty().get();
 	}
-	
+	/**
+	 * Método setter del atributo Igic
+	 * 
+	 * @param igicText
+	 */
 	public final void setIgicText(final double igicText) {
 		this.igicTextProperty().set(igicText);
 	}
-	
+	/**
+	 * 
+	 * @return
+	 */
 	public final StringProperty empleadoTextProperty() {
 		return this.empleadoText;
 	}
-	
+	/**
+	 * Método getter del atributo Empleado
+	 * 
+	 * @return
+	 */
 	public final String getEmpleadoText() {
 		return this.empleadoTextProperty().get();
 	}
-	
+	/**
+	 * Método setter del atributo Empleado
+	 * 
+	 * @param empleadoText
+	 */
 	public final void setEmpleadoText(final String empleadoText) {
 		this.empleadoTextProperty().set(empleadoText);
 	}
-	
+	/**
+	 * 
+	 * @return
+	 */
 	public final ObjectProperty<LocalDate> fechaTextProperty() {
 		return this.fechaText;
 	}
-	
+	/**
+	 * Método getter del atributo Fecha
+	 * 
+	 * @return
+	 */
 	public final LocalDate getFechaText() {
 		return this.fechaTextProperty().get();
 	}
-	
+	/**
+	 * Método setter del atributo Fecha
+	 * 
+	 * @param fechaText
+	 */
 	public final void setFechaText(final LocalDate fechaText) {
 		this.fechaTextProperty().set(fechaText);
 	}
-	
+
 	public final ListProperty<CustomButton> bebidasButtonListProperty() {
 		return this.bebidasButtonList;
 	}
-	
+
 	public final ObservableList<CustomButton> getBebidasButtonList() {
 		return this.bebidasButtonListProperty().get();
 	}
-	
+
 	public final void setBebidasButtonList(final ObservableList<CustomButton> bebidasButtonList) {
 		this.bebidasButtonListProperty().set(bebidasButtonList);
 	}

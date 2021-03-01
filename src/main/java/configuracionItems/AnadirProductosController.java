@@ -20,7 +20,11 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
-
+/**
+ * 
+ * @author Michael,Ignacio,Tamara
+ *
+ */
 public class AnadirProductosController implements Initializable {
 
 	// model

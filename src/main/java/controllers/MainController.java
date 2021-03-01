@@ -38,14 +38,19 @@ import javafx.scene.layout.GridPane;
 import javafx.util.Duration;
 import models.MainModel;
 import models.VistaPrincipalModel;
-
+/**
+ * Controller de la Vista Inicio Sesión
+ * 
+ * @author Michael,Ignacio,Tamara
+ *
+ */
 public class MainController implements Initializable {
 
 	// Controllers
 	TPVController tpvController; 
 
 	// Model
-//	private ObjectProperty<MainModel> model = new SimpleObjectProperty<>();
+	// private ObjectProperty<MainModel> model = new SimpleObjectProperty<>();
 	MainModel model = new MainModel();
 
 	// View
@@ -72,7 +77,12 @@ public class MainController implements Initializable {
 
 	@FXML
 	private ImageView imageView;
-
+	/**
+	 * Método asociado al botón Acceder
+	 * 
+	 * @param event
+	 * @throws IOException
+	 */
 	@FXML
 	void onActionAcceder(ActionEvent event) throws IOException {
 
@@ -104,7 +114,11 @@ public class MainController implements Initializable {
 	void onActionCancelar(ActionEvent event) {
 
 	}
-
+	/**
+	 * Constructor de la clase
+	 * 
+	 * @throws IOException
+	 */
 	public MainController() throws IOException {
 		FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/VistaInicioSesion.fxml"));
 		loader.setController(this);
@@ -123,15 +137,23 @@ public class MainController implements Initializable {
 		imagenTransition();
 
 	}
-
+	/**
+	 * 
+	 * @return
+	 */
 	public MainModel getModel() {
 		return model;
 	}
-
+	/**
+	 * 
+	 * @param model
+	 */
 	public void setModel(MainModel model) {
 		this.model = model;
 	}
-
+	/**
+	 * Método para la transición de la imagen
+	 */
 	private void imagenTransition() {
 		/*
 		 * RotateTransition rt = new RotateTransition(); rt.setNode(imageView);
@@ -167,7 +189,10 @@ public class MainController implements Initializable {
 //	private void onInicioSesionChanged(ObservableValue<? extends MainModel> o, MainModel ov, MainModel nv) {
 //
 //	}
-
+	/**
+	 * 
+	 * @return
+	 */
 	public GridPane getView() {
 		return view;
 	}

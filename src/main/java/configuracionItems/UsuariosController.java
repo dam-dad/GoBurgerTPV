@@ -24,15 +24,19 @@ import javafx.scene.image.Image;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 import models.VistaPrincipalModel;
-
+/**
+ * 
+ * @author Michael,Ignacio,Tamara
+ *
+ */
 public class UsuariosController implements Initializable {
 	
-	//model
+	// Model
 	private AnadirUsuarioController anadir = new AnadirUsuarioController();
 	private IntegerProperty seleccionado = new SimpleIntegerProperty();
 	private ArrayList<Users> listaUsers = new ArrayList<Users>();
 	
-	// view
+	// View
 	@FXML
 	private GridPane view;
 	 

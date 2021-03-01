@@ -12,11 +12,14 @@ import org.hibernate.Transaction;
 import goburgertpv.database.tables.Product;
 import goburgertpv.database.tables.Productos;
 import goburgertpv.database.tables.Users;
-
+/**
+ * 
+ * @author Michael,Ignacio,Tamara
+ *
+ */
 public class RellenarDatos {
 
 	public static void rellenar() {
-		
 		ArrayList<Productos> bebidasList=new ArrayList<Productos>();
 		ArrayList<Productos> hamburguesasList=new ArrayList<Productos>();
 		ArrayList<Productos> complementosList=new ArrayList<Productos>();
@@ -36,7 +39,6 @@ public class RellenarDatos {
 			menusList.add(new Productos("menu "+i, "descripción de prueba "+i, DoubleRounder.round(Math.random()*1300/100, 2), Product.menu));
 			postresList.add(new Productos("postres "+i, "descripción de prueba "+i, DoubleRounder.round(Math.random()*8, 2), Product.postre));
 		}
-		
 		
 		Transaction transaction=Funciones.getSession().beginTransaction();
 	

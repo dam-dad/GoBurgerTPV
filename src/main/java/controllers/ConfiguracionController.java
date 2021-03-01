@@ -20,15 +20,21 @@ import javafx.scene.control.ToggleButton;
 import javafx.scene.image.Image;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
-
+/**
+ * Controller de la Vista Configuración
+ * 
+ * @author Michael,Ignacio,Tamara
+ *
+ */
 public class ConfiguracionController implements Initializable {
 
+	// Model
 	private MainController main = new MainController();
 	private Scene scene;
 	private ProductosController productos = new ProductosController();
 	private UsuariosController usuarios = new UsuariosController();
 
-	// view
+	// View
 	@FXML
 	private GridPane view;
 
@@ -49,18 +55,28 @@ public class ConfiguracionController implements Initializable {
 
 	@FXML
 	private ToggleButton btnTamaño;
-
+	/**
+	 * Constructor de la clase 
+	 * 
+	 * @throws IOException
+	 */
 	public ConfiguracionController() throws IOException {
 		FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/Configuracion.fxml"));
 		loader.setController(this);
 		loader.load();
 		scene=new Scene(this.getView());
 	}
-
+	/**
+	 * 
+	 * @return
+	 */
 	public Scene getScene() {
 		return scene;
 	}
-
+	/**
+	 * 
+	 * @param scene
+	 */
 	public void setScene(Scene scene) {
 		this.scene = scene;
 	}
@@ -70,7 +86,10 @@ public class ConfiguracionController implements Initializable {
 		btnControlarUsuario.setDisable(true);
 		btnControlarProductos.setDisable(true);
 	}
-
+	/**
+	 * 
+	 * @param event
+	 */
 	@FXML
 	void onClickCambiarTamaño(ActionEvent event) {
 		if (btnTamaño.isSelected()) {
@@ -102,7 +121,11 @@ public class ConfiguracionController implements Initializable {
 			}
 		}
 	}
-
+	/**
+	 * 
+	 * @param event
+	 * @throws IOException
+	 */
 	@FXML
 	void onClickCambiarUsuario(ActionEvent event) throws IOException {
 		App.getPrimaryStage().setScene(new Scene(main.getView()));
@@ -131,7 +154,10 @@ public class ConfiguracionController implements Initializable {
 		ventana.getIcons().add(new Image("/images/logoMini.png"));
 		ventana.show(); */
 	}
-
+	/**
+	 * 
+	 * @param event
+	 */
 	@FXML
 	void onClickModoNocturno(ActionEvent event) {
 		if (btnModoNocturno.isSelected()) {
@@ -166,12 +192,18 @@ public class ConfiguracionController implements Initializable {
 			}
 		}
 	}
-
+	/**
+	 * 
+	 * @param event
+	 */
 	@FXML
 	void onClickSalir(ActionEvent event) {
 		Platform.exit();
 	}
-
+	/**
+	 * 
+	 * @return
+	 */
 	public GridPane getView() {
 		return view;
 	}
