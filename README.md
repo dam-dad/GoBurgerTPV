@@ -62,7 +62,6 @@ En esta ventana se lleva a cabo toda la gestión de información sobre los pedid
 11. Botón que aplica un descuento predefinido en el ticket.
 12. Botón "para llevar" que añade al ticket la bolsa y se le añade el coste de la misma.
 13. Botón de cancelar el pedido que borra todos los datos.
-14. Botón que calcula el total y lo pone en el apartado 1.
 15. Botón de pagar, para completar el pedido.
 16. Botón Home, que permite reestablecer la ventana de productos.
 17. Botón Configuración, que permite abrir la ventana de configuración.
