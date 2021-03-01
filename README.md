@@ -13,7 +13,13 @@ Terminal de Punto de Venta (TPV) en JavaFX
 
 ##### INSTALACIÓN
 
-Puedes instalar la aplicación desde [aquí]()
+Puedes instalar la aplicación desde [aquí](https://github.com/dam-dad/GoBurgerTPV/releases/latest)
+
+------
+
+##### REQUISITOS DEL SISTEMA
+
+- Sistema operativo Windows.
 
 ------
 
@@ -75,9 +81,3 @@ En esta ventana tenemos la posibilidad de llevar a cabo un poco de configuració
 4. Botón que nos lleva a la ventana donde se controlan los productos (No funcional).
 5. Botón que nos lleva a la ventana de control de usuarios (No funcional).
 6. Botón que nos permite salir de la aplicación.
-
-------
-
-##### REQUISITOS DEL SISTEMA
-
-- Sistema operativo Windows.
