@@ -23,6 +23,7 @@ import goburgertpv.utils.CustomButton;
 import goburgertpv.utils.CustomHBox;
 import javafx.beans.binding.Bindings;
 import javafx.beans.property.ObjectProperty;
+import javafx.beans.property.Property;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.ObservableList;
@@ -228,7 +229,7 @@ public class TPVController implements Initializable {
 			double unidad = cant.getTotal()/cant.getCantidad();
 			tableCuenta.getSelectionModel().getSelectedItem().setTotal(unidad+total);
 			cant.setCantidad(cantidad+1);
-			model.setTotalCuentaText(model.getTotalCuentaText()+unidad);
+			model.setPrecioSinTaxText(model.getPrecioSinTaxText()+unidad);
 		}catch(Exception e){}
 		
 	}
@@ -254,7 +255,7 @@ public class TPVController implements Initializable {
 		alert.showAndWait();
 		if (alert.getResult() == ButtonType.YES) {
 			tableCuenta.getItems().clear();
-			model.setTotalCuentaText(0);
+			model.setPrecioSinTaxText(0);
 		}
 	}
 	/**
@@ -287,7 +288,7 @@ public class TPVController implements Initializable {
 	 */
 	@FXML
 	void onClickEliminarProducto(ActionEvent event) {
-		model.setTotalCuentaText(model.getTotalCuentaText()-tableCuenta.getSelectionModel().getSelectedItem().getTotal());
+		model.setPrecioSinTaxText(model.getPrecioSinTaxText()-tableCuenta.getSelectionModel().getSelectedItem().getTotal());
 		tableCuenta.getItems().removeAll(tableCuenta.getSelectionModel().getSelectedItems());
 	}
 
@@ -321,8 +322,10 @@ public class TPVController implements Initializable {
 			producto.setCantidad(ticket.getCantidad());
 			producto.setDescripcion(ticket.getDescripcion());
 			producto.setPrecio(ticket.getTotal());	
+
 			double total = Math.round((model.getTotalCuentaText()*100.0)/100.0);
 			producto.setTotal(total);
+
 			model.getTicketList().add(producto);
 		}
 	}
@@ -378,11 +381,11 @@ public class TPVController implements Initializable {
 		if (result.isPresent()) {
 			
 			TicketModel ticket = tableCuenta.getSelectionModel().getSelectedItem();
-			model.setTotalCuentaText(model.getTotalCuentaText()-ticket.getTotal());
+			model.setPrecioSinTaxText(model.getPrecioSinTaxText()-ticket.getTotal());
 			double unidad = ticket.getTotal()/ticket.getCantidad();
 			ticket.setTotal(unidad*Integer.parseInt(result.get()));
 			ticket.setCantidad(Integer.parseInt(result.get()));
-			model.setTotalCuentaText(model.getTotalCuentaText()+ticket.getTotal());
+			model.setPrecioSinTaxText(model.getPrecioSinTaxText()+ticket.getTotal());
 		}
 	}
 	/**
@@ -398,7 +401,7 @@ public class TPVController implements Initializable {
 		alert.setContentText("El pedido se ha completado");
 		alert.showAndWait();
 		tableCuenta.getItems().clear();
-		model.setTotalCuentaText(0);
+		model.setPrecioSinTaxText(0);
 	}
 	/**
 	 * Método asociado al botón Para Llevar
@@ -414,7 +417,7 @@ public class TPVController implements Initializable {
 		ticket.setTotal(0.10);
 		llevar.add(ticket);
 		tableCuenta.getItems().addAll(llevar);
-		model.setTotalCuentaText(model.getTotalCuentaText()+0.1);
+		model.setPrecioSinTaxText(model.getPrecioSinTaxText()+0.1);
 		btnParaLlevar.setDisable(true);
 	}
 	/**
@@ -448,7 +451,7 @@ public class TPVController implements Initializable {
 				
 			}
 			
-			model.setTotalCuentaText(model.getTotalCuentaText()-unidad);
+			model.setPrecioSinTaxText(model.getPrecioSinTaxText()-unidad);
 		}catch(Exception e) {}
 
 	}
@@ -495,12 +498,26 @@ public class TPVController implements Initializable {
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
+		model.setIgicText(7);
+		txtIgic.textProperty().bind(model.igicTextProperty().asString());
+		
+		txtIgic.setEditable(false);
+		Bindings.bindBidirectional(txtPrecioSin.textProperty(), model.precioSinTaxTextProperty() ,new NumberStringConverter());
+		
+		
+		model.totalCuentaTextProperty().bind( model.precioSinTaxTextProperty().add(model.precioSinTaxTextProperty().multiply( model.igicTextProperty()).divide(100)));
 		
 		Bindings.bindBidirectional(txtTotalCuenta.textProperty(), model.totalCuentaTextProperty() ,new NumberStringConverter());
-
 		
+		model.totalCuentaTextProperty().addListener((o,ov,nv)->{
+			model.setTotalCuentaText(Math.round((model.getTotalCuentaText()*100.0)/100.0));
+		});
+		
+		txtPrecioSin.setEditable(false);
 		txtTotalCuenta.setEditable(false);
 		txtTotalCuenta.setAlignment(Pos.CENTER);
+		
+		
 		
 		columnDescripcion.setCellValueFactory(v -> v.getValue().descripcionProperty());
 		columnTotal.setCellValueFactory(v -> v.getValue().totalProperty());
@@ -622,7 +639,8 @@ public class TPVController implements Initializable {
 	private void onProductoButtonAction(Productos producto) {
 		TicketModel ticketActual = new TicketModel(producto);
 		tableCuenta.getItems().addAll(ticketActual);
-		model.setTotalCuentaText(model.getTotalCuentaText()+producto.getPrecio());
+		model.setPrecioSinTaxText(model.getPrecioSinTaxText()+producto.getPrecio());
+		System.out.println(model.getTotalCuentaText());
 	}
 	/**
 	 * 

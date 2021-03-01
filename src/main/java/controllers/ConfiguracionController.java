@@ -128,11 +128,23 @@ public class ConfiguracionController implements Initializable {
 	 */
 	@FXML
 	void onClickCambiarUsuario(ActionEvent event) throws IOException {
-		App.getPrimaryStage().setScene(new Scene(main.getView()));
+	
+		
+		App.getPrimaryStage().close();
+		App.setMainController(new MainController());
+		App.setTpvController(new TPVController());
+		App.setConfiguracionController(new ConfiguracionController());
+		App.setPrimaryStage(new Stage());
+		
+		
 		Node source = (Node) event.getSource();
-	    Stage stage = (Stage) App.getConfiguracionController().getScene().getWindow();
+	    Stage stage = (Stage) getScene().getWindow();
 	    stage.close();
-	    App.setTpvController(new TPVController());
+	    App.getPrimaryStage().setScene(new Scene(App.getMainController().getView()));
+	    App.getPrimaryStage().setTitle("GoBurgerTPV");
+		App.getPrimaryStage().getIcons().add(new Image("/images/logoMini.png"));
+		App.getPrimaryStage().show();
+	   
 	}
 
 	@FXML

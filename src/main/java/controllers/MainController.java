@@ -86,27 +86,34 @@ public class MainController implements Initializable {
 	@FXML
 	void onActionAcceder(ActionEvent event) throws IOException {
 
-		tpvController=App.getTpvController();
-		String encryptedPass = DigestUtils.md2Hex(model.getContraseña());
-		tpvController.getModel().getUserList().addAll(Funciones.getUsers());
-		boolean datosCorrectos = false;
-		model.setUsuario(model.getUsuario().trim());
-		for (Users user : tpvController.getModel().getUserList()) {
-			if (user.getUsuario().equals(model.getUsuario()) && user.getPassword().equals(encryptedPass)) {
-				datosCorrectos = true;
-				if (user.isAdministrador())
-					model.setAdministrador(true);
-				tpvController.getTxtEmpleado().setText(user.getUsuario());
-				tpvController.getTxtEmpleado().setEditable(false);
-				App.getPrimaryStage().setScene(new Scene(tpvController.getView()));
-				App.getPrimaryStage().setMaximized(true);
+		try {
+			System.out.println(DigestUtils.md2Hex("michael"));
+			tpvController=App.getTpvController();
+			String encryptedPass = DigestUtils.md2Hex(model.getContraseña());
+			tpvController.getModel().getUserList().addAll(Funciones.getUsers());
+			boolean datosCorrectos = false;
+			model.setUsuario(model.getUsuario().trim());
+			for (Users user : tpvController.getModel().getUserList()) {
+				if (user.getUsuario().equals(model.getUsuario()) && user.getPassword().equals(encryptedPass)) {
+					datosCorrectos = true;
+					if (user.isAdministrador())
+						model.setAdministrador(true);
+					tpvController.getTxtEmpleado().setText(user.getUsuario());
+					tpvController.getTxtEmpleado().setEditable(false);
+					App.getPrimaryStage().setScene(new Scene(tpvController.getView()));
+					App.getPrimaryStage().setMaximized(true);
+				}
 			}
-
+			
+			if (!datosCorrectos) {
+				model.setUsuario("");
+				model.setContraseña("");
+			}
+		}catch(Exception e) {
+			
 		}
-		if (!datosCorrectos) {
-			model.setUsuario("");
-			model.setContraseña("");
-		}
+		
+		
 
 	}
 
