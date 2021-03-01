@@ -323,7 +323,7 @@ public class TPVController implements Initializable {
 			producto.setDescripcion(ticket.getDescripcion());
 			producto.setPrecio(ticket.getTotal());	
 
-			double total = Math.round((model.getTotalCuentaText()*100.0)/100.0);
+			double total = Math.round(model.getTotalCuentaText()*100.0)/100.0;
 			producto.setTotal(total);
 
 			model.getTicketList().add(producto);
