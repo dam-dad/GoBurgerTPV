@@ -509,9 +509,7 @@ public class TPVController implements Initializable {
 		
 		Bindings.bindBidirectional(txtTotalCuenta.textProperty(), model.totalCuentaTextProperty() ,new NumberStringConverter());
 		
-		model.totalCuentaTextProperty().addListener((o,ov,nv)->{
-			model.setTotalCuentaText(Math.round((model.getTotalCuentaText()*100.0)/100.0));
-		});
+		
 		
 		txtPrecioSin.setEditable(false);
 		txtTotalCuenta.setEditable(false);
