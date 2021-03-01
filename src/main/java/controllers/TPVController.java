@@ -5,12 +5,14 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import java.util.ResourceBundle;
+import java.util.concurrent.Callable;
 
 import javax.imageio.ImageIO;
 
@@ -323,8 +325,7 @@ public class TPVController implements Initializable {
 			producto.setDescripcion(ticket.getDescripcion());
 			producto.setPrecio(ticket.getTotal());	
 
-			double total = Math.round(model.getTotalCuentaText()*100.0)/100.0;
-			producto.setTotal(total);
+			producto.setTotal(model.getTotalFormateado());
 
 			model.getTicketList().add(producto);
 		}
@@ -508,7 +509,16 @@ public class TPVController implements Initializable {
 		
 		model.totalCuentaTextProperty().bind( model.precioSinTaxTextProperty().add(model.precioSinTaxTextProperty().multiply( model.igicTextProperty()).divide(100)));
 		
-		Bindings.bindBidirectional(txtTotalCuenta.textProperty(), model.totalCuentaTextProperty() ,new NumberStringConverter());
+		model.totalCuentaTextProperty().addListener((o,ov,nv)->{
+			DecimalFormat df = new DecimalFormat("0.00");
+			model.setTotalFormateado(df.format(nv)+" €");
+			
+		});
+		
+		txtTotalCuenta.textProperty().bind(model.totalFormateadoProperty());
+		
+		
+		
 		
 		
 		
@@ -583,6 +593,8 @@ public class TPVController implements Initializable {
 		model.getPostresList().addAll(postresList);
 
 	}
+
+
 	/**
 	 * 
 	 * 

@@ -8,7 +8,7 @@ public class Ticket {
     private String descripcion;
     private int cantidad ;
     private double precio ;
-    private double total;
+    private String total;
     
 	public double getPrecio() {
 		return precio;
@@ -28,10 +28,10 @@ public class Ticket {
 	public void setCantidad(int cantidad) {
 		this.cantidad = cantidad;
 	}
-	public double getTotal() {
+	public String getTotal() {
 		return total;
 	}
-	public void setTotal(double total) {
+	public void setTotal(String total) {
 		this.total = total;
 	}  
 }

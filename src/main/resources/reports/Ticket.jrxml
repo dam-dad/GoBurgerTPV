@@ -11,11 +11,11 @@
 	<field name="precio" class="java.lang.Double">
 		<fieldDescription><![CDATA[precio]]></fieldDescription>
 	</field>
-	<field name="total" class="java.lang.Double">
-		<fieldDescription><![CDATA[total]]></fieldDescription>
-	</field>
 	<field name="cantidad" class="java.lang.Integer">
 		<fieldDescription><![CDATA[cantidad]]></fieldDescription>
+	</field>
+	<field name="total" class="java.lang.String">
+		<fieldDescription><![CDATA[total]]></fieldDescription>
 	</field>
 	<background>
 		<band splitType="Stretch"/>
@@ -140,7 +140,7 @@
 		</band>
 	</detail>
 	<summary>
-		<band height="89" splitType="Stretch">
+		<band height="101" splitType="Stretch">
 			<textField>
 				<reportElement x="410" y="10" width="143" height="30" uuid="7179110c-39b8-4414-8698-a8c79d4bda0b">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="6645cce0-e070-42f4-a992-bf118832aff7"/>
