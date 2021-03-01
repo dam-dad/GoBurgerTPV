@@ -23,52 +23,59 @@
 	<title>
 		<band height="85" splitType="Stretch">
 			<staticText>
-				<reportElement x="21" y="27" width="100" height="30" forecolor="#D1A660" uuid="0db2d5be-8ee0-40f8-b065-fc2d6cf96e40"/>
+				<reportElement x="353" y="27" width="100" height="30" forecolor="#000000" uuid="0db2d5be-8ee0-40f8-b065-fc2d6cf96e40"/>
 				<box>
-					<pen lineWidth="3.0" lineStyle="Dashed" lineColor="#D1A660"/>
-					<topPen lineWidth="0.0" lineStyle="Dashed" lineColor="#D1A660"/>
+					<pen lineWidth="3.0" lineStyle="Solid" lineColor="#000000"/>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
 					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
-					<bottomPen lineWidth="3.0" lineStyle="Dashed" lineColor="#D1A660"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
 					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
 				</box>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font size="20" isBold="true" isUnderline="false"/>
+					<font fontName="Arial Black" size="20" isBold="true" isUnderline="false"/>
 				</textElement>
 				<text><![CDATA[Ticket]]></text>
 			</staticText>
 			<image>
-				<reportElement x="475" y="17" width="50" height="50" uuid="0ab5af4f-8f2a-4925-8725-8739285b0531"/>
+				<reportElement x="494" y="17" width="50" height="50" uuid="0ab5af4f-8f2a-4925-8725-8739285b0531"/>
 				<imageExpression><![CDATA[$P{logo}]]></imageExpression>
 			</image>
 		</band>
 	</title>
 	<pageHeader>
-		<band height="52" splitType="Stretch">
+		<band height="56" splitType="Stretch">
 			<textField pattern="HH:mm">
-				<reportElement x="236" y="11" width="100" height="30" forecolor="#D1A660" uuid="1111c6fd-795e-4b70-98e2-038522e8bb97"/>
+				<reportElement x="472" y="13" width="100" height="30" forecolor="#000000" uuid="1111c6fd-795e-4b70-98e2-038522e8bb97"/>
 				<box>
 					<pen lineWidth="1.0" lineStyle="Dashed"/>
-					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#D1A660"/>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
 					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
-					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#D1A660"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
 					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
 				</box>
 				<textElement textAlignment="Center" verticalAlignment="Middle"/>
 				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
 			</textField>
+			<rectangle>
+				<reportElement x="1" y="0" width="571" height="1" uuid="f6e06052-f7c8-4acf-a321-ea6a987125d9"/>
+				<graphicElement>
+					<pen lineWidth="1.0"/>
+				</graphicElement>
+			</rectangle>
 		</band>
 	</pageHeader>
 	<columnHeader>
-		<band height="38" splitType="Stretch">
+		<band height="41" splitType="Stretch">
 			<staticText>
-				<reportElement x="0" y="4" width="143" height="30" forecolor="#D1A660" uuid="9b2d3c6b-7b3f-4961-b044-edee03434cf6">
+				<reportElement x="0" y="11" width="143" height="30" forecolor="#000000" uuid="9b2d3c6b-7b3f-4961-b044-edee03434cf6">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="3e65e4f1-2b6e-4331-908d-99538649bf26"/>
 				</reportElement>
 				<box>
-					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#D1A660"/>
-					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#D1A660"/>
-					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#D1A660"/>
-					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#D1A660"/>
+					<pen lineWidth="1.25"/>
+					<topPen lineWidth="1.25" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.25" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.25" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.25" lineStyle="Solid" lineColor="#000000"/>
 				</box>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font isBold="true"/>
@@ -76,14 +83,11 @@
 				<text><![CDATA[Descripción]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="400" y="4" width="143" height="30" forecolor="#D1A660" uuid="5c04389d-8200-43ef-978c-e44d6299d4da">
+				<reportElement x="402" y="11" width="143" height="30" forecolor="#000000" uuid="5c04389d-8200-43ef-978c-e44d6299d4da">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="8e660ed9-aa80-442e-9417-5d59409b27fc"/>
 				</reportElement>
 				<box>
-					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#D1A660"/>
-					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#D1A660"/>
-					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#D1A660"/>
-					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#D1A660"/>
+					<pen lineWidth="1.25"/>
 				</box>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font isBold="true"/>
@@ -91,20 +95,23 @@
 				<text><![CDATA[Precio]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="215" y="4" width="143" height="30" forecolor="#D1A660" uuid="32d503ba-cd5f-441a-90fd-1c03cb96fd52">
+				<reportElement x="215" y="11" width="143" height="30" forecolor="#000000" uuid="32d503ba-cd5f-441a-90fd-1c03cb96fd52">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="353167ea-abde-4f9b-91dc-cfadd63620b0"/>
 				</reportElement>
 				<box>
-					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#D1A660"/>
-					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#D1A660"/>
-					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#D1A660"/>
-					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#D1A660"/>
+					<pen lineWidth="1.25"/>
 				</box>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font isBold="true"/>
 				</textElement>
 				<text><![CDATA[Cantidad]]></text>
 			</staticText>
+			<rectangle>
+				<reportElement x="1" y="0" width="571" height="1" uuid="99d619d0-0e4f-417a-b8b0-92baebd9bab0"/>
+				<graphicElement>
+					<pen lineWidth="1.0"/>
+				</graphicElement>
+			</rectangle>
 		</band>
 	</columnHeader>
 	<detail>
@@ -139,23 +146,17 @@
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="6645cce0-e070-42f4-a992-bf118832aff7"/>
 				</reportElement>
 				<box>
-					<pen lineWidth="2.0" lineStyle="Dashed" lineColor="#D1A660"/>
-					<topPen lineWidth="2.0" lineStyle="Dashed" lineColor="#D1A660"/>
-					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
-					<bottomPen lineWidth="2.0" lineStyle="Dashed" lineColor="#D1A660"/>
-					<rightPen lineWidth="2.0" lineStyle="Dashed" lineColor="#D1A660"/>
+					<pen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0"/>
 				</box>
 				<textElement textAlignment="Center" verticalAlignment="Middle"/>
 				<textFieldExpression><![CDATA[$F{total}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="310" y="10" width="100" height="30" forecolor="#D1A660" uuid="2a9ac2f9-7813-4f4d-a657-656e52f96cb6"/>
+				<reportElement x="310" y="10" width="100" height="30" forecolor="#000000" uuid="2a9ac2f9-7813-4f4d-a657-656e52f96cb6"/>
 				<box>
-					<pen lineWidth="2.0" lineStyle="Dashed"/>
-					<topPen lineWidth="2.0" lineStyle="Dashed" lineColor="#D1A660"/>
-					<leftPen lineWidth="2.0" lineStyle="Dashed" lineColor="#D1A660"/>
-					<bottomPen lineWidth="2.0" lineStyle="Dashed" lineColor="#D1A660"/>
-					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<pen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0"/>
 				</box>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font isBold="true"/>
@@ -163,12 +164,12 @@
 				<text><![CDATA[Total:]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="453" y="50" width="100" height="30" forecolor="#D1A660" uuid="331ce734-5896-4fcd-a516-c5347cfeebd8"/>
+				<reportElement x="453" y="50" width="100" height="30" forecolor="#000000" uuid="331ce734-5896-4fcd-a516-c5347cfeebd8"/>
 				<box>
-					<pen lineColor="#D1A660"/>
-					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#D1A660"/>
+					<pen lineColor="#000000"/>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
 					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
-					<bottomPen lineWidth="1.5" lineStyle="Solid" lineColor="#D1A660"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
 					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
 				</box>
 				<textElement textAlignment="Center" verticalAlignment="Middle"/>
