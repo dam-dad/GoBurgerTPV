@@ -1,11 +1,18 @@
 package controllers;
 
+import java.awt.Desktop;
+import java.awt.image.BufferedImage;
+import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 import java.util.ResourceBundle;
+
+import javax.imageio.ImageIO;
 
 import goburgertpv.App;
 import goburgertpv.database.connection.Funciones;
@@ -44,6 +51,13 @@ import javafx.stage.Stage;
 import javafx.util.converter.NumberStringConverter;
 import models.TicketModel;
 import models.VistaPrincipalModel;
+import net.sf.jasperreports.engine.JRException;
+import net.sf.jasperreports.engine.JasperCompileManager;
+import net.sf.jasperreports.engine.JasperExportManager;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.JasperReport;
+import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
 
 public class TPVController implements Initializable {
 	
@@ -236,8 +250,15 @@ public class TPVController implements Initializable {
 	}
 
 	@FXML
-	void onClickEnviarPdf(ActionEvent event) {
-
+	void onClickEnviarPdf(ActionEvent event) throws JRException, IOException {
+		JasperPrint print = null;
+		JasperReport report = JasperCompileManager.compileReport(TPVController.class.getResourceAsStream("/reports/goburger_report.jrxml"));		
+		Map<String, Object> parameters = new HashMap<String, Object>();
+		// BufferedImage image = ImageIO.read(getClass().getResource("/images/logo3.png"));
+		// parameters.put("Image", image );
+		print = JasperFillManager.fillReport(report, parameters, new JRBeanCollectionDataSource(model.getBebidasList()));
+		JasperExportManager.exportReportToPdfFile(print, "Bebidas.pdf");    
+		Desktop.getDesktop().open(new File("Bebidas.pdf"));
 	}
 
 	@FXML
