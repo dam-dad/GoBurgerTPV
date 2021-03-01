@@ -35,11 +35,11 @@ Esta es la primera ventana de la aplicación, en ella se nos pide los datos de a
 
 En esta ventana se lleva a cabo toda la gestión de información sobre los pedidos realizados.
 
-
+![vistaPrincipal](src/main/resources/images/vistaPrincipal.PNG)
 
 1. Total de la cuenta del tickect, por defecto esta vacío.
 2. Exporta el ticket a pdf.
-3. Permite ver los tickects anteriores.
+3. Permite ver los tickects anteriores (No disponible).
 4. Botón que permite subir la selección del producto en el ticket.
 5. Botón que permite bajar la selección del producto en el ticket.
 6. Botón que aumenta en 1 la cantidad en el producto seleccionado en el ticket.
@@ -50,11 +50,12 @@ En esta ventana se lleva a cabo toda la gestión de información sobre los pedid
 11. Botón que aplica un descuento predefinido en el ticket.
 12. Botón "para llevar" que añade al ticket la bolsa y se le añade el coste de la misma.
 13. Botón de cancelar el pedido que borra todos los datos.
-14. Botón de pagar, para completar el pedido.
-15. Botón Home, que permite reestablecer la ventana de productos.
-16. Botón Configuración, que permite abrir la ventana de configuración.
-17. Productos disponibles, al pulsar una opción se desplegaran los productos en la tabla inferior.
-18. Tabla donde se mostraran los productos de la categoría seleccionada.
+14. Botón que calcula el total y lo pone en el apartado 1.
+15. Botón de pagar, para completar el pedido.
+16. Botón Home, que permite reestablecer la ventana de productos.
+17. Botón Configuración, que permite abrir la ventana de configuración.
+18. Productos disponibles, al pulsar una opción se desplegaran los productos en la tabla inferior.
+19. Tabla donde se mostraran los productos de la categoría seleccionada.
 
 ###### VENTANA DE CONFIGURACIÓN
 
