@@ -42,7 +42,7 @@ import models.VistaPrincipalModel;
 public class MainController implements Initializable {
 
 	// Controllers
-	TPVController tpvController = App.getTpvController();
+	TPVController tpvController; 
 
 	// Model
 //	private ObjectProperty<MainModel> model = new SimpleObjectProperty<>();
@@ -76,6 +76,7 @@ public class MainController implements Initializable {
 	@FXML
 	void onActionAcceder(ActionEvent event) throws IOException {
 
+		tpvController=App.getTpvController();
 		String encryptedPass = DigestUtils.md2Hex(model.getContraseña());
 		tpvController.getModel().getUserList().addAll(Funciones.getUsers());
 		boolean datosCorrectos = false;
@@ -85,7 +86,8 @@ public class MainController implements Initializable {
 				datosCorrectos = true;
 				if (user.isAdministrador())
 					model.setAdministrador(true);
-				
+				tpvController.getTxtEmpleado().setText(user.getUsuario());
+				tpvController.getTxtEmpleado().setEditable(false);
 				App.getPrimaryStage().setScene(new Scene(tpvController.getView()));
 				App.getPrimaryStage().setMaximized(true);
 			}
@@ -120,6 +122,14 @@ public class MainController implements Initializable {
 
 		imagenTransition();
 
+	}
+
+	public MainModel getModel() {
+		return model;
+	}
+
+	public void setModel(MainModel model) {
+		this.model = model;
 	}
 
 	private void imagenTransition() {

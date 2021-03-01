@@ -21,6 +21,7 @@ import goburgertpv.database.tables.Product;
 import goburgertpv.database.tables.Productos;
 import goburgertpv.utils.CustomButton;
 import goburgertpv.utils.CustomHBox;
+import javafx.beans.binding.Bindings;
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.value.ObservableValue;
@@ -29,6 +30,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
@@ -169,6 +171,7 @@ public class TPVController implements Initializable {
 	private VBox productosBox;
 
 	private VistaPrincipalModel model = new VistaPrincipalModel();
+	
 
 	public TPVController() throws IOException {
 		FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/VistaPrincipal.fxml"));
@@ -190,23 +193,23 @@ public class TPVController implements Initializable {
 
 	@FXML
     void onActionTotal(ActionEvent event) {
-    	double total = 0;
-		for (TicketModel item : tableCuenta.getItems()) {
-			total = total + item.getTotal();
-			total = Math.round(total*100.0)/100.0;
-			txtTotalCuenta.setText(String.valueOf(total));
-		}
+    	
+		
     }
 	
 	@FXML
 	void onClickAñadirCantidad(ActionEvent event) {
-		int cantidad;
-		TicketModel cant = tableCuenta.getSelectionModel().getSelectedItem();
-		cantidad = cant.getCantidad();
-		double total = tableCuenta.getSelectionModel().getSelectedItem().getTotal();
-		double unidad = cant.getTotal()/cant.getCantidad();
-		tableCuenta.getSelectionModel().getSelectedItem().setTotal(unidad+total);
-		cant.setCantidad(cantidad+1);
+		try {
+			int cantidad;
+			TicketModel cant = tableCuenta.getSelectionModel().getSelectedItem();
+			cantidad = cant.getCantidad();
+			double total = tableCuenta.getSelectionModel().getSelectedItem().getTotal();
+			double unidad = cant.getTotal()/cant.getCantidad();
+			tableCuenta.getSelectionModel().getSelectedItem().setTotal(unidad+total);
+			cant.setCantidad(cantidad+1);
+			model.setTotalCuentaText(model.getTotalCuentaText()+unidad);
+		}catch(Exception e){}
+		
 	}
 
 	@FXML
@@ -221,6 +224,7 @@ public class TPVController implements Initializable {
 		alert.showAndWait();
 		if (alert.getResult() == ButtonType.YES) {
 			tableCuenta.getItems().clear();
+			model.setTotalCuentaText(0);
 		}
 	}
 
@@ -241,6 +245,7 @@ public class TPVController implements Initializable {
 
 	@FXML
 	void onClickEliminarProducto(ActionEvent event) {
+		model.setTotalCuentaText(model.getTotalCuentaText()-tableCuenta.getSelectionModel().getSelectedItem().getTotal());
 		tableCuenta.getItems().removeAll(tableCuenta.getSelectionModel().getSelectedItems());
 	}
 
@@ -293,27 +298,27 @@ public class TPVController implements Initializable {
 		
 		Optional<String> result = dialog.showAndWait();
 		if (result.isPresent()) {
+			
 			TicketModel ticket = tableCuenta.getSelectionModel().getSelectedItem();
+			model.setTotalCuentaText(model.getTotalCuentaText()-ticket.getTotal());
 			double unidad = ticket.getTotal()/ticket.getCantidad();
 			ticket.setTotal(unidad*Integer.parseInt(result.get()));
 			ticket.setCantidad(Integer.parseInt(result.get()));
+			model.setTotalCuentaText(model.getTotalCuentaText()+ticket.getTotal());
 		}
 	}
 
 	@FXML
 	void onClickPagarCuenta(ActionEvent event) {
-		double total = 0;
-		for (TicketModel item : tableCuenta.getItems()) {
-			total = total + item.getTotal();
-			total = Math.round(total*100.0)/100.0;
-			txtTotalCuenta.setText(String.valueOf(total));
-		}
+		
+		
 		Alert alert = new Alert(AlertType.INFORMATION);
 		alert.setTitle("Pedido completado");
 		alert.setHeaderText("Pedido finalizado");
 		alert.setContentText("El pedido se ha completado");
 		alert.showAndWait();
 		tableCuenta.getItems().clear();
+		model.setTotalCuentaText(0);
 	}
 
 	@FXML
@@ -325,6 +330,7 @@ public class TPVController implements Initializable {
 		ticket.setTotal(0.10);
 		llevar.add(ticket);
 		tableCuenta.getItems().addAll(llevar);
+		model.setTotalCuentaText(model.getTotalCuentaText()+0.1);
 		btnParaLlevar.setDisable(true);
 	}
 
@@ -336,16 +342,23 @@ public class TPVController implements Initializable {
 	@FXML
 	void onClickQuitarCantidad(ActionEvent event) {
 		int cantidad;
-		TicketModel cant = tableCuenta.getSelectionModel().getSelectedItem();
-		cantidad = cant.getCantidad();
-		if (cantidad < 1 || cantidad == 1) {
-			tableCuenta.getItems().removeAll(tableCuenta.getSelectionModel().getSelectedItems());
-		} else {
+		try {
+			TicketModel cant = tableCuenta.getSelectionModel().getSelectedItem();
+			cantidad = cant.getCantidad();
 			double total = tableCuenta.getSelectionModel().getSelectedItem().getTotal();
 			double unidad = cant.getTotal()/cant.getCantidad();
-			tableCuenta.getSelectionModel().getSelectedItem().setTotal(total-unidad);
-			cant.setCantidad(cantidad-1);
-		}
+			if (cantidad < 1 || cantidad == 1) {
+				tableCuenta.getItems().removeAll(tableCuenta.getSelectionModel().getSelectedItems());
+			} else {
+				
+				tableCuenta.getSelectionModel().getSelectedItem().setTotal(total-unidad);
+				cant.setCantidad(cantidad-1);
+				
+			}
+			
+			model.setTotalCuentaText(model.getTotalCuentaText()-unidad);
+		}catch(Exception e) {}
+
 	}
 
 	@FXML
@@ -374,6 +387,13 @@ public class TPVController implements Initializable {
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
+		
+		Bindings.bindBidirectional(txtTotalCuenta.textProperty(), model.totalCuentaTextProperty() ,new NumberStringConverter());
+
+		
+		txtTotalCuenta.setEditable(false);
+		txtTotalCuenta.setAlignment(Pos.CENTER);
+		
 		columnDescripcion.setCellValueFactory(v -> v.getValue().descripcionProperty());
 		columnTotal.setCellValueFactory(v -> v.getValue().totalProperty());
 		columnCant.setCellValueFactory(v -> v.getValue().cantidadProperty());
@@ -440,6 +460,14 @@ public class TPVController implements Initializable {
 
 	}
 
+	public TextField getTxtEmpleado() {
+		return txtEmpleado;
+	}
+
+	public void setTxtEmpleado(TextField txtEmpleado) {
+		this.txtEmpleado = txtEmpleado;
+	}
+
 	private Object onVistaChanged(ObservableValue<? extends VistaPrincipalModel> o, VistaPrincipalModel ov,
 			VistaPrincipalModel nv) {
 		// TODO Auto-generated method stub
@@ -469,6 +497,7 @@ public class TPVController implements Initializable {
 	private void onProductoButtonAction(Productos producto) {
 		TicketModel ticketActual = new TicketModel(producto);
 		tableCuenta.getItems().addAll(ticketActual);
+		model.setTotalCuentaText(model.getTotalCuentaText()+producto.getPrecio());
 	}
 
 	public BorderPane getView() {

@@ -104,11 +104,12 @@ public class ConfiguracionController implements Initializable {
 	}
 
 	@FXML
-	void onClickCambiarUsuario(ActionEvent event) {
+	void onClickCambiarUsuario(ActionEvent event) throws IOException {
 		App.getPrimaryStage().setScene(new Scene(main.getView()));
 		Node source = (Node) event.getSource();
 	    Stage stage = (Stage) App.getConfiguracionController().getScene().getWindow();
 	    stage.close();
+	    App.setTpvController(new TPVController());
 	}
 
 	@FXML
