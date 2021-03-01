@@ -367,8 +367,8 @@ public class TPVController implements Initializable {
 				+ "-fx-background-repeat: no-repeat;\n" + "-fx-background-position: center;");
 		productosScrollPane.setFitToWidth(true);
 
-		if (Funciones.getProductos().isEmpty())
-			RellenarDatos.rellenar();
+		//if (Funciones.getProductos().isEmpty())
+			//RellenarDatos.rellenar();
 
 		List<Productos> productosList = Funciones.getProductos();
 		ArrayList<Productos> bebidasList = new ArrayList<Productos>();
@@ -381,27 +381,27 @@ public class TPVController implements Initializable {
 			switch (producto.getProductType()) {
 			case bebida: {
 				bebidasList.add(producto);
-				model.getBebidasButtonList().add(new CustomButton(producto.getPrecio(), "http://localhost/goburgertpv/images/"+producto.getProductType()+producto.getId()+".png"));
+				model.getBebidasButtonList().add(new CustomButton(producto.getPrecio(), "http://localhost/goburgertpv/images/bebidas/"+producto.getProductType()+producto.getId()+".png"));
 				break;
 			}
 			case complemento: {
 				complementosList.add(producto);
-				model.getComplementosButtonList().add(new CustomButton(producto.getPrecio(), "http://localhost/goburgertpv/images/"+producto.getProductType()+producto.getId()+".png"));
+				model.getComplementosButtonList().add(new CustomButton(producto.getPrecio(), "http://localhost/goburgertpv/images/complementos/"+producto.getProductType()+producto.getId()+".png"));
 				break;
 			}
 			case hamburguesa: {
 				hamburguesasList.add(producto);
-				model.getHamburguesasButtonList().add(new CustomButton(producto.getPrecio(), "http://localhost/goburgertpv/images/"+producto.getProductType()+producto.getId()+".png"));
+				model.getHamburguesasButtonList().add(new CustomButton(producto.getPrecio(), "http://localhost/goburgertpv/images/hamburguesas/"+producto.getProductType()+producto.getId()+".png"));
 				break;
 			}
 			case menu: {
 				menusList.add(producto);
-				model.getMenusButtonList().add(new CustomButton(producto.getPrecio(), "http://localhost/goburgertpv/images/"+producto.getProductType()+producto.getId()+".png"));
+				model.getMenusButtonList().add(new CustomButton(producto.getPrecio(), "http://localhost/goburgertpv/images/menus/"+producto.getProductType()+producto.getId()+".png"));
 				break;
 			}
 			case postre: {
 				postresList.add(producto);
-				model.getPostresButtonList().add(new CustomButton(producto.getPrecio(), "http://localhost/goburgertpv/images/"+producto.getProductType()+producto.getId()+".png"));
+				model.getPostresButtonList().add(new CustomButton(producto.getPrecio(), "http://localhost/goburgertpv/images/postres/"+producto.getProductType()+producto.getId()+".png"));
 				break;
 			}
 			}
