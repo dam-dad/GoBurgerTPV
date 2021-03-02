@@ -68,6 +68,10 @@ En esta ventana se lleva a cabo toda la gestión de información sobre los pedid
 18. Productos disponibles, al pulsar una opción se desplegaran los productos en la tabla inferior.
 19. Tabla donde se mostraran los productos de la categoría seleccionada.
 
+###### RESULTADO DEL PDF GENERADO
+
+![PDFGenerado](src/main/resources/images/ticketPDF.png)
+
 ###### VENTANA DE CONFIGURACIÓN
 
 En esta ventana tenemos la posibilidad de llevar a cabo un poco de configuración, cambiar de usuario, gestionar usuarios y gestionar productos (tanto la gestión de usuarios como productos todavía no esta disponible).
@@ -80,3 +84,4 @@ En esta ventana tenemos la posibilidad de llevar a cabo un poco de configuració
 4. Botón que nos lleva a la ventana donde se controlan los productos (No funcional).
 5. Botón que nos lleva a la ventana de control de usuarios (No funcional).
 6. Botón que nos permite salir de la aplicación.
+
