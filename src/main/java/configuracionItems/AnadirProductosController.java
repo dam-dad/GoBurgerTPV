@@ -10,6 +10,7 @@ import org.hibernate.Transaction;
 
 import goburgertpv.database.connection.Funciones;
 import goburgertpv.database.connection.HibernateUtil;
+import goburgertpv.database.tables.Product;
 import goburgertpv.database.tables.Users;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -47,7 +48,7 @@ public class AnadirProductosController implements Initializable {
 	private TextField txtPrecio;
 
 	@FXML
-	private ComboBox<String> cmbTipo;
+	private ComboBox<Product> cmbTipo;
 
 	@FXML
 	private TextArea txtDescripcion;
@@ -61,20 +62,17 @@ public class AnadirProductosController implements Initializable {
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		rellenarCombo();
-		model.idProperty().bind(txtId.textProperty());
-		model.nombreProperty().bind(txtNombre.textProperty());
-		model.precioProperty().bind(txtPrecio.textProperty());
-		model.tipoProperty().bind(cmbTipo.getSelectionModel().selectedItemProperty());
-		model.descripcionProperty().bind(txtDescripcion.textProperty());
+	
 	}
 
 	private void rellenarCombo() {
-		cmbTipo.getItems().addAll("bebida", "complemento", "hamburguesa", "menu", "postre");
+		cmbTipo.getItems().setAll(Product.values());
 		cmbTipo.getSelectionModel().selectFirst();
 	}
 
 	@FXML
 	void onClickAnadirProducto(ActionEvent event) {
+		Session session=Funciones.getSession();
 		
 	}
 	

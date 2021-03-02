@@ -12,14 +12,13 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<GridPane fx:id="view" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="600.0" style="-fx-background-color: #76D7C4;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<GridPane fx:id="view" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="600.0" style="-fx-background-color: #76D7C4;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1">
   <columnConstraints>
-    <ColumnConstraints halignment="RIGHT" minWidth="10.0" prefWidth="300.0" />
-    <ColumnConstraints minWidth="10.0" prefWidth="300.0" />
+    <ColumnConstraints halignment="RIGHT" maxWidth="295.0" minWidth="10.0" prefWidth="121.0" />
+    <ColumnConstraints maxWidth="494.0" minWidth="10.0" prefWidth="479.0" />
   </columnConstraints>
   <rowConstraints>
     <RowConstraints minHeight="10.0" prefHeight="180.0" />
-      <RowConstraints minHeight="10.0" prefHeight="65.0" />
     <RowConstraints minHeight="10.0" prefHeight="65.0" />
       <RowConstraints minHeight="10.0" prefHeight="65.0" />
       <RowConstraints minHeight="10.0" prefHeight="65.0" />
@@ -35,56 +34,46 @@
             <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
          </GridPane.margin>
       </ImageView>
-      <Label text="Nombre: " GridPane.rowIndex="2">
+      <Label text="Nombre: " GridPane.rowIndex="1">
          <GridPane.margin>
             <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
          </GridPane.margin>
       </Label>
-      <Label text="Descripcion: " GridPane.rowIndex="3">
+      <Label text="Descripcion: " GridPane.rowIndex="2">
          <GridPane.margin>
             <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
          </GridPane.margin>
       </Label>
-      <Label text="Precio: " GridPane.rowIndex="4">
+      <Label text="Precio: " GridPane.rowIndex="3">
          <GridPane.margin>
             <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
          </GridPane.margin>
       </Label>
-      <Label text="Tipo: " GridPane.rowIndex="5">
+      <Label text="Tipo: " GridPane.rowIndex="4">
          <GridPane.margin>
             <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
          </GridPane.margin>
       </Label>
-      <Button fx:id="btnAnadir" mnemonicParsing="false" onAction="#onClickAnadirProducto" text="Añadir" GridPane.columnIndex="1" GridPane.rowIndex="6" />
-      <TextField fx:id="txtNombre" GridPane.columnIndex="1" GridPane.rowIndex="2">
+      <Button fx:id="btnAnadir" mnemonicParsing="false" onAction="#onClickAnadirProducto" text="Añadir" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+      <TextField fx:id="txtNombre" GridPane.columnIndex="1" GridPane.rowIndex="1">
          <GridPane.margin>
             <Insets bottom="5.0" left="5.0" right="30.0" top="5.0" />
          </GridPane.margin>
       </TextField>
-      <TextField fx:id="txtPrecio" GridPane.columnIndex="1" GridPane.rowIndex="4">
+      <TextField fx:id="txtPrecio" GridPane.columnIndex="1" GridPane.rowIndex="3">
          <GridPane.margin>
             <Insets bottom="5.0" left="5.0" right="30.0" top="5.0" />
          </GridPane.margin>
       </TextField>
-      <ComboBox fx:id="cmbTipo" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="5">
+      <ComboBox fx:id="cmbTipo" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
          <GridPane.margin>
             <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
          </GridPane.margin>
       </ComboBox>
-      <TextArea fx:id="txtDescripcion" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
+      <TextArea fx:id="txtDescripcion" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
          <GridPane.margin>
             <Insets bottom="5.0" left="5.0" right="30.0" top="5.0" />
          </GridPane.margin>
       </TextArea>
-      <Label text="Id: " GridPane.rowIndex="1">
-         <GridPane.margin>
-            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-         </GridPane.margin>
-      </Label>
-      <TextField fx:id="txtId" GridPane.columnIndex="1" GridPane.rowIndex="1">
-         <GridPane.margin>
-            <Insets bottom="5.0" left="5.0" right="30.0" top="5.0" />
-         </GridPane.margin>
-      </TextField>
    </children>
 </GridPane>

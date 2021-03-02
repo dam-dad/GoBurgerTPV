@@ -329,8 +329,9 @@ public class TPVController implements Initializable {
 			producto.setCantidad(ticket.getCantidad());
 			producto.setDescripcion(ticket.getDescripcion());
 			producto.setPrecio(ticket.getTotal());	
-			producto.setTotal(model.getTotalFormateado());
 			producto.setTotalSin(Math.round(model.getPrecioSinTaxText()*100.0)/100.0);
+			producto.setTotal(model.getTotalFormateado());
+			
 			model.getTicketList().add(producto);
 		}
 	}
@@ -500,7 +501,11 @@ public class TPVController implements Initializable {
 		int indice = tableCuenta.getSelectionModel().getSelectedIndex();
 		tableCuenta.getSelectionModel().select(indice-1);
 	}
-
+/**
+ * Inicializa la clase.
+ * Se añade listeners y bindeos necesarios
+ */
+	
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		btnEnviarCuenta.setDisable(true);
@@ -540,7 +545,6 @@ public class TPVController implements Initializable {
         columnTotal.setCellFactory(TextFieldTableCell.forTableColumn(new NumberStringConverter()));
         columnCant.setCellFactory(TextFieldTableCell.forTableColumn(new NumberStringConverter()));
 
-        this.vistaTPV.addListener((o, ov, nv) -> onVistaChanged(o, ov, nv));
         
 		productosScrollPane.setStyle("-fx-background-image:url('/images/logo3sin.png');-fx-background-size: contain;\n"
 				+ "-fx-background-repeat: no-repeat;\n" + "-fx-background-position: center;");
@@ -549,54 +553,60 @@ public class TPVController implements Initializable {
 		//if (Funciones.getProductos().isEmpty())
 			//RellenarDatos.rellenar();
 
-		List<Productos> productosList = Funciones.getProductos();
-		ArrayList<Productos> bebidasList = new ArrayList<Productos>();
-		ArrayList<Productos> hamburguesasList = new ArrayList<Productos>();
-		ArrayList<Productos> complementosList = new ArrayList<Productos>();
-		ArrayList<Productos> menusList = new ArrayList<Productos>();
-		ArrayList<Productos> postresList = new ArrayList<Productos>();
-
-		for (Productos producto : productosList) {
-			switch (producto.getProductType()) {
-			case bebida: {
-				bebidasList.add(producto);
-				model.getBebidasButtonList().add(new CustomButton(producto.getPrecio(), "http://localhost/goburgertpv/images/bebidas/"+producto.getProductType()+producto.getId()+".png"));
-				break;
-			}
-			case complemento: {
-				complementosList.add(producto);
-				model.getComplementosButtonList().add(new CustomButton(producto.getPrecio(), "http://localhost/goburgertpv/images/complementos/"+producto.getProductType()+producto.getId()+".png"));
-				break;
-			}
-			case hamburguesa: {
-				hamburguesasList.add(producto);
-				model.getHamburguesasButtonList().add(new CustomButton(producto.getPrecio(), "http://localhost/goburgertpv/images/hamburguesas/"+producto.getProductType()+producto.getId()+".png"));
-				break;
-			}
-			case menu: {
-				menusList.add(producto);
-				model.getMenusButtonList().add(new CustomButton(producto.getPrecio(), "http://localhost/goburgertpv/images/menus/"+producto.getProductType()+producto.getId()+".png"));
-				break;
-			}
-			case postre: {
-				postresList.add(producto);
-				model.getPostresButtonList().add(new CustomButton(producto.getPrecio(), "http://localhost/goburgertpv/images/postres/"+producto.getProductType()+producto.getId()+".png"));
-				break;
-			}
-			}
-		}
-
-		model.getBebidasList().addAll(bebidasList);
-
-		model.getComplementosList().addAll(complementosList);
-
-		model.getHamburguesasList().addAll(hamburguesasList);
-
-		model.getMenusList().addAll(menusList);
-		
-		model.getPostresList().addAll(postresList);
+		rellenarListasProductos();
 
 	}
+/**
+ * Rellena las listas de productos según los datos recibidos de la base de datos, además de añadir las listas de botones
+ */
+private void rellenarListasProductos() {
+	List<Productos> productosList = Funciones.getProductos();
+	ArrayList<Productos> bebidasList = new ArrayList<Productos>();
+	ArrayList<Productos> hamburguesasList = new ArrayList<Productos>();
+	ArrayList<Productos> complementosList = new ArrayList<Productos>();
+	ArrayList<Productos> menusList = new ArrayList<Productos>();
+	ArrayList<Productos> postresList = new ArrayList<Productos>();
+
+	for (Productos producto : productosList) {
+		switch (producto.getProductType()) {
+		case bebida: {
+			bebidasList.add(producto);
+			model.getBebidasButtonList().add(new CustomButton(producto.getPrecio(), "http://localhost/goburgertpv/images/bebidas/"+producto.getProductType()+producto.getId()+".png"));
+			break;
+		}
+		case complemento: {
+			complementosList.add(producto);
+			model.getComplementosButtonList().add(new CustomButton(producto.getPrecio(), "http://localhost/goburgertpv/images/complementos/"+producto.getProductType()+producto.getId()+".png"));
+			break;
+		}
+		case hamburguesa: {
+			hamburguesasList.add(producto);
+			model.getHamburguesasButtonList().add(new CustomButton(producto.getPrecio(), "http://localhost/goburgertpv/images/hamburguesas/"+producto.getProductType()+producto.getId()+".png"));
+			break;
+		}
+		case menu: {
+			menusList.add(producto);
+			model.getMenusButtonList().add(new CustomButton(producto.getPrecio(), "http://localhost/goburgertpv/images/menus/"+producto.getProductType()+producto.getId()+".png"));
+			break;
+		}
+		case postre: {
+			postresList.add(producto);
+			model.getPostresButtonList().add(new CustomButton(producto.getPrecio(), "http://localhost/goburgertpv/images/postres/"+producto.getProductType()+producto.getId()+".png"));
+			break;
+		}
+		}
+	}
+
+	model.getBebidasList().addAll(bebidasList);
+
+	model.getComplementosList().addAll(complementosList);
+
+	model.getHamburguesasList().addAll(hamburguesasList);
+
+	model.getMenusList().addAll(menusList);
+	
+	model.getPostresList().addAll(postresList);
+}
 
 
 	/**
@@ -616,13 +626,9 @@ public class TPVController implements Initializable {
 		this.txtEmpleado = txtEmpleado;
 	}
 
-	private Object onVistaChanged(ObservableValue<? extends VistaPrincipalModel> o, VistaPrincipalModel ov,
-			VistaPrincipalModel nv) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+	
 	/**
-	 * 
+	 * Función encargada de añadir la botonera de productos al Scrollview
 	 * 
 	 * @param productosList
 	 * @param buttonList
@@ -647,15 +653,36 @@ public class TPVController implements Initializable {
 		productosBox.getChildren().addAll(rows);
 	}
 	/**
-	 * 
+	 * Añade el producto seleccionado al ticket, si este producto ya existe modifica la cantidad
 	 * 
 	 * @param producto
 	 */
 	private void onProductoButtonAction(Productos producto) {
-		TicketModel ticketActual = new TicketModel(producto);
-		tableCuenta.getItems().addAll(ticketActual);
-		model.setPrecioSinTaxText(model.getPrecioSinTaxText()+producto.getPrecio());
-		System.out.println(model.getTotalCuentaText());
+		Boolean existe=false;
+		int index=0;
+		
+		for( index=0;!existe&&index<tableCuenta.getItems().size();index++) {
+			existe=producto.getDescription().contentEquals(tableCuenta.getItems().get(index).getDescripcion()); 
+				
+		}
+		index--;
+		
+		if(!existe) {
+			TicketModel ticketActual = new TicketModel(producto);
+			tableCuenta.getItems().addAll(ticketActual);
+			model.setPrecioSinTaxText(model.getPrecioSinTaxText()+producto.getPrecio());
+			
+		}else {
+			int cantidad;
+			TicketModel cant = tableCuenta.getItems().get(index);
+			cantidad = cant.getCantidad();
+			double total = cant.getTotal();
+			double unidad = cant.getTotal()/cant.getCantidad();
+			tableCuenta.getItems().get(index).setTotal(unidad+total);
+			cant.setCantidad(cantidad+1);
+			model.setPrecioSinTaxText(model.getPrecioSinTaxText()+unidad);
+		}
+		
 	}
 	/**
 	 * 
