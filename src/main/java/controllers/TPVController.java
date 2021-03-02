@@ -329,9 +329,8 @@ public class TPVController implements Initializable {
 			producto.setCantidad(ticket.getCantidad());
 			producto.setDescripcion(ticket.getDescripcion());
 			producto.setPrecio(ticket.getTotal());	
-
 			producto.setTotal(model.getTotalFormateado());
-
+			producto.setTotalSin(Math.round(model.getPrecioSinTaxText()*100.0)/100.0);
 			model.getTicketList().add(producto);
 		}
 	}

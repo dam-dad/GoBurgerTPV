@@ -1,15 +1,23 @@
 package models;
-
-
-
+/**
+ * 
+ * @author Michael,Ignacio,Tamara
+ *
+ */
 public class Ticket {
 	
-
     private String descripcion;
     private int cantidad ;
     private double precio ;
     private String total;
+    private double totalSin;
     
+	public double getTotalSin() {
+		return totalSin;
+	}
+	public void setTotalSin(double totalSin) {
+		this.totalSin = totalSin;
+	}
 	public double getPrecio() {
 		return precio;
 	}

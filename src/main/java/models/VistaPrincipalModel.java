@@ -27,6 +27,7 @@ import javafx.scene.control.Button;
  */
 public class VistaPrincipalModel {
 
+	private StringProperty totalSin = new SimpleStringProperty();
 	private DoubleProperty totalCuentaText = new SimpleDoubleProperty();
 	private StringProperty totalFormateado = new SimpleStringProperty();
 	private DoubleProperty precioSinTaxText = new SimpleDoubleProperty();
@@ -381,7 +382,18 @@ public class VistaPrincipalModel {
 		this.totalFormateadoProperty().set(totalFormateado);
 	}
 
-	
+	public final StringProperty totalSinProperty() {
+		return this.totalSin;
+	}
 	
 
+	public final String getTotalSin() {
+		return this.totalSinProperty().get();
+	}
+	
+
+	public final void setTotalSin(final String totalSin) {
+		this.totalSinProperty().set(totalSin);
+	}
+	
 }
