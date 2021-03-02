@@ -194,7 +194,7 @@ public class TPVController implements Initializable {
 	}
 
 	/**
-	 * Método asociado al botón Descuento
+	 * Método asociado al botón Descuento. Añade a la tableCuenta un item descuento y resta su valor al precio total
 	 * 
 	 * @param event
 	 */
@@ -217,7 +217,7 @@ public class TPVController implements Initializable {
     }
 	
 	/**
-	 * Método asociado al botón Añadir
+	 * Método asociado al botón Añadir. Suma 1 a la cantidad del producto seleccionado el tableCuenta y añade el coste correspondiente
 	 * 
 	 * @param event 
 	 */
@@ -236,7 +236,7 @@ public class TPVController implements Initializable {
 		
 	}
 	/**
-	 * Método asociado al botón Bajar
+	 * Método asociado al botón Bajar. Botón de navegación de tableCuenta, baja 1 la posición
 	 * 
 	 * @param event
 	 */
@@ -247,7 +247,7 @@ public class TPVController implements Initializable {
 	}
 
 	/**
-	 * Método asociado al botón Cancelar
+	 * Método asociado al botón Cancelar. Elimina todos los items de tableCuenta  y pone el precio total a 0
 	 * 
 	 * @param event
 	 */
@@ -261,7 +261,7 @@ public class TPVController implements Initializable {
 		}
 	}
 	/**
-	 * 
+	 * llama a rellenarProductos
 	 * 
 	 * @param event
 	 */
@@ -270,7 +270,7 @@ public class TPVController implements Initializable {
 		rellenarProductos(model.getComplementosList(), model.getComplementosButtonList());
 	}
 	/**
-	 * Método asociado al botón Configuración
+	 * Método asociado al botón Configuración. Abre un stage con la vista de configuración
 	 * 
 	 * @param event
 	 */
@@ -284,7 +284,7 @@ public class TPVController implements Initializable {
 		configStage.show();
 	}
 	/**
-	 * Método asociado al botón Eliminar
+	 * Método asociado al botón Eliminar. Elimina el producto seleccionado de la tabla tableCuenta
 	 * 
 	 * @param event
 	 */
@@ -306,6 +306,8 @@ public class TPVController implements Initializable {
 	/**
 	 * Método asociado al botón PDF
 	 * 
+	 * Genera un report a partir de los items de tableCuenta y genera un pdf en la raiz 
+	 * 
 	 * @param event
 	 * @throws JRException
 	 * @throws IOException
@@ -323,6 +325,9 @@ public class TPVController implements Initializable {
 		JasperExportManager.exportReportToPdfFile(print, "Ticket.pdf");    
 		Desktop.getDesktop().open(new File("Ticket.pdf"));
 	}
+	/**
+	 * Rellena la lista de tickets necesaria paraa generar el reporte
+	 */
 	private void rellenarTicket() {
 		for (TicketModel ticket : tableCuenta.getItems()) {
 			Ticket producto=new Ticket();
@@ -337,7 +342,7 @@ public class TPVController implements Initializable {
 	}
 
 	/**
-	 * 
+	 * Rellena el scroll view con los botones de VistaPrincipalModel.getHamburguesasButtonList()
 	 * 
 	 * @param event
 	 */
@@ -347,6 +352,7 @@ public class TPVController implements Initializable {
 	}
 	/**
 	 * Método asociado al botón Home
+	 * Vacía el contenido del scrollView
 	 * 
 	 * @param event
 	 */
@@ -356,7 +362,7 @@ public class TPVController implements Initializable {
 
 	}
 	/**
-	 * 
+	 * Rellena el scroll view con los botones de VistaPrincipalModel.getMenusButtonList()
 	 * 
 	 * @param event
 	 */
@@ -366,6 +372,8 @@ public class TPVController implements Initializable {
 	}
 	/**
 	 * Método asociado al botón Modificar
+	 * 
+	 * Pregunta la cantidad que se quiera añadir del producto seleccionado
 	 * 
 	 * @param event
 	 */
