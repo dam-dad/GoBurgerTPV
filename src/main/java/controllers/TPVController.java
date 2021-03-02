@@ -291,6 +291,11 @@ public class TPVController implements Initializable {
 	@FXML
 	void onClickEliminarProducto(ActionEvent event) {
 		model.setPrecioSinTaxText(model.getPrecioSinTaxText()-tableCuenta.getSelectionModel().getSelectedItem().getTotal());
+		if (tableCuenta.getSelectionModel().getSelectedItem().getDescripcion() == "Descuento") {
+			btnDescuento.setDisable(false);
+		} else if (tableCuenta.getSelectionModel().getSelectedItem().getDescripcion() == "Bolsa") {
+			btnParaLlevar.setDisable(false);
+		}
 		tableCuenta.getItems().removeAll(tableCuenta.getSelectionModel().getSelectedItems());
 	}
 
